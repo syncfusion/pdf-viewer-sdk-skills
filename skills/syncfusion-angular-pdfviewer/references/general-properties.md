@@ -1,0 +1,118 @@
+# General Properties in Angular PdfViewer Component
+
+## Table of Contents
+- [When to Use General Properties](#when-to-use-general-properties)
+- [Property Reference Table](#property-reference-table)
+
+---
+
+## When to Use General Properties
+
+Guide users to configure general properties when they need to:
+- **Control document display**: Set width, height, document path, and basic page rendering
+- **Customize viewer behavior**: Set locale, date/time formats for annotations
+- **Optimize performance**: Configure initial render pages, retry settings, and zoom optimization
+- **Integrate with servers**: Set service URLs, AJAX request headers, and server action settings
+- **Configure resource loading**: Set resource URLs and custom fonts
+
+**When NOT to use this reference:**
+- **Feature enablement**: See enable-properties reference for feature toggles like `enableAnnotation`, `enableFormFields`, `enableDownload`, etc.
+- **Annotation customization**: See annotation-settings reference for annotation appearance (colors, opacity, author)
+- **Form field configuration**: See form-field-settings reference for form field appearance and validation
+- **Other specific features**: See the feature-specific references below
+
+**Why this matters:** General properties provide core configuration for document display, server communication, and basic behavior. Other properties have been organized by feature area for easier discovery and management.
+
+**Related References:**
+- enable-properties reference - Feature toggles for annotations, forms, toolbar, etc.
+- annotation-settings reference - Annotation appearance and behavior customization
+- form-field-settings reference - Form field appearance and validation
+- events reference - Event handlers for document interactions
+
+---
+
+## Property Reference Table
+
+The Angular PDF Viewer component provides a comprehensive set of general properties to configure document display, interaction, and behavior. These properties control aspects such as page rendering, zoom settings, annotation visibility, form field handling, and customization options.
+
+### How to Use Properties in PDF Viewer
+
+```typescript
+<ejs-pdfviewer
+  [zoomValue]="150"
+  [pageCount]="10"
+  [width]="'100%'"
+  [height]="'100%'"
+  [locale]="'en-US'">
+</ejs-pdfviewer>
+```
+
+### List of General Properties
+
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **accessibilityTags** | Enable or disable the accessibility tags in PDF. | `boolean` | `false` |
+| **ajaxRequestSettings** | Configure AJAX request headers and credentials for server communication. | `AjaxRequestSettingsModel` | `null` |
+| **commandManager** | Defines the collection of custom keyboard commands and their corresponding key gestures. See CommandManager Configuration section below for usage and structure details. | `CommandManagerModel` | `null` |
+| **currentPageNumber** | Get or set the current page number displayed in the PDF Viewer. | `number` | `1` |
+| **customFonts** | Add custom fonts for text rendering. | `string[]` | `null` |
+| **documentPath** | Set the path of the PDF document to be displayed. | `string` | `null` |
+| **fileName** | Get or set the filename of the loaded PDF document. | `string` | `null` |
+| **height** | Set the height of the PDF Viewer container. | `string \| number` | `"100%"` |
+| **initialRenderPages** | Set the number of pages to render initially for performance. | `number` | `3` |
+| **interactionMode** | Set the interaction mode (TextSelection or Pan). | `InteractionMode` | `TextSelection` |
+| **isCommandPanelOpen** | Get or set whether the command panel is open. | `boolean` | `false` |
+| **isDocumentEdited** | Get whether the document has been edited. | `boolean` | `false` |
+| **locale** | Set the locale for UI strings and date/time formats. | `string` | `"en-US"` |
+| **pageCount** | Get the total page count of the loaded PDF document. | `number` | `0` |
+| **resourceUrl** | Set the resource URL for loading PDF Viewer scripts and styles. | `string` | `"https://cdn.syncfusion.com/ej2/dist/ej2-pdfviewer-lib"` |
+| **retryCount** | Set the number of retries for failed requests. | `number` | `3` |
+| **retryStatusCodes** | Set the HTTP status codes to retry on. | `number[]` | `[408, 429, 500, 502, 503, 504]` |
+| **retryTimeout** | Set the timeout in milliseconds between retries. | `number` | `3000` |
+| **scrollSettings** | Configure scroll behavior and settings. | `ScrollSettingsModel` | `null` |
+| **selectedItems** | Get or set the selected annotations and form fields. | `AnnotationSelectorSettingsModel` | `null` |
+| **serverActionSettings** | Configure server action URLs and settings. | `ServerActionSettingsModel` | `null` |
+| **serviceUrl** | Set the service URL for server-side operations. | `string` | `""` |
+| **showNotificationDialog** | Show or hide notification dialogs. | `boolean` | `true` |
+| **width** | Set the width of the PDF Viewer container. | `string \| number` | `"100%"` |
+
+
+### CommandManager Configuration
+
+The `commandManager` property allows you to define custom keyboard commands and their key gestures. It accepts a `CommandManagerModel` object containing a `keyboardCommand` array.
+
+**Structure:**
+```typescript
+public commandManager = {
+  keyboardCommand: [
+    {
+      name: 'customCopy',
+      gesture: {
+        pdfKeys: PdfKeys.G,
+        modifierKeys: ModifierKeys.Shift | ModifierKeys.Alt
+      }
+    },
+    {
+      name: 'customPaste',
+      gesture: {
+        pdfKeys: PdfKeys.H,
+        modifierKeys: ModifierKeys.Shift | ModifierKeys.Alt
+      }
+    }
+  ]
+};
+```
+
+```html
+<ejs-pdfviewer
+  [commandManager]="commandManager">
+</ejs-pdfviewer>
+```
+
+**KeyboardCommandModel Properties:**
+| **Property** | **Type** | **Description** |
+|---|---|---|
+| **name** | `string` | The name of the custom command |
+| **gesture** | `KeyGestureModel` | The key gesture configuration (pdfKeys and modifierKeys combination) |
+
+**Default:** Empty array `[]`

@@ -7,6 +7,7 @@ Text markup annotations highlight, underline, or strikethrough existing text in 
 - **Highlight** - Yellow highlighting (default) for emphasis
 - **Underline** - Single line under text for attention
 - **Strikethrough** - Line through text for deletions/revisions
+- **Squiggly** - Squiggly text underline 
 
 ### Adding Text Markup
 

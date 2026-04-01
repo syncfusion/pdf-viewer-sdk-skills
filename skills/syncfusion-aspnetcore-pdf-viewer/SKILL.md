@@ -1,7 +1,6 @@
 ---
 name: syncfusion-aspnetcore-pdf-viewer
 description: Implements the Syncfusion ASP.NET Core PDFViewer for embedding, configuring, and loading PDF documents. Use this when rendering PDFs in ASP.NET Core applications, embedding viewer controls, or generating Razor page (.cshtml) code for PDF display and interaction.
-compatibility: .NET Version >= 8.0, .NET Framework >= 4.6.2
 metadata:
   author: "Syncfusion Inc"
   version: "33.1.44"
@@ -179,153 +178,89 @@ All templates and operation snippets live in `references/*.md`. Each file is a f
 
 ### 🎯 Core Setup & Configuration
 
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **basic-sample.md** | Minimal PDFViewer with documentPath, height, and width. Base template for all samples. | "basic setup", "minimal example", "getting started", "how to load PDF" |
-| **general-properties.md** | Configure core viewer properties (server URL, document path, locale, resource base path). | "configuration", "server settings", "locale", "document path setup" |
+| File | Purpose |
+|---|---|
+| [references/basic-sample.md](references/basic-sample.md) | Minimal PDF Viewer with documentPath, height, and width. Base template for all samples. |
+| [references/enable-properties.md](references/enable-properties.md) | Enable/disable specific features (toolbar, annotations, forms, navigation, text selection, download, print). |
+
+### Context Menu
+
+| File | Purpose |
+|---|---|
+| [references/contextmenu.md](references/contextmenu.md) | Information on context menu in PDF Viewer. Programmatically add custom context menu options and handle click events on custom items. Disable context menu during initialization |
 
 ### Navigation Features
  
-**Read file when:** Implementing page navigation, bookmarks, thumbnails, hyperlinks, or table of contents
-- Page navigation (first, last, previous, next, go to page)
-- Bookmark creation and navigation
-- Thumbnail view and thumbnail navigation
-- Hyperlink support (internal and external links)
-- Table of contents navigation
-- Programmatic navigation methods
-- Navigation-related events
-📄 **Read:** [references/navigation.md](references/navigation.md)  
+| File | Purpose |
+|---|---|
+| [references/navigation.md](references/navigation.md) | Enable/disable page navigation (first/last/previous/next/go to page), thumbnail view and navigation, hyperlink support (internal and external links), table of contents navigation, programmatic navigation methods, and navigation-related events. |
+| [references/bookmark-navigation.md](references/bookmark-navigation.md) | Enable/disable and show/hide bookmark navigation. Programmatically retrieve bookmarks for a document |
+
 
 ### Core Viewing and Interaction
  
-**Read file when:** Understanding interaction modes, scrolling, and core viewing features
-- Interaction modes (Text Selection, Pan, None)
-- Page scrolling and viewing behavior
-- Panning operations
-- Feature modules for modular architecture
-- Enabling and disabling specific features
-- Core viewing capabilities
-📄 **Read:** [references/viewing-and-interaction.md](references/viewing-and-interaction.md)  
-
-**Read file when:** Implementing zoom functionality, fit-to-page modes, or custom zoom levels
-- Zoom levels and zoom percentages
-- Zoom modes (fit to page, fit to width, fit to visible area, automatic)
-- Custom zoom control
-- Programmatic zoom operations
-- Zoom toolbar configuration
-- Mouse wheel zoom behavior
-📄 **Read:** [references/magnification.md](references/magnification.md)  
+| File | Purpose |
+|---|---|
+| [references/viewing-and-interaction.md](references/viewing-and-interaction.md) | Understand interaction modes (Text Selection/Pan), page scrolling & viewing behavior, panning operations, feature modules for modular architecture, enabling/disabling specific viewing features, and core viewing capabilities. |
+| [references/magnification.md](references/magnification.md) | Configure zoom levels & zoom percentages, zoom modes (fit to page/fit to width/fit to visible area/automatic), custom zoom control, programmatic zoom operations, zoom toolbar configuration, and mouse wheel zoom behavior. |
 
 ### Toolbar Configuration
  
-**Read file when:** Customizing PDF viewer toolbar, showing/hiding toolbar items, or creating custom toolbars
-- Built-in toolbar overview
-- Primary toolbar customization
-- Annotation toolbar configuration
-- Form designer toolbar setup
-- Mobile toolbar adaptation
-- Custom toolbar creation from scratch
-- Toolbar item visibility control
-- Toolbar positioning and layout
-- Toolbar click events and handlers
-📄 **Read:** [references/toolbar-customization.md](references/toolbar-customization.md)  
+| File | Purpose |
+|---|---|
+| [references/toolbar-customization.md](references/toolbar-customization.md) | Customize the PDF viewer primary, form designer, annotation toolbars. Programmatically enable/disable toolbar, enable/disable and show/hide toolbar items. Lists the toolbar items available for toolbars. Enable/disable form designer, annotation or primary toolbars during initialization. Create a custom toolbar item |
+| [references/toolbar-reference.md](references/toolbar-reference.md) | Use the toolbar API methods/properties to show/hide the primary/annotation/navigation/redaction toolbars. |
+| [references/toolbar-customization-scenarios.md](references/toolbar-customization-scenarios.md) | Common toolbar customization scenarios |
 
 ### Annotations and Markup
  
-**Read file when:** Adding annotations, markup tools, signatures, measurements, or redaction to PDFs
-- Annotation types overview and capabilities
-- Text markup (highlight, underline, strikethrough)
-- Shape annotations (line, arrow, rectangle, circle, polygon)
-- Stamp annotations (built-in stamps and custom images)
-- Ink/freehand drawing annotations
-- Sticky notes and comment annotations
-- Handwritten and digital signatures
-- Measurement annotations (distance, perimeter, area, volume)
-- Redaction annotations
-- Annotation toolbar configuration
-- Import and export annotations
-- Annotation settings and customization
-📄 **Read:** [references/annotations-overview.md](references/annotation-overview.md)
+| File | Purpose |
+|---|---|
+| [references/annotation-overview.md](references/annotation-overview.md) | Information about ink/freehand, sticky notes/comments, handwritten/digital signatures annotations and programmatically adding them. Overall annotation types and common default annotation settings example |
+| [references/text-markup-annotations.md](references/text-markup-annotations.md) | Programmatically add text markup annotations (Highlight, underline, strikethrough, squiggly). Manipulate default settings for each textmarkup annotations |
+| [references/shape-annotations.md](references/shape-annotations.md) | Information on shape annotations (Line, Arrow, Rectangle, Circle, Polygon). Programmatically adding shape annotations and manipulating default shape settings for each shape annotations |
+| [references/measurement-annotations.md](references/measurement-annotations.md) | Information on measurement annotations (Distance, Perimeter, Area, Radius, Volume). Programmatically adding measurement annotations and manipulating default settings for each measurement annotations |
+| [references/stamp-annotation.md](references/stamp-annotation.md) | Information on stamp annotations and different types of stamps available. Programmatically adding stamp annotations |
+| [references/free-text-annotations.md](references/free-text-annotations.md) | Information on free text annotation. Programmatically adding free text annotations |
+| [references/annotation-settings.md](references/annotation-settings.md) | Configure annotation appearance (colors, opacity, styles) and behavior for all annotation types. |
+| [references/annotation-events.md](references/annotation-events.md) | Handle annotation lifecycle events (add, delete, move, resize, select, property change). |
+| [references/annotation-operations.md](references/annotation-operations.md) | Programmatically manipulate annotations like selection, moving and resizing, deleting, locking and importing and exporting annotations |
+| [references/annotation-use-cases.md](references/annotation-use-cases.md) | Common scenarios on how annotations can be programmatically manipulated |
 
 ### Forms Management
   
-**Read file when:** Filling PDF forms, designing forms, managing form fields, or validating form data
-- Form filling vs form designing
-- Form field types (textbox, password, checkbox, radio button, dropdown, listbox, signature)
-- Creating form fields programmatically
-- Form designer toolbar and UI interactions
-- Form field properties and customization
-- Form field validation rules
-- Form constraints and settings
-- Form field API methods
-- Import and export form data
-- Custom data in form fields
-📄 **Read:** [references/forms-overview.md](references/form-fields-overview.md)
+| File | Purpose |
+|---|---|
+| [references/form-fields-overview.md](references/form-fields-overview.md) | Fill and design PDF forms, manage form fields (field types like textbox/password/checkbox/radio/dropdown/listbox/signature), create fields programmatically, use the form designer toolbar/UI interactions, configure field properties/customization, apply validation rules and constraints/settings, use form field API methods, and handle import/export form data including custom field data. |
+| [references/supported-form-fields.md](references/supported-form-fields.md) | Supported form field types and programmatically add each |
+| [references/form-fields-props.md](references/form-fields-props.md) | Lists properties of form fields. Lists common properties and specific properties to each field. Manipulate form field settings |
+| [references/import-export-form-data.md](references/import-export-form-data.md) | Programmatically import and export form field data |
+| [references/form-operations.md](references/form-operations.md) | Programmatically manipulate form fields including updating properties and values, moving and resizing, deleting, grouping, adding custom data & retrieving form field data |
+| [references/form-field-validation.md](references/form-field-validation.md) | Enable/disable form field validation. Programmatic flow of form field validation and examples |
+| [references/form-field-settings.md](references/form-field-settings.md) | Configure default properties for form fields (text, checkbox, radio, dropdown, signature). |
+| [references/form-field-events.md](references/form-field-events.md) | Handle form field interaction events (focus, blur, value change, validation). |
+
 
 ### Text Operations
  
-**Read file when:** Implementing text search, finding text in PDFs, or highlighting search results
-- Text search functionality
-- Search options (case-sensitive, whole word matching)
-- Highlighting search results
-- Find next and previous occurrences
-- Programmatic text search methods
-- Search completion events
-- Custom search highlight colors
-📄 **Read:** [references/text-search.md](references/text-search.md)  
- 
-**Read file when:** Enabling text selection, copying text, or extracting text from PDFs
-- Text selection modes and behavior
-- Copying selected text to clipboard
-- Text selection events
-- Programmatic text selection
-- Extracting text from PDF pages
-- Text extraction options and settings
-- Text collections and text bounds
-📄 **Read:** [references/text-selection.md](references/text-selection.md)  
+| File | Purpose |
+|---|---|
+| [references/text-search.md](references/text-search.md) | Implement text search in PDFs: search functionality, search options (case-sensitive/whole word), highlight search results, find next/previous occurrences, programmatic text search methods, search completion events, and custom highlight colors. |
+| [references/text-selection.md](references/text-selection.md) | Enable text selection and text extraction: selection modes/behavior, copy selected text, text selection events, programmatic selection, extract text from pages, text extraction options/settings, and text collections/bounds. |
 
 ### Document Operations
  
-**Read file when:** Loading PDF documents from various sources, handling encrypted PDFs, or managing document loading
-- Loading PDF from URL (HTTP/HTTPS)
-- Loading PDF from local file paths
-- Loading PDF as base64 string
-- Opening encrypted/password-protected PDFs
-- Programmatic document loading
-- Document load events and lifecycle
-- Handling load failures and errors
-📄 **Read:** [references/opening-pdfs.md](references/opening-pdfs.md)  
- 
-**Read file when:** Downloading PDFs, saving modifications, or exporting PDF data
-- Downloading PDF documents
-- Saving PDFs with annotations and modifications
-- Download with form data included
-- Retrieving PDF as base64 data
-- Download events and customization
-- Custom download filenames
-📄 **Read:** [references/saving-and-downloading.md](references/saving-and-downloading.md)  
- 
-**Read file when:** Printing PDFs, organizing pages, rearranging, rotating, or extracting pages
-- Printing PDF documents from browser
-- Print options (page range, print quality)
-- Silent printing configuration
-- Print events
-- Page organization overview
-- Rearranging and reordering pages
-- Rotating pages (90°, 180°, 270°)
-- Deleting pages from PDF
-- Copying and duplicating pages
-- Extracting pages to new document
-- Page organizer toolbar
-- Programmatic page organization
-- Mobile view for page organization
-📄 **Read:** [references/printing-and-organizing.md](references/printing-and-organizing.md)  
+| File | Purpose |
+|---|---|
+| [references/opening-pdfs.md](references/opening-pdfs.md) | Load PDFs from URL/local paths/base64, open encrypted/password-protected PDFs, support programmatic document loading, handle document load events/lifecycle, and manage load failures/errors. |
+| [references/saving-and-downloading.md](references/saving-and-downloading.md) | Download PDFs, save PDFs with annotations/modifications, download with form data included, retrieve PDFs as base64, customize download events, and set custom download filenames. |
+| [references/printing-and-organizing.md](references/printing-and-organizing.md) | Print PDFs (including print options like page range/quality and silent printing), handle print events, organize pages (overview/rearrange/reorder/rotate/delete), copy/duplicate/extract pages to a new document, and use the page organizer toolbar with programmatic + mobile page organization. |
 
 ### ⚙️ Advanced Features
 
 | File | Purpose | **Route When User Asks About** |
 |---|---|---|
-| **api-methods.md** | Programmatic control: load documents, manage forms, annotations, extract text, undo/redo, navigation APIs. | "load PDF programmatically", "API methods", "export form data", "extract text", "undo/redo", "programmatic control" |
-| **events.md** | Complete list of all PDFViewer events (document load, download, annotations, forms, search, navigation). | "event list", "all events", "available events", "event reference", "event handlers" |
+| [references/api-methods.md](references/api-methods.md) | Programmatic control: load documents, manage forms, annotations, extract text, undo/redo, navigation APIs. | "load PDF programmatically", "API methods", "export form data", "extract text", "undo/redo", "programmatic control" |
+| [references/events.md](references/events.md) | Complete list of all PDFViewer events (document load, download, annotations, forms, search, navigation). | "event list", "all events", "available events", "event reference", "event handlers" |
 
 ---

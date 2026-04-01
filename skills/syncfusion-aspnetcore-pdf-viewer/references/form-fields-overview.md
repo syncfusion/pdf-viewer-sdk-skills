@@ -7,17 +7,9 @@
 ## Table of Contents
 
 1. [Forms Overview](#forms-overview)
-2. [Supported Form Field Types](./supported-form-fields.md)
-3. [Form Filling vs Form Designer](#form-filling-vs-form-designer)
-4. [Create Form Fields](#create-form-fields)
-5. [Form Field Properties](./form-fields-props.md#form-field-properties)
-6. [Form Field Flags and Constraints](./form-fields-props.md#form-fields-properties-and-flags)
-7. [Form Field Validation](./form-field-validation.md)
-8. [Import and Export Form Data](./import-export-form-data.md)
-9. [Common Form Operations](./form-operations.md)
-10. [Common Use Cases](#common-use-cases)
-11. [Form field events](./form-field-events.md)
-12. [Form field settings](./form-field-settings.md)
+2. [Form Filling vs Form Designer](#form-filling-vs-form-designer)
+3. [Create Form Fields](#create-form-fields)
+4. [Common Use Cases](#common-use-cases)
 
 ---
 
@@ -120,6 +112,16 @@ pdfviewer.importFormFields(JSON.stringify(jsonData), FormFieldDataFormat.Json);
   "Interests": ["tech", "sports"]
 }
 ```
+
+### API method reference
+
+| **Method Name** | **Description** | **Parameters** | **Return Type** |
+|---|---|---|---|
+| **importFormFields** | Imports form field data into the PDF document from XML format | formFieldData: `string` | `void` |
+| **resetFormFields** | Resets all form field values to their default values | - | `void` |
+| **retrieveFormFields** | Retrieves all form field data from the PDF document | - | `FormField[]` |
+| **updateFormFields** | Updates specific form fields in the PDF document | formFields: `FormField[]` | `void` |
+| **updateFormFieldsValue** | Updates the values of form fields in the PDF document | fieldName: `string`, fieldValue: `string` | `void` |
 
 ---
 

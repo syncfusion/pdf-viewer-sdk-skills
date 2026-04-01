@@ -27,8 +27,7 @@ The ASP.NET Core PDF Viewer supports multiple methods for opening and loading PD
 Load PDF documents from a web URL:
 
 ```html
-<ejs-pdfviewer id="pdfviewer" 
-    documentPath="cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf">
+<ejs-pdfviewer documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf">
 </ejs-pdfviewer>
 ```
 
@@ -38,7 +37,7 @@ Load PDF documents from a web URL:
 <script>
     function changeURL () {
         var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
-        pdfViewer.documentPath = "cdn.syncfusion.com/content/pdf/hive-succinctly.pdf";
+        pdfViewer.documentPath = "https://cdn.syncfusion.com/content/pdf/hive-succinctly.pdf";
         pdfViewer.dataBind();
     }
 </script>
@@ -46,24 +45,11 @@ Load PDF documents from a web URL:
 
 ### Load from Local File Path
 
-Load PDF from server file system:
+Load PDF from server file system. This works only if the file is present in `wwwroot` folder.
 
 ```html
-<ejs-pdfviewer id="pdfviewer">
+<ejs-pdfviewer documentPath="~/pdfs/sample.pdf">
 </ejs-pdfviewer>
-
-<script>
-    var documentPath = '/assets/documents/sample.pdf';
-    function ready() {
-        var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
-        pdfViewer.resourcesLoaded = function () {
-            loadLocalDocument("pdf-succinctly.pdf");
-        }
-    }
-    function loadLocalDocument(filename) {
-        this.documentPath = `/assets/documents/${filename}`;
-    }
-</script>
 ```
 
 **File Path Notes:**
@@ -76,23 +62,15 @@ Load PDF from server file system:
 Load PDF from base64-encoded string:
 
 ```html
+@{
+    var base64Data = "pdf-base64-data";
+}
+
 <script>
-    var base64Document = '';
     var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
-    function loadBase64PDF(base64String) {
-        base64Document = base64String;
-        if (pdfViewer) {
-            pdfViewer.load(base64String);
-        }
-    }
-    function convertToBase64(file) {
-        var reader = new FileReader();
-        
-        reader.onload = function () {
-            var base64 = reader.result;
-            loadBase64PDF(base64);
-        };        
-        reader.readAsDataURL(file);
+    if (pdfViewer) {
+        pdfViewer.load("@base64Data");
+        pdfViewer.dataBind();
     }
 </script>
 ```
@@ -138,7 +116,7 @@ Respond when document finishes loading:
 
 ```html
 <ejs-pdfviewer id="pdfviewer"
-    documentPath="'document.pdf'"
+    documentPath="document.pdf"
     documentLoad="onDocumentLoaded"
     documentLoadFailed="onDocumentLoadFailed">
 </ejs-pdfviewer>
@@ -150,7 +128,6 @@ Respond when document finishes loading:
     function onDocumentLoaded(event) {
         console.log('Document loaded successfully');
         documentStatus = 'Loaded';
-        pageCount = event.pageCount;
     }
 
     function onDocumentLoadFailed(event) {

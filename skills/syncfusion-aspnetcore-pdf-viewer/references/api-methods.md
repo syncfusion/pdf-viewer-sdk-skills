@@ -21,7 +21,7 @@ The ASP.NET Core PdfViewer component provides comprehensive API methods to contr
 | **exportFormFields** | Exports form fields data from the PDF document as XML string | - | `string` |
 | **exportFormFieldsAsObject** | Exports form fields data from the PDF document as a JSON object | - | `object` |
 | **extractPages** | Extracts specified pages from the PDF document | pageIndexes: `number[]` | `void` |
-| **extractText** | Extracts text from the PDF document based on the selection region | bounds: `IRect` | `string` |
+| **extractText** | Extracts text from the PDF document based on the selection region | pageIndex: `number`, options: [`string`](#extracttextoptions) | `Promise<{textData, pageText}>` |
 | **focusFormField** | Sets focus to a specific form field in the PDF document | fieldName: `string` | `void` |
 | **getPageInfo** | Retrieves information about a specific page in the PDF document | pageIndex: `number` | `PageInfo` |
 | **getPageNumberFromClientPoint** | Gets the page number at a specific client point (screen coordinates) | clientPoint: `IPoint` | `number` |
@@ -97,6 +97,16 @@ Represents a custom toolbar menu item.
 | **id** | Unique identifier for the menu item | `string` |
 | **text** | Display text for the menu item | `string` |
 | **tooltipText** | Tooltip text for the menu item | `string` |
+
+### ExtractTextOptions
+Represents a custom toolbar menu item.
+
+| **Property** | **Description** | **Data Type** |
+|---|---|---|
+| **None** | Indicates that no text information is returned. | `string` |
+| **TextOnly** | Indicates that only plain text is extracted and returned. | `string` |
+| **BoundsOnly** | Indicates that text is returned along with layout information, such as bounds or coordinates. | `string` |
+| **TextAndBounds** | Indicates that both plain text and text with bounds (layout information) are returned. | `string` |
 
 ## Basic Usage Example
 

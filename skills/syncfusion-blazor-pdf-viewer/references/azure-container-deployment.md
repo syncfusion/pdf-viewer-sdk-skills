@@ -12,7 +12,6 @@ This guide provides comprehensive instructions for containerizing and deploying 
 
 Before proceeding with Azure container deployment:
 
-- **System Requirements**: [Blazor components system requirements](https://blazor.syncfusion.com/documentation/system-requirements)
 - **Azure Subscription**: Active Azure subscription with permissions to create:
   - Resource groups
   - Azure Container Registry (ACR) instances
@@ -92,8 +91,6 @@ For standalone WebAssembly samples, add these files to the project:
 - `NuGet.Config`
 - Empty `package` folder
 
-![File Structure](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/images/file_formate_need_to_add.png)
-
 #### Dockerfile for Standalone WebAssembly
 
 ```dockerfile
@@ -158,8 +155,6 @@ docker run -d -p 6003:80 pdfviewer-wasm:latest
 # Access at http://localhost:6003
 ```
 
-**Sample Files**: [Download required files (NuGet.Config, nginx.conf)](https://github.com/SyncfusionExamples/blazor-pdf-viewer-examples/tree/master/Azure%20Container/Web%20Assembly/WasmStandalone)
-
 ---
 
 ## Azure Container Registry (ACR) Setup
@@ -204,8 +199,6 @@ docker tag pdfviewerwebservice:latest <login-server>/pdfviewerwebservice:latest
 docker push <login-server>/pdfviewerwebservice:latest
 ```
 
-![Push Docker to ACR](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/images/push_docker_into_azure_container.png)
-
 ---
 
 ## Azure App Service Setup
@@ -216,27 +209,15 @@ docker push <login-server>/pdfviewerwebservice:latest
 
 1. In Azure portal, click **Create a resource**
 2. Search for **Web App** → **Create**
-
-![Create Azure Container](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/images/create_azure_container.png)
-
 3. Under **Basics** tab:
    - **Subscription**: Select subscription
    - **Resource group**: Create new or use existing
    - **Name**: Choose app name (forms the URL)
-
-![Update Basics Details](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/images/update_bascis_details.png)
-
 4. **Publish**: Choose **Docker Container**
 5. **Runtime stack**: Choose **Linux**
-
-![Update Docker Container for Publish](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/images/update_the_docker_container_for_publish.png)
-
 6. Choose hosting plan:
    - Click **Change size**
    - Select **Basic/B1 or higher** (recommended for container workloads)
-
-![Update Hosting Plan and Review](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/images/update_hosting_plan_and_review.png)
-
 7. Click **Review + create**, then **Create**
 
 #### Step 2: Configure Container Settings
@@ -248,9 +229,6 @@ docker push <login-server>/pdfviewerwebservice:latest
 5. Under **Image and tag**:
    - **Repository**: Select `pdf_viewer_web_service` (or your image name)
    - **Tag**: Select `latest`
-
-![Update Container Configuration](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/images/udpate_container_configuration.png)
-
 6. Click **Save**
 
 ---
@@ -295,7 +273,7 @@ docker push <login-server>/pdfviewerwebservice:latest
 
 #### 4. Missing Dependencies
 
-**Common Issue**: [libgdiplus installation issues](https://github.com/dotnet/dotnet-docker/discussions/4938)
+**Common Issue**: `libgdiplus installation issues`
 
 **Solution**:
 - Ensure `libgdiplus` is installed in the base image
@@ -345,17 +323,7 @@ docker push <login-server>/pdfviewerwebservice:latest
 
 ## Deployment Result
 
-Once successfully deployed, your Blazor PDF Viewer application will be accessible via the Azure App Service URL:
-
-![Published Blazor Server Sample](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/images/azure_container_published_blazor_webapps.png)
-
----
-
-## Sample Code and Examples
-
-**GitHub Samples**: [Blazor PDF Viewer Azure Container Examples](https://github.com/SyncfusionExamples/blazor-pdf-viewer-examples/tree/master/Azure%20Container)
-
-**Getting Started Guide**: [SfPdfViewer in Blazor Web App](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/getting-started/web-app)
+Once successfully deployed, your Blazor PDF Viewer application will be accessible via the Azure App Service URL.
 
 ---
 
@@ -400,10 +368,3 @@ docker push <login-server>/pdfviewerwebservice:latest
 5. **Security Considerations**: Remind users to secure ACR credentials and manage access keys properly
 
 ---
-
-## Related Documentation
-
-- [Blazor PDF Viewer Getting Started](https://helpstaging.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/getting-started/web-app)
-- [Syncfusion Blazor System Requirements](https://blazor.syncfusion.com/documentation/system-requirements)
-- [Azure Container Registry Documentation](https://docs.microsoft.com/azure/container-registry/)
-- [Azure App Service Documentation](https://docs.microsoft.com/azure/app-service/)

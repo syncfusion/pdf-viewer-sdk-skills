@@ -4,7 +4,6 @@
 
 - [Overview](#overview)
 - [Toolbar Navigation](#toolbar-navigation)
-- [Bookmark Navigation](#bookmark-navigation)
 - [Thumbnail Navigation](#thumbnail-navigation)
 - [Hyperlink Navigation](#hyperlink-navigation)
 - [Programmatic Navigation](#programmatic-navigation)
@@ -37,14 +36,8 @@ The PDF Viewer toolbar includes intuitive page navigation buttons for basic docu
 Use the `enableNavigation` property to display navigation controls in the toolbar:
 
 ```html
-<!-- Standalone Mode -->
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableNavigation="true">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer enableNavigation="true">
+</ejs-pdfviewer>
 ```
 
 ### Toolbar Navigation Options
@@ -64,40 +57,14 @@ When toolbar navigation is enabled, users have access to the following navigatio
 Hide navigation buttons when you want to restrict document navigation:
 
 ```html
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableNavigation="false">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer enableNavigation="false">
+</ejs-pdfviewer>
 ```
 
 **Use cases for disabling navigation:**
 - Single-page document presentations
 - Guided document review workflows
 - Print-only mode implementations
-
----
-
-## Bookmark Navigation
-
-Bookmarks, also called document outlines, are internal navigation markers stored within PDF files. They provide a structured way to navigate to important sections and subsections of a document. When enabled, bookmarks appear in a collapsible panel on the left side of the viewer, allowing users to quickly jump to marked sections.
-
-### Enable Bookmark Navigation
-
-Use the `enableBookmark` property to display a bookmarks panel:
-
-```html
-<!-- Standalone Mode -->
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableBookmark="true">
-    </ejs-pdfviewer>
-</div>
-```
 
 ---
 
@@ -110,14 +77,20 @@ Thumbnails are miniature preview images of each page in the PDF document. They p
 Use the `enableThumbnail` property to display a thumbnails panel:
 
 ```html
-<!-- Standalone Mode -->
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableThumbnail="true">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer enableThumbnail="true">
+</ejs-pdfviewer>
+```
+
+### Open thumbnail view programmatically
+
+Use the `isThumbnailViewOpen` property on PDF Viewer instance. Setting it to `true` opens the thumbnail view.
+
+```js
+function openThumbnail() {
+    var pdfviewer = document.getElementById('pdfviewer').ej2_instances[0];
+    pdfviewer.isThumbnailViewOpen = true;
+    pdfviewer.dataBind();
+}
 ```
 
 ---
@@ -131,14 +104,8 @@ Hyperlinks in PDF documents enable navigation to external URLs or internal PDF d
 Use the `enableHyperlink` property to activate hyperlink support:
 
 ```html
-<!-- Standalone Mode -->
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableHyperlink="true">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer enableHyperlink="true">
+</ejs-pdfviewer>
 ```
 
 ### Hyperlink Interaction
@@ -154,26 +121,17 @@ Use the `hyperlinkOpenState` property to control whether hyperlinks open in the 
 
 ```html
 <!-- Open links in new tab -->
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableHyperlink="true"
-                   hyperlinkOpenState="@(Syncfusion.EJ2.PdfViewer.LinkTarget.NewTab)">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer enableHyperlink="true"
+                hyperlinkOpenState="@(Syncfusion.EJ2.PdfViewer.LinkTarget.NewTab)">
+</ejs-pdfviewer>
 ```
 
 ```html
 <!-- Open links in same window (default) -->
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableHyperlink="true"
-                   hyperlinkOpenState="@(Syncfusion.EJ2.PdfViewer.LinkTarget.CurrentTab)">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer 
+    enableHyperlink="true"
+    hyperlinkOpenState="@(Syncfusion.EJ2.PdfViewer.LinkTarget.CurrentTab)">
+</ejs-pdfviewer>
 ```
 
 ### Hyperlink Types

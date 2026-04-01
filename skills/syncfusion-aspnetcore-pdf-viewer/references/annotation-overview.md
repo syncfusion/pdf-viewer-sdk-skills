@@ -7,18 +7,10 @@
 ## Table of Contents
 
 1. [Annotation Types and Capabilities](#annotation-types-and-capabilities)
-2. [Shape Annotations](./shape-annotations)
-3. [Text Markup Annotations](./text-markup-annotations)
-4. [Stamp Annotations](./stamp-annotation)
-5. [Ink Annotations](#ink-annotations)
-6. [Sticky Notes](#sticky-notes)
-7. [Free Text Annotations](#free-text-annotations)
-8. [Handwritten Signatures](#handwritten-signatures)
-9. [Measurement Annotations](./measurement-annotations)
-10. [Common Annotation Operations](./annotation-operations)
-11. [Configure Default Annotation Settings](#default-annotation-settings)
-12. [Common Use Cases](./annotation-use-cases)
-13. [Annotation events](./annotation-events)
+2. [Ink Annotations](#ink-annotations)
+3. [Sticky Notes](#sticky-notes)
+4. [Handwritten Signatures](#handwritten-signatures)
+5. [Configure Default Annotation Settings](#default-annotation-settings)
 ---
 
 ## Annotation Types and Capabilities

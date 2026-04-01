@@ -11,7 +11,6 @@
 - [Add Custom Items](#add-custom-items)
 - [Annotation Toolbar](#annotation-toolbar)
 - [Form Designer Toolbar](#form-designer-toolbar)
-- [Common Scenarios](#common-scenarios)
 
 ---
 
@@ -67,6 +66,63 @@ Default Toolbar Items:
 | **Page Organizer** | OrganizePagesTool | Organize currently opened PDF |
 | **Redaction** | RedactionEditTool | redacting parts of PDF permanently |
 
+### Annotation toolbar options
+
+Default annotation toolbar options defined as a string array called `AnnotationToolbarItems` inside `ToolbarSettings`.
+
+| Option | description |
+|---|---|
+| HighlightTool | Highlights selected text in the PDF. |
+| UnderlineTool | Draws an underline for selected text. |
+| StrikethroughTool | Applies a strikethrough to selected text. |
+| SquigglyTool | Applies a squiggly underline style to selected text. |
+| ShapeTool | Adds drawable shape annotations to the PDF. |
+| CalibrateTool | Calibrates measurement reference for measurement-related annotations. |
+| ColorEditTool | Changes the current annotation’s fill color. |
+| StrokeColorEditTool | Changes the stroke color for shape or drawing annotations. |
+| ThicknessEditTool | Adjusts the stroke thickness for annotations. |
+| OpacityEditTool | Adjusts the opacity of the annotation. |
+| AnnotationDeleteTool | Removes an existing annotation. |
+| StampAnnotationTool | Adds a stamp annotation |
+| HandWrittenSignatureTool | Creates a handwritten signature annotation. |
+| InkAnnotationTool | Adds freehand “ink” drawing annotations. |
+| FreeTextAnnotationTool | Adds free-form text annotations. |
+| FontFamilyAnnotationTool | Sets the font family for text annotations. |
+| FontSizeAnnotationTool | Sets the font size for text annotations. |
+| FontStylesAnnotationTool | Applies supported font styles  |
+| FontAlignAnnotationTool | Sets the text alignment for text annotations. |
+| FontColorAnnotationTool | Sets the font color for text annotations. |
+| CommentPanelTool | Manages and displays comments in the comment panel for annotations |
+
+### Form designer toolbar options
+
+Default form designer toolbar options defined as a string array called `FormDesignerToolbarItems` inside `ToolbarSettings`.
+
+| Option | description |
+|---|---|
+| TextboxTool | Adds a textbox form field. |
+| PasswordTool | Adds a password form field. |
+| CheckBoxTool | Adds a checkbox form field. |
+| RadioButtonTool | Adds a radio button form field. |
+| DropdownTool | Adds a dropdown form field. |
+| ListboxTool | Adds a listbox form field. |
+| DrawSignatureTool | Adds a signature form field |
+| DeleteTool | Deletes an existing form field |
+
+### Redaction toolbar options
+
+Default redaction toolbar options defined as a string array called `RedactionToolbarItems` inside `ToolbarSettings`.
+
+| Option | description |
+|---|---|
+| MarkForRedaction | Marks content for redaction. |
+| RedactPages | Applies redactions to the selected pages. |
+| RedactionPanel | Shows the redaction panel UI. |
+| Redact | Performs the redaction action. |
+| RemoveAnnotation | Removes an existing redaction annotation. |
+| CommentPanel | Opens the comment panel. |
+| Close | Closes the redaction UI/panel. |
+
 ---
 
 ## Show or Hide Toolbar
@@ -75,30 +131,11 @@ Control the visibility of the entire toolbar to customize the viewing experience
 
 ### Enable Built-in Toolbar
 
-Display the default toolbar with all items:
+Display the default toolbar with all items. Setting `enableToolbar` to `false` hides the primary toolbar.
 
 ```html
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableToolbar="true">
-    </ejs-pdfviewer>
-</div>
-```
-
-### Hide Built-in Toolbar
-
-Create minimalist or custom toolbar experiences:
-
-```html
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableToolbar="false">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer enableToolbar="true">
+</ejs-pdfviewer>
 ```
 
 ### Show/Hide Toolbar Programmatically
@@ -131,27 +168,23 @@ Control visibility of specific toolbar item groups without affecting the entire 
 
 ### Configure Visible Items via Properties
 
-Use `ToolbarSettings` with `ToolbarItems` property to specify which items should display:
+Use `ToolbarSettings` with `ToolbarItems` property to specify which items should displayed in primary toolbar. Similarly `AnnotationToolbarItems` , `FormDesignerToolbarItems` or `RedactionToolbarItems` can be used to specify which items should be displayed in annotation toolbar, form designer toolbar or redaction toolbar respectively:
 
 ```html
 <!-- Show only essential items -->
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableToolbar="true"
-                   toolbarSettings="@(new Syncfusion.EJ2.PdfViewer.PdfViewerToolbarSettings {
-                       ShowTooltip = true,
-                       ToolbarItems = new List<object> { 
-                           "OpenOption", 
-                           "PageNavigationTool", 
-                           "MagnificationTool",
-                           "PrintOption",
-                           "DownloadOption"
-                       }
-                   })">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer id="pdfviewer"
+                enableToolbar="true"
+                toolbarSettings="@(new Syncfusion.EJ2.PdfViewer.PdfViewerToolbarSettings {
+                    ShowTooltip = true,
+                    ToolbarItems = new List<object> { 
+                        "OpenOption", 
+                        "PageNavigationTool", 
+                        "MagnificationTool",
+                        "PrintOption",
+                        "DownloadOption"
+                    }
+                })">
+</ejs-pdfviewer>
 ```
 
 ### Show/Hide Items Programmatically
@@ -413,13 +446,8 @@ When annotations are enabled, a separate annotation toolbar appears with annotat
 ### Enable Annotation Toolbar
 
 ```html
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableAnnotationToolbar="true">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer enableAnnotationToolbar="true">
+</ejs-pdfviewer>
 ```
 
 ---
@@ -431,143 +459,9 @@ When form designer is enabled, a specialized toolbar appears for creating and ed
 ### Enable Form Designer Toolbar
 
 ```html
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableFormDesignerToolbar="true">
-    </ejs-pdfviewer>
-</div>
+<ejs-pdfviewer enableFormDesignerToolbar="true">
+</ejs-pdfviewer>
 ```
-
----
-
-## Common Scenarios
-
-### Scenario 1: Minimal Viewer (Read-Only)
-
-Simple document viewer with minimal toolbar items:
-
-```html
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableToolbar="true"
-                   toolbarSettings="@(new Syncfusion.EJ2.PdfViewer.PdfViewerToolbarSettings {
-                       ShowTooltip = true,
-                       ToolbarItems = new List<object> {
-                           "PageNavigationTool",
-                           "MagnificationTool",
-                           "PrintOption",
-                           "DownloadOption"
-                       }
-                   })">
-    </ejs-pdfviewer>
-</div>
-```
-
-**Why this works:**
-- Essential navigation and viewing controls
-- Print and download capabilities
-- Minimal UI clutter
-
-### Scenario 2: Document Review with Custom Actions
-
-Custom toolbar with application-specific functionality:
-
-```html
-<div style="width:100%;height:600px">
-    <ejs-pdfviewer id="pdfviewer"
-                   style="height:600px"
-                   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   enableToolbar="true"
-                   toolbarClick="onToolbarClick">
-    </ejs-pdfviewer>
-</div>
-
-<script>
-    window.onload = function () {
-        var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
-        
-        var approveItem = {
-            prefixIcon: 'e-icons e-check',
-            id: 'approve',
-            text: 'Approve',
-            tooltipText: 'Approve this document',
-            align: 'Right'
-        };
-        
-        var rejectItem = {
-            prefixIcon: 'e-icons e-close',
-            id: 'reject',
-            text: 'Reject',
-            tooltipText: 'Reject this document',
-            align: 'Right'
-        };
-        
-        var commentItem = {
-            prefixIcon: 'e-icons e-comment',
-            id: 'add-comment',
-            text: 'Comment',
-            tooltipText: 'Add review comment',
-            align: 'Right'
-        };
-        
-        pdfViewer.toolbarSettings = {
-            showTooltip: true,
-            toolbarItems: [
-                'OpenOption',
-                'PageNavigationTool',
-                'MagnificationTool',
-                'PrintOption',
-                'DownloadOption',
-                'SearchOption',
-                'AnnotationEditTool',
-                approveItem,
-                rejectItem,
-                commentItem
-            ]
-        };
-    };
-    
-    function onToolbarClick(args) {
-        var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
-        
-        switch(args.item.id) {
-            case 'approve':
-                approveDocument();
-                break;
-            case 'reject':
-                rejectDocument();
-                break;
-            case 'add-comment':
-                openCommentDialog();
-                break;
-        }
-    }
-    
-    function approveDocument() {
-        console.log('Document approved');
-        // Send approval to server
-    }
-    
-    function rejectDocument() {
-        console.log('Document rejected');
-        // Send rejection to server
-    }
-    
-    function openCommentDialog() {
-        console.log('Comment dialog opened');
-        // Open comment interface
-    }
-</script>
-```
-
-**Why this works:**
-- Custom business logic buttons (Approve, Reject)
-- Application-specific workflow integration
-- Standard PDF operations still available
 
 ---
 
@@ -580,5 +474,3 @@ Custom toolbar with application-specific functionality:
 5. **Handle events properly**: Implement robust error handling in toolbar click handlers
 6. **Respect user permissions**: Show/hide items based on user roles and permissions
 7. **Follow design guidelines**: Match custom items styling with application theme
-
----

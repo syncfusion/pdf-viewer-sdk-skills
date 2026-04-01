@@ -4,15 +4,6 @@ The FormField API in ASP.NET Core PDF Viewer is used to store and manage form fi
 
 ### How to Use FormField Settings in PDF Viewer
 
-```html
-<!-- Inject FormFields service to enable form field functionality -->
-@Html.EJS().PdfViewer("pdfViewer")
-    .ServiceUrl(ViewBag.ServiceUrl)
-    .Render()
-```
-
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
-
 ### FormField Properties
 
 | **Property Name** | **Description** | **Data Type** |

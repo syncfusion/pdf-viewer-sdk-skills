@@ -231,8 +231,6 @@ function App() {
   return (
     <PdfViewerComponent
       id="container"
-      documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-      resourceUrl="https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"
       style={{ 'height': '640px' }}>
       <Inject services={[ 
         Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, 
@@ -298,8 +296,6 @@ Configure component styling with inline CSS or CSS classes:
 ```tsx
 <PdfViewerComponent
   id="container"
-  documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-  resourceUrl="https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"
   style={{ 'height': '640px' }}>
 </PdfViewerComponent>
 ```

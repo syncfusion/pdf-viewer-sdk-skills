@@ -31,7 +31,7 @@ Guide users to implement print functionality in React PDF Viewer for document pr
 ```jsx
 const handlePrint = () => {
   if (viewerRef.current) {
-    viewerRef.current.print();
+    viewerRef.current.print.print();
   }
 };
 ```
@@ -44,7 +44,7 @@ const handlePrint = () => {
 ```jsx
 const handlePrint = () => {
   if (viewerRef.current) {
-    viewerRef.current.print(); // Opens browser's default print dialog
+    viewerRef.current.print.print(); // Opens browser's default print dialog
   }
 };
 ```

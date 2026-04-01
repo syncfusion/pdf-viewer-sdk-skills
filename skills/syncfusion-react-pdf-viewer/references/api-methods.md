@@ -226,6 +226,7 @@ Annotation settings object can include:
 | **thickness** | Line/border thickness | `number` |
 | **fontSize** | Font size for text annotations | `number` |
 | **fontFamily** | Font family for text annotations | `string` |
+| **path** | SVG path data for Ink annotations (array of point commands: M for move, L for line) | `string` |
 
 ### FormFieldType
 **When to use:** Used with form designer module methods to specify form field types.
@@ -412,6 +413,17 @@ pdfViewerRef.current?.annotation.clearSelection();
 // Convert color formats
 const rgbaColor = pdfViewerRef.current?.annotation.hexToRgba('#FF5733');
 console.log('RGBA Color:', rgbaColor);
+```
+
+**Ink Annotation with Path Points (Freehand Drawing):**
+
+```tsx
+const viewer = getViewer();
+// Add ink annotation with SVG path data representing freehand drawing
+viewer?.annotation.addAnnotation('Ink', {
+  offset: { x: 150, y: 100 }, pageNumber: 1, width: 200, height: 60,
+  path: '[{"command":"M","x":244.83,"y":982.00},{"command":"L","x":250.83,"y":953.33},{"command":"L","x":260.83,"y":920.33}]', strokeColor: '#0000FF', thickness: 2,opacity: 1, author: 'User'
+});
 ```
 
 ### Scenario 9: Dynamic Form Field Creation and Management

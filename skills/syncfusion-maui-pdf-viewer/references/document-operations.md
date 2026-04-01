@@ -10,31 +10,12 @@ This guide demonstrates how to open, save, and print PDF documents programmatica
 ## Open Document
 
 ```csharp
-// From file picker
-async Task PickAndLoad()
-{
-    var result = await FilePicker.Default.PickAsync(new PickOptions
-    {
-        PickerTitle = "Select a PDF",
-        FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
-        {
-            { DevicePlatform.iOS, new[] { "public.pdf" } },
-            { DevicePlatform.Android, new[] { "application/pdf" } },
-            { DevicePlatform.WinUI, new[] { "pdf" } },
-            { DevicePlatform.MacCatalyst, new[] { "pdf" } },
-        })
-    });
-    if (result != null) pdfViewer.DocumentSource = await result.OpenReadAsync();
-}
-
-// From URL
-async Task LoadFromUrl(string url)
-{
-    pdfViewer.DocumentSource = await new HttpClient().GetStreamAsync(url);
-}
-
-// From Base64
-pdfViewer.DocumentSource = Convert.FromBase64String("YourBase64String");
+// Load PDF (inputs: File Picker → Stream, URL → Stream, Base64 → byte[], Stream, byte[])
+pdfViewer.DocumentSource = stream;
+ 
+pdfViewer.LoadDocument(stream);
+ 
+await pdfViewer.LoadDocumentAsync(stream);
 
 // Password-protected
 pdfViewer.LoadDocument(pdfStream, "password");

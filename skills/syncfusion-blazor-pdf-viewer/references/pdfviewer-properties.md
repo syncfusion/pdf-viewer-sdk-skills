@@ -1,4 +1,4 @@
-# PDFViewer Methods
+# PDFViewer Properties
 
 ## Table of Contents
 - [Overview](#overview)

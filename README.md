@@ -12,7 +12,11 @@ This repository contains **AI-ready skills** that empower AI agents to generate 
 - **Blazor PDF Viewer** - Interactive PDF viewing in Blazor Server and WebAssembly with full annotation support, form filling, text search, redaction, custom toolbar configuration, and event handling
 - **React PDF Viewer** - Modern PDF viewer for React applications with TypeScript support, comprehensive annotation tools, form designer, text search/selection, bookmark navigation, thumbnail view, and print/download capabilities
 - **ASP.NET Core PDF Viewer** - PDF viewing for ASP.NET Core applications with local PDF hosting, toolbar customization, text search, annotations, form filling, and event hooks.
+- **ASP.NET MVC PDF Viewer** - PDF viewing for ASP.NET MVC applications with local PDF hosting, toolbar customization, text search, annotations, form filling, and event hooks.
 - **Angular PDF Viewer** – Enterprise-grade PDF viewer for Angular applications with toolbar customization, annotations, form fields, text search/selection, bookmarks, thumbnails, redaction, page organization, print/download, and full API access
+- **Vue PDF Viewer** – PDF viewer for Vue applications with annotations, form filling and form designer, text search/selection, toolbar customization, page organizer, magnification, navigations, redaction.
+- **JavaScript PDF Viewer** – PDF viewer for JavaScript (ES6) applications with annotations, form filling and form designer, text search/selection, toolbar customization, page organizer, magnification, navigations, redaction.
+- **Blazor Smart PDF Viewer** - Intelligent PDF viewer powered by AI with document summarizer, smart form filling, smart redaction with Blazor PDF Viewer.
 
 ### Mobile & Cross-Platform
 - **Flutter PDF Viewer** - Native PDF viewing for iOS and Android with text search, annotations (text markup, sticky notes), form filling, signature pad integration, bookmark navigation, password-protected PDF support, and localization
@@ -44,7 +48,13 @@ your-workspace/
 │   │   └── SKILL.md
 │   ├── syncfusion-aspnetcore-pdf-viewer/
 │   │   └── SKILL.md
-│   ├── syncfusion-angular-pdfviewer/
+│   ├── syncfusion-aspnetmvc-pdf-viewer/
+│   │   └── SKILL.md
+│   ├── syncfusion-angular-pdf-viewer/
+│   │   └── SKILL.md
+|   ├── syncfusion-vue-pdf-viewer/
+│   │   └── SKILL.md
+|   ├── syncfusion-javascript-pdf-viewer/
 │   │   └── SKILL.md
 │   ├── syncfusion-flutter-pdf-viewer/
 │   │   └── SKILL.md
@@ -54,7 +64,9 @@ your-workspace/
 │   │   └── SKILL.md
 │   ├── syncfusion-wpf-pdf-viewer/
 │   │   └── SKILL.md
-│   └── syncfusion-winforms-pdf-viewer/
+│   ├── syncfusion-winforms-pdf-viewer/
+│   |   └── SKILL.md
+│   └── syncfusion-blazor-smart-pdf-viewer/
 │       └── SKILL.md
 ├── your-project-files...
 └── App.tsx / Program.cs / MainPage.xaml / etc.
@@ -141,9 +153,24 @@ npm install @syncfusion/ej2-react-pdfviewer --save
 dotnet add package Syncfusion.EJ2.PdfViewer.AspNet.Core
 ```
 
+**ASP.NET MVC PDF Viewer:**
+```bash
+dotnet add package Syncfusion.EJ2.MVC5
+```
+
 **Angular PDF Viewer:**
 ```bash
 npm install @syncfusion/ej2-angular-pdfviewer --save
+```
+
+**Vue PDF Viewer:**
+```bash
+npm install @syncfusion/ej2-vue-pdfviewer --save
+```
+
+**JavaScript (ES6) PDF Viewer:**
+```bash
+npm install
 ```
 
 **Flutter PDF Viewer:**
@@ -171,6 +198,11 @@ Syncfusion.SfPdfViewer.UWP (via NuGet or manual assembly reference)
 **WinForms PDF Viewer:**
 ```bash
 dotnet add package Syncfusion.PdfViewer.Windows
+```
+
+**Blazor Smart PDF Viewer:**
+```bash
+dotnet add package Syncfusion.Blazor.SfSmartPdfViewer
 ```
 
 ## How it Works
@@ -231,6 +263,20 @@ Show me how to implement form filling and validation in the PDF viewer
 Disable bookmark navigation and thumbnails in the PDF viewer
 ```
 
+### ASP.NET MVC PDF Viewer
+
+```
+# Basic Setup
+Add a PDF viewer to my ASP.NET MVC application
+Add a basic PDF Viewer component with document loading event to Index.cshtml
+
+# Features
+Show me how to add annotations programmatically in MVC PDF Viewer.
+Create a customized search functionalities with MVC PDF Viewer APIs.
+Disable the annotation and form designer modules from MVC PDF Viewer.
+How to add open and download options only in toolbar for PDF Viewer.
+```
+
 ### Angular PDF Viewer
 
 ```
@@ -243,6 +289,34 @@ How do I load a PDF from a remote URL using documentPath ?
 Provide code to download/save the PDF programmatically.
 How do I trigger print programmatically and disable the toolbar print button ?
 Provide code to add a highlight annotation programmatically
+```
+
+### Vue PDF Viewer
+
+```
+# Basic Setup
+Add Vue PDF viewer component to my vue sample
+Provide code to set up the Syncfusion Vue PDF Viewer in the sample
+
+# Features
+How to add the print option externally in the Vuew PDF Viewer.
+Show me how to add form fields programmatically in PDF Viewer.
+Provide code for annotation add and delete events triggered in PDF Viewer.
+How to show shape and calibrate annotations only in annotation toolbar in PDF Viewer.
+```
+
+### JavaScript (ES6) PDF Viewer
+
+```
+# Basic Setup
+Add Javscript PDF viewer component to my Javascript sample
+Provide code to set up the Syncfusion JavaScript PDF Viewer in the sample
+
+# Features
+Show me how to add islock as true for all the annotation in Javascript PDF Viewer.
+Provide code for add free text annotation programmtically in PDF Viewer.
+How to add customized option for zoom in and zoom out in toolbar.
+Implement the document loaded event with document name in PDF Viewer.
 ```
 
 ### Flutter PDF Viewer
@@ -316,6 +390,20 @@ Show me how to extract text with line and word bounds
 Switch between selection and pan interaction modes
 ```
 
+### Blazor Smart PDF Viewer
+
+```
+# Basic Setup
+Add Smart PDF Viewer Component to my Home.razor page
+Provide code to set up the Syncfusion Smart PDF Viewer in the sample
+
+# Features
+How to enable the smart redaction option in smart PDF Viewer.
+Provide code to redact the name in the document in smart PDF Viewer.
+Implement the code for summarizer option in smart PDF Viewer.
+Show to how to enable the smart fill option in smart PDF Viewer.
+```
+
 ## Troubleshooting
 
 | Issue | Solution |
@@ -333,12 +421,16 @@ Switch between selection and pan interaction modes
 - [Blazor PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/blazor/overview)
 - [React PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/react/overview)
 - [ASP.NET Core PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/asp-net-core/overview)
+- [ASP.NET MVC PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/asp-net-mvc/overview)
 - [Angular PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/angular/overview)
+- [Vue PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/vue/overview)
+- [JavaScript (ES6) PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/javascript-es6/overview)
 - [Flutter PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/flutter/overview)
 - [.NET MAUI PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/maui/overview)
 - [WPF PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/wpf/overview)
 - [UWP PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/uwp/overview)
 - [WinForms PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/winforms/overview)
+- [Blazor Smart PDF Viewer Documentation](https://help.syncfusion.com/document-processing/pdf/smart-pdf-viewer/blazor/overview)
 
 ## License
 

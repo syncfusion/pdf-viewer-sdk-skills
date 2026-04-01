@@ -8,7 +8,7 @@
 
 ## Overview
 
-Measurement Annotations settings allow you to configure default units and ratios values for Measurement Annotations annotations in the PDF Viewer.
+It describes about the enable disable rpoperties of the navigation toolbar and also provides configuration options for customizing the navigation toolbar in the Blazor PDF Viewer.
 
 ## Related Properties
 

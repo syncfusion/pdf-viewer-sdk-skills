@@ -1,4 +1,4 @@
-# Polygon Settings in Blazor SfPdfViewer Component
+# Sticky notes Settings in Blazor SfPdfViewer Component
 
 ## Table of Contents
 - [Overview](#overview)
@@ -7,7 +7,7 @@
 
 ## Overview
 
-Polygon settings allow you to configure default appearance, behavior, and restrictions for Polygon annotations in the PDF Viewer. Use these settings to control properties of the Polygon annotation.
+Sticky notes settings allow you to configure default appearance, behavior, and restrictions for Sticky notes annotations in the PDF Viewer. Use these settings to control properties of the Sticky notes annotation.
 
 ## Properties List
 

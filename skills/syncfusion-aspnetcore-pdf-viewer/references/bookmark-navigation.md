@@ -14,17 +14,11 @@ Enables the bookmark panel in the PDF Viewer, allowing users to view and navigat
 
 ### Usage
 ```html
-<ejs-pdfviewer
-  enableBookmark="true">
+<ejs-pdfviewer enableBookmark="true">
 </ejs-pdfviewer>
 ```
 
 **Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
-
-### Note
-- The `BookmarkView` service must be injected for bookmark functionality to work
-- Bookmarks are loaded automatically from the PDF document when `enableBookmark` is set to `true`
-- The bookmark panel appears in the left sidebar of the PDF Viewer
 
 ---
 
@@ -53,7 +47,7 @@ var onGoToBookmark = function() {
 };
 
 // Button integration
-<button onclick="onGoToBookmark()">Go to Specific Page</button>
+<button onclick="onGoToBookmark()">Go to Specific Bookmark</button>
 ```
 
 **Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
@@ -153,60 +147,78 @@ Bookmark objects returned by `getBookmarks()` contain the following information:
 
 ---
 
-## Service Dependencies
+## Open/close bookmark pane programmatically
 
-The following services must be injected for bookmark functionality:
+**Approach 1:** Use `isBookmarkPanelOpen` property on PDF Viewer instance. Setting it to `true` opens the bookmark panel. Using it during initialization opens the bookmark panel on load
 
-### Required Services
 ```html
+<ejs-pdfviewer id="pdfViewer" isBookmarkPanelOpen="true">
+</ejs-pdfviewer>
+
 <script>
-var services = ['BookmarkView'];
-// Optional but recommended:
-// 'Toolbar', 'Navigation', 'ThumbnailView'
+  var pdfviewer = document.getElementById('pdfViewer').ej2_instances[0];
+  function toggleBookmark(isOpen) {
+    if (isOpen) {
+      pdfviewer.isBookmarkPanelOpen = true;
+    }
+    else {
+      pdfviewer.isBookmarkPanelOpen = false;
+    }
+  }
 </script>
+
 ```
 
-### Service Descriptions
-- **BookmarkView**: Enables the bookmark panel and bookmark-related operations
-- **Toolbar** (optional): Provides toolbar items for bookmark operations
-- **Navigation** (optional): Enhances overall document navigation capabilities
-- **ThumbnailView** (optional): Displays page thumbnails alongside bookmarks
+**Approach 2:** Use `openBookmarkPane()` of `bookmark` module to open bookmark panel and use `closeBookmarkPane()` of `bookmark` module to close bookmark panel.
 
----
+```html
+<ejs-pdfviewer id="pdfViewer" isBookmarkPanelOpen="true">
+</ejs-pdfviewer>
+
+<script>
+  var pdfviewer = document.getElementById('pdfViewer').ej2_instances[0];
+  function toggleBookmark(isOpen) {
+    if (isOpen) {
+      pdfviewer.bookmark.openBookmarkPane();
+    }
+    else {
+      pdfviewer.bookmark.closeBookmarkPane();
+    }
+  }
+</script>
+
+```
+
 
 ## Best Practices
 
 1. **Always check for valid references** before calling bookmark methods:
-   ```javascript
-   var pdfViewer = document.getElementById('pdfViewer').ej2_instances[0];
-   pdfViewer && pdfViewer.bookmark.goToBookmark(pageIndex, yCoordinate);
-   ```
+```javascript
+var pdfViewer = document.getElementById('pdfViewer').ej2_instances[0];
+pdfViewer && pdfViewer.bookmark.goToBookmark(pageIndex, yCoordinate);
+```
 
 2. **Handle errors gracefully** when navigating to bookmarks:
-   ```javascript
-   try {
-     var pdfViewer = document.getElementById('pdfViewer').ej2_instances[0];
-     pdfViewer.bookmark.goToBookmark(pageIndex, yCoordinate);
-   } catch (error) {
-     console.error('Bookmark navigation failed:', error);
-   }
-   ```
+```javascript
+try {
+  var pdfViewer = document.getElementById('pdfViewer').ej2_instances[0];
+  pdfViewer.bookmark.goToBookmark(pageIndex, yCoordinate);
+} catch (error) {
+  console.error('Bookmark navigation failed:', error);
+}
+```
 
 3. **Cache bookmark data** if accessing frequently:
-   ```javascript
-   var cachedBookmarks = null;
-   function getAllBookmarks() {
-     if (!cachedBookmarks) {
-       var pdfViewer = document.getElementById('pdfViewer').ej2_instances[0];
-       cachedBookmarks = pdfViewer && pdfViewer.bookmark.getBookmarks();
-     }
-     return cachedBookmarks;
-   }
-   ```
-
-4. **Use BookmarkView service** for all bookmark-related operations
-
-5. **Test with various PDF documents** to ensure bookmark compatibility
+```javascript
+var cachedBookmarks = null;
+function getAllBookmarks() {
+  if (!cachedBookmarks) {
+    var pdfViewer = document.getElementById('pdfViewer').ej2_instances[0];
+    cachedBookmarks = pdfViewer && pdfViewer.bookmark.getBookmarks();
+  }
+  return cachedBookmarks;
+}
+```
 
 ---
 
@@ -223,7 +235,8 @@ Complete example showing bookmark navigation with a bookmark list:
   <div style="flex: 1;">
     <ejs-pdfviewer
       id="pdfViewer"
-      enableBookmark="true">
+      enableBookmark="true"
+      documentLoad="onDocumentLoad">
     </ejs-pdfviewer>
   </div>
 </div>
@@ -255,7 +268,9 @@ function handleBookmarkClick(bookmark) {
 }
 
 // Populate bookmarks when document loads
-setTimeout(populateBookmarks, 1000);
+function onDocumentLoad () {
+  populateBookmarks();
+}
 </script>
 ```
 

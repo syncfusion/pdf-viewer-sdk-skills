@@ -95,10 +95,12 @@ Switch interaction modes programmatically at runtime:
 var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
 
 // Set to panning mode
-pdfViewer.interactionMode = Syncfusion.EJ2.PdfViewer.InteractionMode.Pan;
+pdfViewer.interactionMode = "Pan";
 
 // Set to selection mode (Text)
-pdfViewer.interactionMode = Syncfusion.EJ2.PdfViewer.InteractionMode.Text;
+pdfViewer.interactionMode = "TextSelection";
+
+pdfViewer.dataBind();
 ```
 
 ---
@@ -195,13 +197,15 @@ var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
 
 // Function to toggle modes
 function toggleInteractionMode() {
-    if (pdfViewer.interactionMode === Syncfusion.EJ2.PdfViewer.InteractionMode.Text) {
+    if (pdfViewer.interactionMode === "TextSelection") {
         // Switch to panning
-        pdfViewer.interactionMode = Syncfusion.EJ2.PdfViewer.InteractionMode.Pan;
+        pdfViewer.interactionMode = "Pan";
+        pdfViewer.dataBind();
         console.log("Switched to Panning Mode");
     } else {
         // Switch to selection
-        pdfViewer.interactionMode = Syncfusion.EJ2.PdfViewer.InteractionMode.Text;
+        pdfViewer.interactionMode = "TextSelection";
+        pdfViewer.dataBind();
         console.log("Switched to Selection Mode");
     }
 }
@@ -261,7 +265,7 @@ Enable all text-related features for document analysis:
     <ejs-pdfviewer id="pdfviewer"
                    style="height:600px"
                    documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-                   interactionMode="@Syncfusion.EJ2.PdfViewer.InteractionMode.Text"
+                   interactionMode="@Syncfusion.EJ2.PdfViewer.InteractionMode.TextSelection"
                    enableToolbar="true"
                    enableTextSelection="true"
                    enableTextSearch="true"

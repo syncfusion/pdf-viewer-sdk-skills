@@ -43,7 +43,6 @@ The simplest path is to expose the stock download icon by injecting the `Toolbar
       id="pdfViewer"
       ref="pdfviewer"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       :toolbarSettings="toolbarSettings"
       :enableDownload="true"
     />
@@ -64,7 +63,6 @@ import {
 provide('PdfViewer', [Toolbar, Magnification, Navigation, Annotation, BookmarkView]);
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const toolbarSettings = {
   toolbarItems: [
     'PageNavigationTool',

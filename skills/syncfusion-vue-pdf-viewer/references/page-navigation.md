@@ -71,7 +71,7 @@ Boolean
 `true`
 
 ### Usage
-```html
+```vue
 <ejs-pdfviewer
   ref="viewer"
   :enableNavigation="true"
@@ -111,7 +111,7 @@ provide('PdfViewer', [Toolbar, Navigation]);
 
 Navigate to the very first page, often used for "Home" actions.
 
-```html
+```vue
 <button @click="goHome">Home</button>
 ```
 
@@ -123,7 +123,7 @@ const goHome = () => viewer.value?.navigation.goToFirstPage();
 
 Send users to the final page for appendices, summaries, or signatures.
 
-```html
+```vue
 <button @click="goToEnd">Last Page</button>
 ```
 
@@ -135,7 +135,7 @@ const goToEnd = () => viewer.value?.navigation.goToLastPage();
 
 Advance one page forward—ideal for Next buttons, swipe gestures, or autoplay sequences.
 
-```html
+```vue
 <button @click="nextPage">Next ▶</button>
 ```
 
@@ -147,7 +147,7 @@ const nextPage = () => viewer.value?.navigation.goToNextPage();
 
 Move backward one page, commonly paired with a Next action.
 
-```html
+```vue
 <button @click="previousPage">◀ Back</button>
 ```
 
@@ -159,7 +159,7 @@ const previousPage = () => viewer.value?.navigation.goToPreviousPage();
 
 Jump to any specific page number (1-based). Always validate user input before calling the API to avoid silent failures when the number is out of range.
 
-```html
+```vue
 <label>
   Go to page
   <input type="number" min="1" v-model.number="targetPage" @keyup.enter="goToPage" />
@@ -186,7 +186,7 @@ const goToPage = () => {
 
 This component exposes a small navigation panel that wires every API into one place. The `navigate` helper keeps the template declarative and prevents duplicated null checks.
 
-```html
+```vue
 <template>
   <div class="nav-panel">
     <button @click="() => navigate('first')">Home</button>
@@ -202,7 +202,6 @@ This component exposes a small navigation panel that wires every API into one pl
   <ejs-pdfviewer
     ref="viewer"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     :enableToolbar="false"
     :enableNavigation="true"
     style="height: 640px"
@@ -216,7 +215,6 @@ import { PdfViewerComponent, Navigation } from '@syncfusion/ej2-vue-pdfviewer';
 const viewer = ref(null);
 const jumpPage = ref(4);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Navigation]);
 

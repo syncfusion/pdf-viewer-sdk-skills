@@ -142,7 +142,6 @@ The snippet below shows how to wire all properties in a single place. It also in
     id="pdfViewer"
     style="height:640px"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     :shapeLabelSettings="shapeLabelSettings" />
 </template>
 
@@ -152,7 +151,6 @@ import { ref } from 'vue';
 import { PdfViewerComponent as EjsPdfviewer, Toolbar, Annotation } from '@syncfusion/ej2-vue-pdfviewer';
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const shapeLabelSettings = ref({
   fillColor: '#F0F8FF',
   fontColor: '#0F172A',
@@ -176,8 +174,7 @@ export default {
   components: { 'ejs-pdfviewer': PdfViewerComponent },
   data() {
     return {
-      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib',
+      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
       shapeLabelSettings: {
         fillColor: '#FFF4CE',
         fontColor: '#1F2937',

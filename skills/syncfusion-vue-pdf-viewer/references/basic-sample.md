@@ -106,7 +106,7 @@ Define the PDF Viewer in the `<template>` section of `src/App.vue` using the `ej
 
 ### Basic Template
 
-```html
+```vue
 <template>
   <div id="app">
     <ejs-pdfviewer
@@ -121,27 +121,11 @@ Define the PDF Viewer in the `<template>` section of `src/App.vue` using the `ej
 
 ### Property Details
 
-#### documentPath
-
-**Type**: `string` — Path to the PDF document to display.
-
-**Examples**:
-- CDN: `"https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"`
-- Local: `window.location.origin + "/asset/pdfsuccinctly.pdf"`
-
-#### resourceUrl
-
-**Type**: `string` — Folder URL containing `pdfium.js` and `pdfium.wasm`. Required for WebAssembly rendering.
-
-**Examples**:
-- CDN: `"https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"`
-- Local: `window.location.origin + "/asset/ej2-pdfviewer-lib"`
-
-#### id
-
-**Type**: `string` — Unique identifier for the component. Must be unique within your application.
-
-**Examples**: `id="pdfViewer"`, `id="pdf-viewer-main"`, `id="invoice-pdf"`
+| Property | Type | Purpose | Example |
+|----------|------|---------|---------|
+| **id** | `string` | Unique identifier for the component instance | `:id="container"` |
+| **documentPath** | `string` | Path to the PDF document (CDN URL or local file) | `:documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"` |
+| **resourceUrl** | `string` | URL folder with library resources (pdfium.js, pdfium.wasm) | `:resourceUrl="https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"` |
 
 ---
 
@@ -170,7 +154,7 @@ Inject only the services you need to reduce bundle size. Vue 2 uses the `provide
 ### Usage Patterns
 
 **Vue 2** — use the `provide` option (also supports `PageOrganizer`):
-```javascript
+```vue
 provide: {
   PdfViewer: [ Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView,
                Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner, PageOrganizer ]
@@ -178,14 +162,14 @@ provide: {
 ```
 
 **Vue 3 Composition API** — call `provide()` inside `<script setup>`:
-```javascript
+```vue
 import { provide } from 'vue';
 provide('PdfViewer', [ Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView,
                        Print, TextSelection, TextSearch, Annotation, FormDesigner, FormFields ]);
 ```
 
 **Vue 3 Options API** — use the `provide` option:
-```javascript
+```vue
 provide: {
   PdfViewer: [ Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView,
                Print, TextSelection, TextSearch, Annotation, FormDesigner, FormFields ]
@@ -198,7 +182,7 @@ provide: {
 
 To use local files instead of CDN, update `documentPath` and `resourceUrl` to reference the `public/asset` directory:
 
-```javascript
+```vue
 data() {
   return {
     resourceUrl: window.location.origin + "/asset/ej2-pdfviewer-lib",
@@ -222,7 +206,7 @@ Ensure `public/asset/ej2-pdfviewer-lib` contains `pdfium.js` and `pdfium.wasm`.
 
 ## Complete Basic Example – Vue 2
 
-```html
+```vue
 <template>
   <div id="app">
     <ejs-pdfviewer
@@ -266,7 +250,7 @@ export default {
 
 ## Complete Basic Example – Vue 3 (Composition API)
 
-```html
+```vue
 <template>
   <ejs-pdfviewer
     ref="pdfViewer"
@@ -299,7 +283,7 @@ provide('PdfViewer', [ Toolbar, Magnification, Navigation, LinkAnnotation, Bookm
 
 ## Complete Basic Example – Vue 3 (Options API)
 
-```html
+```vue
 <template>
   <div id="app">
     <ejs-pdfviewer

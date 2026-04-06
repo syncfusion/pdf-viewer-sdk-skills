@@ -45,7 +45,7 @@ Controls whether the thumbnail panel is available. When `true`, the viewer rende
 
 **Scenario:** Display a training manual with visual navigation in a Vue 3 app.
 
-```html
+```vue
 <template>
   <div class="viewer-shell">
     <ejs-pdfviewer
@@ -67,8 +67,7 @@ export default {
   components: { 'ejs-pdfviewer': PdfViewerComponent },
   data() {
     return {
-      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'
+      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
     };
   },
   provide: {
@@ -104,7 +103,7 @@ const viewerRef = ref(null);
 
 ### Complete Integration (Composition API)
 
-```html
+```vue
 <template>
   <ejs-pdfviewer
     ref="viewerRef"
@@ -161,7 +160,7 @@ Designers comparing spreads or color placements can hop between non-adjacent pag
 
 ### Usage Example (Auto-open for Long PDFs)
 
-```html
+```vue
 <template>
   <ejs-pdfviewer
     ref="pdfViewer"
@@ -181,8 +180,7 @@ export default {
   components: { 'ejs-pdfviewer': PdfViewerComponent },
   data() {
     return {
-      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib',
+      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
       openByDefault: false
     };
   },

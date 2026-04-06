@@ -42,7 +42,6 @@ Use them together to keep the interaction model intentional.
   <ejs-pdfviewer
     id="vueSelection"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     :enableTextSelection="true"
     style="height: 640px"
   />
@@ -53,7 +52,6 @@ import { provide } from 'vue';
 import { PdfViewerComponent as EjsPdfviewer, Toolbar, TextSelection } from '@syncfusion/ej2-vue-pdfviewer';
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Toolbar, TextSelection]);
 </script>
@@ -82,7 +80,6 @@ provide('PdfViewer', [Toolbar, TextSelection]);
   <ejs-pdfviewer
     id="vuePan"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     :enableTextSelection="false"
     interactionMode="Pan"
     style="height: 640px"
@@ -94,7 +91,6 @@ import { provide } from 'vue';
 import { PdfViewerComponent as EjsPdfviewer, Toolbar } from '@syncfusion/ej2-vue-pdfviewer';
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Toolbar]);
 </script>
@@ -131,7 +127,6 @@ Use Vue state to flip between modes without re-mounting the viewer.
     <ejs-pdfviewer
       id="interactiveViewer"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       :enableTextSelection="enableSelection"
       :interactionMode="enableSelection ? 'TextSelection' : 'Pan'"
       style="height: 640px"
@@ -148,7 +143,6 @@ import {
 } from '@syncfusion/ej2-vue-pdfviewer';
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const enableSelection = ref(true);
 
 const toggleMode = () => {

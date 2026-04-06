@@ -24,12 +24,11 @@ Brief: Help Vue teams enable, disable, and react to text selection inside the Sy
 
 **Vue 3 Options API example**
 
-```html
+```vue
 <template>
   <ejs-pdfviewer
     id="pdfReadOnly"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     :enableTextSelection="false"
     style="height: 640px">
   </ejs-pdfviewer>
@@ -43,8 +42,7 @@ export default {
   components: { 'ejs-pdfviewer': PdfViewerComponent },
   data() {
     return {
-      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'
+      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
     };
   },
   provide: {
@@ -71,12 +69,11 @@ Hook into the `textSelectionStart` event to show contextual UI, pause conflictin
 
 **Composition API snippet**
 
-```html
+```vue
 <template>
   <ejs-pdfviewer
     ref="viewer"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     @textSelectionStart="handleStart"
     style="height: 640px">
   </ejs-pdfviewer>
@@ -87,7 +84,6 @@ import { provide } from 'vue';
 import { PdfViewerComponent as EjsPdfviewer, TextSelection } from '@syncfusion/ej2-vue-pdfviewer';
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [TextSelection]);
 
@@ -123,13 +119,12 @@ Use this event to surface a "Selecting..." chip, suspend navigation hotkeys, pri
 
 **Options API pattern that toggles UI actions**
 
-```html
+```vue
 <template>
   <section>
     <ejs-pdfviewer
       id="captureSelection"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       @textSelectionEnd="handleSelectionEnd"
       style="height: 520px">
     </ejs-pdfviewer>
@@ -151,8 +146,7 @@ export default {
   data() {
     return {
       selectedText: '',
-      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'
+      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
     };
   },
   provide: {
@@ -181,13 +175,12 @@ Typical follow-ups include surfacing a custom context menu, auto-tagging the pas
 
 Combine both events to keep the UI responsive from drag start through completion. Track the in-progress state to show feedback and clear tool strips whenever the selection collapses.
 
-```html
+```vue
 <template>
   <div class="selection-shell">
     <ejs-pdfviewer
       id="selectionLifecycle"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       :enableTextSelection="true"
       @textSelectionStart="onStart"
       @textSelectionEnd="onEnd"
@@ -214,8 +207,7 @@ export default {
     return {
       isSelecting: false,
       selectedText: '',
-      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'
+      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
     };
   },
   provide: {
@@ -262,7 +254,7 @@ This lifecycle approach is ideal for synchronized toolbars, analytics, and orche
 
 **Sample configuration**
 
-```html
+```vue
 <ejs-pdfviewer
   id="multiPageSelection"
   :enableTextSelection="true"
@@ -287,14 +279,13 @@ Copies whatever text is currently highlighted inside the viewer to the clipboard
 - **Signature:** `copyText(): void`
 - **Use cases:** fire from a custom toolbar button, duplicate the selection into a notes pane, or build accessibility shortcuts.
 
-```html
+```vue
 <template>
   <div>
     <button @click="copySelection">Copy Selected Text</button>
     <ejs-pdfviewer
       ref="viewer"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       style="height: 500px">
     </ejs-pdfviewer>
   </div>
@@ -306,7 +297,6 @@ import { PdfViewerComponent as EjsPdfviewer, TextSelection } from '@syncfusion/e
 
 const viewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [TextSelection]);
 
@@ -325,14 +315,13 @@ Programmatically highlight the rectangles you supply. This is ideal for search-h
   - `bounds` – Array of `IRectangle` objects (`{ x, y, width, height }`) describing each span.
 - **Return value:** `void`
 
-```html
+```vue
 <template>
   <div>
     <button @click="highlightDefinition">Select Glossary Entry</button>
     <ejs-pdfviewer
       ref="autoSelection"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       style="height: 520px">
     </ejs-pdfviewer>
   </div>
@@ -344,7 +333,6 @@ import { PdfViewerComponent as EjsPdfviewer, TextSelection } from '@syncfusion/e
 
 const autoSelection = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [TextSelection]);
 

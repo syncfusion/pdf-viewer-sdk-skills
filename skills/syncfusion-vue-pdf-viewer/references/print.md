@@ -35,7 +35,6 @@ Wire up a button (or reuse the toolbar icon) that calls the viewer instance `pri
       id="vuePrintViewer"
       ref="pdfviewer"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       :serviceUrl="serviceUrl"
     />
   </section>
@@ -55,7 +54,6 @@ provide('PdfViewer', [Toolbar, Magnification, Navigation, Print]);
 
 const pdfviewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const serviceUrl = 'https://services.syncfusion.com/vue/production/api/pdfviewer';
 
 const openPrint = () => {

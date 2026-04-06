@@ -35,7 +35,6 @@ Use one shared viewer accessor and reuse it for all API calls. This avoids repea
 <template>
   <ejs-pdfviewer
     ref="pdfViewer"
-    :resourceUrl="resourceUrl"
     :documentPath="documentPath"
     style="height: 640px" />
 </template>
@@ -47,7 +46,6 @@ import {
   ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner } from '@syncfusion/ej2-vue-pdfviewer';
 
 const pdfViewer = ref(null);
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
 
 provide('PdfViewer', [

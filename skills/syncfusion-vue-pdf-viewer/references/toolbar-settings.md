@@ -42,7 +42,7 @@ The primary toolbar hosts core navigation, magnification, open/print/download, a
 
 Hide the toolbar up front or toggle it later by calling the toolbar module.
 
-```html
+```vue
 <template>
   <ejs-pdfviewer ref="viewer" :enableToolbar="false" />
 </template>
@@ -88,7 +88,7 @@ Only the entries you list render, so arrange the array in the exact order you ex
 
 **Simple viewer example**
 
-```html
+```vue
 <ejs-pdfviewer
   :toolbarSettings="{
     toolbarItems: ['OpenOption', 'PrintOption', 'DownloadOption', 'MagnificationTool', 'PageNavigationTool']
@@ -98,7 +98,7 @@ Only the entries you list render, so arrange the array in the exact order you ex
 
 **Editor-focused configuration**
 
-```html
+```vue
 <ejs-pdfviewer
   :toolbarSettings="{
     toolbarItems: [
@@ -120,7 +120,7 @@ Launches whenever annotation mode is active. Keep it lean so reviewers only see 
 
 **API**: `toolbar.showAnnotationToolbar(isVisible: boolean)`
 
-```html
+```vue
 <template>
   <ejs-pdfviewer ref="viewer" />
   <button @click="toggleAnnotation(true)">Annotate</button>
@@ -164,7 +164,7 @@ const toggleAnnotation = (show) => viewer.value?.toolbar.showAnnotationToolbar(s
 | `FontColorAnnotationTool` | Text color |
 | `CommentPanelTool` | Toggle comments pane |
 
-```html
+```vue
 <ejs-pdfviewer
   :toolbarSettings="{
     annotationToolbarItems: [
@@ -185,7 +185,7 @@ Show this toolbar only while users are creating or editing interactive form fiel
 
 **API**: `isFormDesignerToolbarVisible: boolean`
 
-```html
+```vue
 <ejs-pdfviewer :isFormDesignerToolbarVisible="true" />
 ```
 
@@ -206,7 +206,7 @@ At runtime toggle with `viewerRef.value.isFormDesignerToolbarVisible = false`.
 | `DrawSignatureTool` | Signature box |
 | `DeleteTool` | Remove selected field |
 
-```html
+```vue
 <ejs-pdfviewer
   :isFormDesignerToolbarVisible="true"
   :toolbarSettings="{ formDesignerToolbarItems: ['TextboxTool', 'CheckBoxTool', 'DeleteTool'] }"
@@ -229,7 +229,7 @@ At runtime toggle with `viewerRef.value.isFormDesignerToolbarVisible = false`.
 | `canRearrange` | Drag-and-drop reorder | `true` |
 | `showImageZoomingSlider` | Thumbnail zoom slider | `true` |
 
-```html
+```vue
 <ejs-pdfviewer
   :pageOrganizerSettings="{
     canInsert: false,
@@ -251,7 +251,7 @@ Switch between the condensed touch toolbar and the desktop ribbon.
 
 **API**: `enableDesktopMode: boolean`
 
-```html
+```vue
 <ejs-pdfviewer
   :enableDesktopMode="true"
   :enableTextSelection="false"  
@@ -286,7 +286,7 @@ Use a custom toolbar when the stock ribbon cannot represent the experience you a
 
 Each `e-item` accepts an `id`, `prefixIcon`, optional `text`, alignment, and tooltip. Mix custom entries with built-in `ToolbarItem` values when you want to keep familiar buttons while introducing bespoke ones.
 
-```html
+```vue
 <template>
   <div class="pdf-shell">
     <ejs-toolbar @clicked="handleToolbarClick">
@@ -382,7 +382,7 @@ const handleToolbarClick = (args) => {
 | `formDesignerToolbarItems` | `FormDesignerToolbarItem[]` | Form field palette |
 | `redactionToolbarItems` | `RedactionToolbarItem[]` | Redaction toolbar (standalone viewer) |
 
-```html
+```vue
 <ejs-pdfviewer
   :toolbarSettings="{
     toolbarItems: ['OpenOption', 'MagnificationTool', 'DownloadOption'],
@@ -396,7 +396,7 @@ const handleToolbarClick = (args) => {
 
 Disable tooltips globally when hovering is not available:
 
-```html
+```vue
 <ejs-pdfviewer :toolbarSettings="{ showTooltip: false }" />
 ```
 
@@ -406,7 +406,7 @@ Disable tooltips globally when hovering is not available:
 
 Use `toolbarClick` to intercept button presses for auditing, confirmation dialogs, or custom routing.
 
-```html
+```vue
 <ejs-pdfviewer @toolbarClick="onToolbarClick" />
 ```
 

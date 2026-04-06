@@ -6,11 +6,12 @@ This guide demonstrates how to open, save, and print PDF documents programmatica
 - [Open Document](#open-document)
 - [Save Document](#save-document)
 - [Print Document](#print-document)
+- [Unload Document](#unload-document)
 
 ## Open Document
 
 ```csharp
-// Load PDF (inputs: File Picker → Stream, URL → Stream, Base64 → byte[], Stream, byte[])
+// Load PDF (inputs: File Picker → Stream, Trusted URL → Stream, Base64 → byte[], Stream, byte[])
 pdfViewer.DocumentSource = stream;
  
 pdfViewer.LoadDocument(stream);
@@ -82,3 +83,16 @@ XAML command binding:
 <Button Text="Print" Command="{Binding Source={x:Reference PdfViewer}, Path=PrintDocumentCommand}"/>
 ```
 > `PrintQuality` is Windows-only. Sticky note icon always renders as default on print.
+
+## Unload Document
+ 
+**Methods**
+- `UnloadDocument()`
+- `UnloadDocumentAsync()`
+ 
+Use the async method for non‑blocking operations.
+ 
+Opening a new document automatically unloads the previous one. 
+Call an unload method before leaving a page.
+ 
+> **Note:** Unload actions cannot be undone.

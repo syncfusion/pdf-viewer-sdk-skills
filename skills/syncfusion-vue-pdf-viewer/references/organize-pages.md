@@ -47,7 +47,6 @@ Enable the organizer by injecting the `PageOrganizer` service and turning on `en
     ref="viewer"
     id="organizer"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     :enablePageOrganizer="true"
     :isPageOrganizerOpen="true"
     :pageOrganizerSettings="pageOrganizerSettings"
@@ -62,7 +61,6 @@ import { PdfViewerComponent as EjsPdfviewer, Toolbar, PageOrganizer } from '@syn
 provide('PdfViewer', [Toolbar, PageOrganizer]);
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const pageOrganizerSettings = ref({});
 </script>
 ```

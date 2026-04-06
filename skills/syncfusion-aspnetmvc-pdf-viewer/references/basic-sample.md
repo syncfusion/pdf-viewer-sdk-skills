@@ -90,7 +90,7 @@ Add the Syncfusion JavaScript library in `_Layout.cshtml` inside the `<head>` ta
     <!-- ... theme CSS ... -->
     
     <!-- Syncfusion ASP.NET MVC controls scripts -->
-    <script src="https://cdn.syncfusion.com/ej2/33.1.44/dist/ej2.min.js"></script>
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
 </head>
 ```
 

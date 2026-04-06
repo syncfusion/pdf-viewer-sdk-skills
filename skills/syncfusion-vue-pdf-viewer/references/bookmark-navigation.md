@@ -51,7 +51,6 @@ Skip bookmark UI when the source PDF lacks embedded bookmarks or when standard p
       id="pdfViewer"
       ref="pdfViewer"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       :enableBookmark="true"
       style="height: 640px"
     />
@@ -75,7 +74,6 @@ import {
 import { provide, ref } from 'vue';
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const pdfViewer = ref(null);
 
 provide('PdfViewer', [
@@ -166,7 +164,6 @@ const goToBookmark = (node) => {
       id="pdfViewer"
       ref="pdfViewer"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       :enableBookmark="true"
       style="height: 600px"
     />
@@ -179,7 +176,6 @@ import { provide, ref } from 'vue';
 
 const pdfViewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Toolbar, BookmarkView]);
 
@@ -208,7 +204,6 @@ const closeBookmark = () => pdfViewer.value?.ej2Instances.bookmark.closeBookmark
       id="pdfViewer"
       ref="pdfViewer"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       :enableBookmark="true"
       style="height: 600px"
     />
@@ -222,8 +217,7 @@ export default {
   components: { 'ejs-pdfviewer': PdfViewerComponent },
   data: () => ({
     isPaneOpen: false,
-    documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-    resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'
+    documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
   }),
   provide() {
     return { PdfViewer: [BookmarkView] };
@@ -253,7 +247,6 @@ export default {
     ref="pdfViewer"
     :enableBookmark="true"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     :documentLoad="handleDocumentLoad"
     style="height: 640px"
   />
@@ -265,7 +258,6 @@ import { provide, ref } from 'vue';
 
 const pdfViewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [BookmarkView]);
 
@@ -296,7 +288,6 @@ const handleDocumentLoad = () => {
         id="pdfViewer"
         ref="pdfViewer"
         :documentPath="documentPath"
-        :resourceUrl="resourceUrl"
         :enableBookmark="true"
         style="height: 100%"
       />
@@ -311,7 +302,6 @@ import { onMounted, provide, ref } from 'vue';
 const pdfViewer = ref(null);
 const bookmarks = ref([]);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [BookmarkView]);
 

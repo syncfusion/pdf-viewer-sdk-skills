@@ -56,7 +56,7 @@ Customize appearance and behavior for individual annotation types by binding typ
 
 ```vue
 <template>
-  <ejs-pdfviewer id="pdfViewer" :resourceUrl="resourceUrl" :documentPath="documentPath"
+  <ejs-pdfviewer id="pdfViewer" :documentPath="documentPath"
     :highlightSettings="highlightSettings" style="height:640px" />
 </template>
 
@@ -65,7 +65,6 @@ import { provide } from 'vue';
 import { PdfViewerComponent as EjsPdfviewer, Toolbar, Annotation, TextSelection }
   from '@syncfusion/ej2-vue-pdfviewer';
 
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
 const highlightSettings = { color: 'green', opacity: 0.6, author: 'John Doe', isLock: false };
 
@@ -77,7 +76,7 @@ provide('PdfViewer', [Toolbar, Annotation, TextSelection]);
 
 ```vue
 <template>
-  <ejs-pdfviewer id="pdfViewer" :resourceUrl="resourceUrl" :documentPath="documentPath"
+  <ejs-pdfviewer id="pdfViewer" :documentPath="documentPath"
     :highlightSettings="highlightSettings" style="height:640px" />
 </template>
 
@@ -88,7 +87,6 @@ export default {
   components: { 'ejs-pdfviewer': PdfViewerComponent },
   data() {
     return {
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib',
       documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
       highlightSettings: { color: 'green', opacity: 0.6, author: 'John Doe', isLock: false }
     };
@@ -102,7 +100,7 @@ export default {
 
 ```vue
 <template>
-  <ejs-pdfviewer id="pdfViewer" :resourceUrl="resourceUrl" :documentPath="documentPath"
+  <ejs-pdfviewer id="pdfViewer" :documentPath="documentPath"
     :highlightSettings="highlightSettings" />
 </template>
 
@@ -114,7 +112,6 @@ Vue.use(PdfViewerPlugin);
 export default {
   data() {
     return {
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib',
       documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
       highlightSettings: { color: 'green', opacity: 0.6, author: 'John Doe', isLock: false }
     };
@@ -130,7 +127,7 @@ export default {
 
 ```vue
 <template>
-  <ejs-pdfviewer id="pdfViewer" :resourceUrl="resourceUrl" :documentPath="documentPath"
+  <ejs-pdfviewer id="pdfViewer" :documentPath="documentPath"
     :annotationSettings="annotationSettings" style="height:640px" />
 </template>
 
@@ -139,7 +136,6 @@ import { provide } from 'vue';
 import { PdfViewerComponent as EjsPdfviewer, Toolbar, Annotation }
   from '@syncfusion/ej2-vue-pdfviewer';
 
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
 const annotationSettings = { author: 'PDF Author', opacity: 0.7, isLock: false };
 

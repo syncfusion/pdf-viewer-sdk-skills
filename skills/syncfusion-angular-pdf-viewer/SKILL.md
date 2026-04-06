@@ -8,7 +8,7 @@ metadata:
 
 # Syncfusion Angular PDF Viewer UI Sample Generator
 
-## ?? MANDATORY 3-STEP WORKFLOW (STRICT ENFORCEMENT)
+## Mandatory 3-Step workflow (Strict Enforcement)
 
 **EVERY query MUST follow these steps sequentially:**
 
@@ -16,7 +16,7 @@ metadata:
 STEP 1: Workspace Detection ? STEP 2: Read Reference File ? STEP 3: Generate Code
 ```
 
-### ?? BLOCKING RULES
+### Blocking Rules
 
 1. **NO code generation** until Steps 1 & 2 are complete
 2. **NO assumptions** - Always verify workspace AND read reference files first
@@ -26,7 +26,7 @@ STEP 1: Workspace Detection ? STEP 2: Read Reference File ? STEP 3: Generate Cod
 
 ---
 
-## ?? MANDATORY WORKFLOW
+## Mandatory Workflow
 
 ### STEP 1: Workspace Detection *(REQUIRED - DO THIS FIRST)*
 
@@ -79,7 +79,7 @@ Available alternatives: [list from reference files]
 
 ---
 
-## ?? REFERENCE FILE ROUTING GUIDE
+## Reference File Routing Guide
 
 ### Core Setup
 | User Query Keywords | Reference File | Purpose |
@@ -141,7 +141,7 @@ Available alternatives: [list from reference files]
 
 ---
 
-## ?? TOOLBAR ITEM NAME VALIDATION (CRITICAL)
+## Toolbar Item Name Validation (CRITICAL)
 
 **When generating toolbar configurations:**
 1. **ALWAYS read `toolbar-settings.md` first**
@@ -158,7 +158,7 @@ Available alternatives: [list from reference files]
 
 ---
 
-## ?? SETTINGS CONFIGURATION
+## Settings Configurations
 
 ### Rule 1: Simple Settings (1-3 properties) ? Inline
 ```typescript
@@ -182,7 +182,7 @@ public annotationSelection = {
 
 ---
 
-## ?? PROTOCOL VIOLATION HANDLING
+## Protocol Violation Handling
 
 | Violation | Fix |
 |---|---|
@@ -195,7 +195,7 @@ public annotationSelection = {
 
 ---
 
-## ?? ENFORCEMENT CHECKLIST
+## Enforcement Checklist
 
 **Before generating code, verify:**
 - [ ] Step 1 executed (workspace detection) and reported

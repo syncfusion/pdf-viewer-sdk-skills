@@ -41,7 +41,6 @@ Expose the dedicated redaction toolbar by enabling it on the component and inclu
       ref="pdfviewer"
       :documentPath="documentPath"
       :serviceUrl="serviceUrl"
-      :resourceUrl="resourceUrl"
       :toolbarSettings="toolbarSettings"
       :enableRedactionToolbar="true"
     />
@@ -64,7 +63,6 @@ provide('PdfViewer', [Toolbar, Annotation, Magnification, Navigation, TextSearch
 
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
 const serviceUrl = 'https://services.syncfusion.com/vue/production/api/pdfviewer';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const toolbarSettings = {
   toolbarItems: [
     'OpenOption', 'UndoRedoTool', 'PageNavigationTool', 'MagnificationTool',
@@ -390,7 +388,6 @@ The snippet below wires up every major redaction API in one place.
       ref="pdfviewer"
       :documentPath="documentPath"
       :serviceUrl="serviceUrl"
-      :resourceUrl="resourceUrl"
       :toolbarSettings="toolbarSettings"
       :enableRedactionToolbar="true"
       :redactionSettings="redactionDefaults"
@@ -416,7 +413,6 @@ provide('PdfViewer', [Toolbar, Annotation, TextSearch, Magnification, Navigation
 const pdfviewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/invoice.pdf';
 const serviceUrl = 'https://services.syncfusion.com/vue/production/api/pdfviewer';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 const toolbarSettings = {
   toolbarItems: [
     'OpenOption', 'UndoRedoTool', 'PageNavigationTool', 'MagnificationTool',

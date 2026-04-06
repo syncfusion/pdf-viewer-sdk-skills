@@ -44,7 +44,7 @@ Expose these `ejs-pdfviewer` props (or their camelCase equivalents within Vue bi
 
 **Vue Example:**
 
-```html
+```vue
 <template>
   <ejs-pdfviewer
     ref="viewer"
@@ -54,7 +54,6 @@ Expose these `ejs-pdfviewer` props (or their camelCase equivalents within Vue bi
     zoomMode="FitToWidth"
     :restrictZoomRequest="false"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     style="height: 640px"
   />
 </template>
@@ -65,7 +64,6 @@ import { PdfViewerComponent, Magnification } from '@syncfusion/ej2-vue-pdfviewer
 
 const viewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Magnification]);
 </script>
@@ -75,7 +73,7 @@ provide('PdfViewer', [Magnification]);
 
 Set `enableMagnification` to `true` and inject the `Magnification` service (alongside Toolbar or other modules) to turn on both toolbar zoom controls and programmatic APIs.
 
-```html
+```vue
 <ejs-pdfviewer :enableMagnification="true" ... />
 ```
 
@@ -97,13 +95,13 @@ Incremental zoom mirrors the default toolbar dropdown (50%, 75%, 100%, 125%, 150
 **Returns:** `void`  
 **Range:** 10%–400%
 
-```html
+```vue
 <template>
   <div class="zoom-controls">
     <button @click="zoomOut">−</button>
     <button @click="zoomIn">+</button>
   </div>
-  <ejs-pdfviewer ref="viewer" :documentPath="documentPath" :resourceUrl="resourceUrl" />
+  <ejs-pdfviewer ref="viewer" :documentPath="documentPath" />
 </template>
 
 <script setup>
@@ -112,7 +110,6 @@ import { PdfViewerComponent, Toolbar, Magnification } from '@syncfusion/ej2-vue-
 
 const viewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Toolbar, Magnification]);
 
@@ -138,13 +135,13 @@ Use `zoomTo(value)` to jump to any percentage between 10 and 400. This is perfec
 **Signature:** `viewerRef.value.magnification.zoomTo(zoomValue: number)`  
 **Returns:** `void`
 
-```html
+```vue
 <template>
   <label class="slider">
     Zoom: <input type="range" min="10" max="400" v-model.number="zoomLevel" @input="applyZoom" />
     <span>{{ zoomLevel }}%</span>
   </label>
-  <ejs-pdfviewer ref="viewer" :documentPath="documentPath" :resourceUrl="resourceUrl" />
+  <ejs-pdfviewer ref="viewer" :documentPath="documentPath" />
 </template>
 
 <script setup>
@@ -154,7 +151,6 @@ import { PdfViewerComponent, Magnification } from '@syncfusion/ej2-vue-pdfviewer
 const viewer = ref(null);
 const zoomLevel = ref(100);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Magnification]);
 
@@ -233,7 +229,7 @@ Behavior:
 
 ### Scenario 1: Custom Zoom Toolbar
 
-```html
+```vue
 <template>
   <div class="custom-toolbar">
     <button @click="() => viewer.value?.magnification.zoomTo(100)">100%</button>
@@ -241,7 +237,7 @@ Behavior:
     <button @click="zoomOut">−</button>
     <button @click="zoomIn">+</button>
   </div>
-  <ejs-pdfviewer ref="viewer" :documentPath="documentPath" :resourceUrl="resourceUrl" />
+  <ejs-pdfviewer ref="viewer" :documentPath="documentPath" />
 </template>
 
 <script setup>
@@ -250,7 +246,6 @@ import { PdfViewerComponent, Toolbar, Magnification } from '@syncfusion/ej2-vue-
 
 const viewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Toolbar, Magnification]);
 
@@ -261,7 +256,7 @@ const zoomOut = () => viewer.value?.magnification.zoomOut();
 
 ### Scenario 2: Zoom Slider with Live Readout
 
-```html
+```vue
 <template>
   <input type="range" min="10" max="400" step="5" v-model.number="zoomLevel" @change="applyZoom" />
   <span>{{ zoomLevel }}%</span>
@@ -279,7 +274,7 @@ Tie this snippet to the earlier Composition API example to keep state synchroniz
 
 ### Scenario 3: Set Default Zoom After Load
 
-```html
+```vue
 <template>
   <ejs-pdfviewer
     ref="viewer"

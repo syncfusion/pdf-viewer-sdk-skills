@@ -29,7 +29,7 @@ Stop users from following links without modifying the underlying PDF.
 When `true`, the viewer scans loaded pages and turns every detected hyperlink into a clickable anchor. Set it to `false` to render links as plain text so that reviewers can focus on document content without accidental navigation.
 
 ### Vue Usage
-```html
+```vue
 <template>
   <ejs-pdfviewer
     id="pdfViewer"
@@ -62,7 +62,7 @@ Tell the viewer whether to open external URLs beside or on top of the current ta
 `'CurrentTab'` reuses the hosting browser tab. Pick `'NewTab'` when reviewers should stay inside the PDF session while inspecting external resources, such as annotation guidelines or legal references.
 
 ### Vue Usage
-```html
+```vue
 <template>
   <ejs-pdfviewer
     id="pdfViewer"
@@ -113,7 +113,7 @@ const handleHyperlinkMouseOver = (args: any) => {
 ```
 
 Attach both handlers with standard Vue event syntax:
-```html
+```vue
 <ejs-pdfviewer
   @hyperlinkClick="handleHyperlinkClick"
   @hyperlinkMouseOver="handleHyperlinkMouseOver"
@@ -125,13 +125,12 @@ Attach both handlers with standard Vue event syntax:
 
 ## Complete Vue Example
 
-```html
+```vue
 <template>
   <div class="viewer-wrapper">
     <ejs-pdfviewer
       id="pdfViewer"
       :documentPath="documentPath"
-      :resourceUrl="resourceUrl"
       :enableHyperlink="true"
       hyperlinkOpenState="NewTab"
       @hyperlinkClick="onHyperlinkClick"
@@ -151,8 +150,7 @@ export default {
   },
   data() {
     return {
-      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'
+      documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
     };
   },
   provide: {

@@ -46,7 +46,7 @@ Picking the correct method avoids wasted renders and lets you tailor search UI t
 
 ### Guarding Against Edge Cases
 
-```html
+```vue
 <script setup>
 import { ref, provide } from 'vue';
 import { PdfViewerComponent, Toolbar, TextSearch } from '@syncfusion/ej2-vue-pdfviewer';
@@ -78,12 +78,11 @@ const safeSearch = (term) => {
 
 Turn on text search by enabling the feature flag and injecting the `TextSearch` service. Without both, the toolbar toggle and APIs stay inactive.
 
-```html
+```vue
 <template>
   <ejs-pdfviewer
     ref="viewer"
     :documentPath="documentPath"
-    :resourceUrl="resourceUrl"
     :enableTextSearch="true"
     style="height: 640px"
   />
@@ -95,7 +94,6 @@ import { PdfViewerComponent, Toolbar, TextSearch } from '@syncfusion/ej2-vue-pdf
 
 const viewer = ref(null);
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
 provide('PdfViewer', [Toolbar, TextSearch]);
 </script>
@@ -118,7 +116,7 @@ Kick off an interactive search that highlights every occurrence and scrolls to t
 - **isMatchWholeWord** (`boolean`, default `false`) → `true` to restrict to whole words.
 
 ### Usage
-```html
+```vue
 <template>
   <div class="search-actions">
     <input v-model="term" placeholder="Search..." />
@@ -202,7 +200,7 @@ Fetch match coordinates without altering the UI. Perfect for analytics, overlays
 An object containing bounding rectangles (`RectangleBoundsModel[]`) grouped by page.
 
 ### Usage
-```html
+```vue
 <script setup>
 const logAllMatches = () => {
   const bounds = viewer.value?.textSearch.findText(['invoice', 'total'], false);
@@ -236,7 +234,7 @@ Triggers when the text search is initiated.
 - **cancel** (`boolean`)
 
 ### Usage
-```html
+```vue
 <ejs-pdfviewer
   ref="viewer"
   @textSearchStart="onSearchStart"
@@ -271,7 +269,7 @@ const onSearchStart = (args) => {
 - **name** (`string`)
 
 ### Usage
-```html
+```vue
 <ejs-pdfviewer
   ref="viewer"
   @textSearchHighlight="onHighlight"
@@ -303,7 +301,7 @@ Triggers when the text search is completed. When search mavigation completed the
 - **name** (`string`)
 
 ### Usage
-```html
+```vue
 <ejs-pdfviewer
   ref="viewer"
   @textSearchComplete="onSearchComplete"
@@ -334,7 +332,7 @@ Expose the following `ejs-pdfviewer` props to control extraction and highlight b
 | **textSearchColorSettings** | Customize search highlight fill/outline colors and opacity. | `TextSearchColorSettings` | `null` |
 
 ### Property Usage
-```html
+```vue
 <ejs-pdfviewer
   ref="viewer"
   :isExtractText="true"
@@ -355,7 +353,7 @@ Configure extraction metadata for custom workflows.
 | **bounds** | Bounding rectangle of extracted text. | `RectangleBoundsModel` |
 | **text** | Actual extracted string. | `string` |
 
-```html
+```vue
 <script setup>
 const textDataSettings = {
   bounds: { x: 96, y: 140, width: 180, height: 42 },

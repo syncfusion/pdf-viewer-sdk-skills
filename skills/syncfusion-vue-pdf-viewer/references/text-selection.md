@@ -270,8 +270,6 @@ Enable `isMaintainSelection` when readers need to compare non-adjacent pages or 
 
 ## TextSelection API Methods
 
-Reference: https://ej2.syncfusion.com/vue/documentation/api/pdfviewer/textselection
-
 ### `copyText()`
 
 Copies whatever text is currently highlighted inside the viewer to the clipboard—the same effect as pressing Ctrl+C/Cmd+C.

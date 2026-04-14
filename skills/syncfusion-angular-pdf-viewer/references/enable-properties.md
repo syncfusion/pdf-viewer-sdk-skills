@@ -119,7 +119,6 @@ The Angular PDFViewer component uses boolean enable properties to control featur
 <ejs-pdfviewer
   id="pdfViewer"
   [documentPath]="'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'"
-  [resourceUrl]="'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'"
   [enableToolbar]="true"
   [enableNavigation]="true"
   [enableTextSearch]="true"
@@ -142,7 +141,6 @@ The Angular PDFViewer component uses boolean enable properties to control featur
 <ejs-pdfviewer
   id="pdfViewer"
   [documentPath]="'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'"
-  [resourceUrl]="'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'"
   [enableToolbar]="true"
   [enableNavigation]="true"
   [enableAnnotation]="true"
@@ -164,7 +162,6 @@ The Angular PDFViewer component uses boolean enable properties to control featur
 <ejs-pdfviewer
   id="pdfViewer"
   [documentPath]="'https://cdn.syncfusion.com/content/pdf/form-filling-document.pdf'"
-  [resourceUrl]="'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'"
   [enableToolbar]="true"
   [enableNavigation]="true"
   [enableFormFields]="true"
@@ -184,7 +181,6 @@ The Angular PDFViewer component uses boolean enable properties to control featur
 <ejs-pdfviewer
   id="pdfViewer"
   [documentPath]="'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'"
-  [resourceUrl]="'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'"
   [enableToolbar]="true"
   [enableNavigation]="true"
   [enablePinchZoom]="true"
@@ -203,7 +199,6 @@ The Angular PDFViewer component uses boolean enable properties to control featur
 <ejs-pdfviewer
   id="pdfViewer"
   [documentPath]="'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'"
-  [resourceUrl]="'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib'"
   [enableToolbar]="true"
   [enableNavigation]="true"
   [enableAnnotation]="true"

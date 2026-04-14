@@ -59,7 +59,6 @@ export class AppComponent {
   public pdfviewerControl: PdfViewerComponent;
 
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
   eventHandler(args: any): void {
     console.log('Event triggered:', args);
@@ -71,7 +70,6 @@ export class AppComponent {
 <ejs-pdfviewer
   #pdfviewer
   [documentPath]="document"
-  [resourceUrl]="resource"
   (annotationAdd)="eventHandler($event)"
   style="height:640px;display:block">
 </ejs-pdfviewer>

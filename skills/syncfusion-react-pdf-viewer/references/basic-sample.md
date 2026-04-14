@@ -129,7 +129,7 @@ The main component for rendering PDF documents with interactive features. Config
 |----------|------|---------|---------|
 | **id** | `string` | Unique identifier for the component instance | `id="container"` |
 | **documentPath** | `string` | Path to the PDF document (CDN URL or local file) | `documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"` |
-| **resourceUrl** | `string` | URL folder with library resources (pdfium.js, pdfium.wasm) | `resourceUrl="https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"` |
+| **resourceUrl** | `string` | URL folder with library resources (pdfium.js, pdfium.wasm) | `resourceUrl="{Provide Valid Resource Url Link}"` |
 
 ### Basic Implementation
 
@@ -137,7 +137,6 @@ The main component for rendering PDF documents with interactive features. Config
 <PdfViewerComponent
   id="container"
   documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-  resourceUrl="https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"
   style={{ 'height': '640px' }}>
 </PdfViewerComponent>
 ```
@@ -165,8 +164,8 @@ The main component for rendering PDF documents with interactive features. Config
 **Why it matters**: The PDF Viewer needs WebAssembly files to function. This URL must point to the directory containing `pdfium.js` and `pdfium.wasm` files.
 
 **Examples**:
-- CDN: `"https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"`
-- Local: `window.location.origin + "/assets/ej2-pdfviewer-lib"`
+- CDN: Provide the Valid CDN link for resource url
+- Local: Provide the Valid local path reference
 
 #### Property: id
 
@@ -265,7 +264,6 @@ Assign local file paths to `documentPath` and `resourceUrl` properties:
 <PdfViewerComponent
   id="container"
   documentPath={window.location.origin + "/assets/pdfsuccinctly.pdf"}
-  resourceUrl={window.location.origin + "/assets/ej2-pdfviewer-lib"}
   style={{ 'height': '640px' }}>
 </PdfViewerComponent>
 ```
@@ -350,7 +348,6 @@ function App() {
         <PdfViewerComponent
           id="container"
           documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"
-          resourceUrl="https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"
           style={{ 'height': '640px' }}>
           <Inject services={[ 
             Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, 

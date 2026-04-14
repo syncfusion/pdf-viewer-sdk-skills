@@ -65,7 +65,6 @@ import { PdfViewerModule, MagnificationService, ToolbarService } from '@syncfusi
   template: `<ejs-pdfviewer 
                 id="pdfViewer"
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 enableMagnification="true"
                 style="height:640px;display:block">
              </ejs-pdfviewer>`,
@@ -74,7 +73,6 @@ import { PdfViewerModule, MagnificationService, ToolbarService } from '@syncfusi
 })
 export class AppComponent implements OnInit {
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
   
   ngOnInit(): void {
   }
@@ -408,7 +406,6 @@ For custom zoom controls beyond the default toolbar:
     <ejs-pdfviewer #pdfviewer
         id="pdfViewer"
         [documentPath]='document'
-        [resourceUrl]='resource'
         style="height:640px;display:block">
     </ejs-pdfviewer>
   `,
@@ -418,7 +415,6 @@ For custom zoom controls beyond the default toolbar:
 export class AppComponent {
   @ViewChild('pdfviewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
   public customZoom = 100;
   
   zoomIn(): void {
@@ -532,7 +528,6 @@ import { ToolbarService, MagnificationService } from '@syncfusion/ej2-angular-pd
   template: `<ejs-pdfviewer 
                 id="pdfViewer"
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 enableMagnification="true"
                 enableToolbar="true"
                 style="height:640px;display:block">
@@ -542,7 +537,6 @@ import { ToolbarService, MagnificationService } from '@syncfusion/ej2-angular-pd
 })
 export class AppComponent {
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
 }
 ```
 
@@ -566,7 +560,6 @@ import { PdfViewerModule, MagnificationService, ToolbarService } from '@syncfusi
                 <ejs-pdfviewer 
                     id="pdfViewer"
                     [documentPath]='document'
-                    [resourceUrl]='resource'
                     enableMagnification="true"
                     style="height:640px;display:block">
                 </ejs-pdfviewer>
@@ -576,7 +569,6 @@ import { PdfViewerModule, MagnificationService, ToolbarService } from '@syncfusi
 })
 export class AppComponent implements OnInit {
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
   
   ngOnInit(): void {
   }
@@ -603,7 +595,6 @@ import { PdfViewerModule, PdfViewerComponent, MagnificationService } from '@sync
     <ejs-pdfviewer #pdfviewer
         id="pdfViewer"
         [documentPath]='document'
-        [resourceUrl]='resource'
         style="height:640px;display:block">
     </ejs-pdfviewer>
   `,
@@ -613,7 +604,6 @@ import { PdfViewerModule, PdfViewerComponent, MagnificationService } from '@sync
 export class AppComponent {
   @ViewChild('pdfviewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
   
   handleZoomIn(): void {
     this.pdfViewer.magnification.zoomIn();
@@ -659,7 +649,6 @@ import { FormsModule } from '@angular/forms';
     <ejs-pdfviewer #pdfviewer
         id="pdfViewer"
         [documentPath]='document'
-        [resourceUrl]='resource'
         style="height:640px;display:block">
     </ejs-pdfviewer>
   `,
@@ -669,7 +658,6 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   @ViewChild('pdfviewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
   public zoomLevel = 100;
   
   onZoomChange(): void {
@@ -689,7 +677,6 @@ import { PdfViewerModule, PdfViewerComponent, MagnificationService } from '@sync
   template: `<ejs-pdfviewer #pdfviewer
                 id="pdfViewer"
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 (documentLoad)="onDocumentLoad()"
                 style="height:640px;display:block">
              </ejs-pdfviewer>`,
@@ -699,7 +686,6 @@ import { PdfViewerModule, PdfViewerComponent, MagnificationService } from '@sync
 export class AppComponent implements OnInit {
   @ViewChild('pdfviewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
   
   ngOnInit(): void {
   }

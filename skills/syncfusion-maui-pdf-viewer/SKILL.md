@@ -14,7 +14,7 @@ A comprehensive skill for implementing and customizing the Syncfusion .NET MAUI 
 
 Use this skill when you need to:
 - View and navigate PDF documents in .NET MAUI applications
-- Load PDFs from file, stream, Trusted URL, or Base64
+- Load PDF documents from application‑provided streams or byte arrays.
 - Unload documents to release memory and resources (synchronous/asynchronous methods)
 - Add and manage annotations (ink, shapes, stamps, text markups, sticky notes)
 - Fill and validate PDF form fields; import/export form data (XFDF, FDF, JSON, XML)
@@ -29,7 +29,7 @@ Use this skill when you need to:
 
 **SfPdfViewer** is a comprehensive PDF viewing and management control for .NET MAUI with these capabilities:
 
-- **Document Management:** Load (file/stream/Trusted URL/Base64/picker) with password support, unload (sync/async) for memory management, save with flattening, print with quality settings
+- **Document Management:** Load with password support, unload (sync/async) for memory management, save with flattening, print with quality settings
 - **Annotations:** Ink, shapes, stamps, sticky notes, text markups, free text, eraser with full editing support
 - **Forms & Text:** All AcroForm types, validation, import/export (XFDF/FDF/JSON/XML), async search, text selection
 - **Signatures & Redaction:** Electronic signatures (handwritten/image/text), text/area/page-based redaction
@@ -45,7 +45,7 @@ Use this skill when you need to:
 
 ### Document Operations
 📄 **Read:** [references/document-operations.md](references/document-operations.md)
-- Loading PDFs (file picker, Trusted URL, Base64, streams) with password support
+- Loading PDFs with password support
 - Unloading documents (UnloadDocument, UnloadDocumentAsync) for proper memory management
 - Saving with modifications and annotation flattening
 - Printing with quality settings and page range selection

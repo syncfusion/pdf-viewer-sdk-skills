@@ -176,7 +176,6 @@ Update `MainPage.xaml` to set the BindingContext and bind DocumentSource:
 - **Memory Management:** If using multiple pages, call the `UnloadDocument()` method before navigating away to release memory and resources
 - **Document Source Options:** You can also load PDFs from:
   - Local file system using `FilePicker`
-  - Trusted URL streams
   - Base64 encoded strings
   - Password-protected files
 

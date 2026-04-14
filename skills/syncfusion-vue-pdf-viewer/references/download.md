@@ -26,8 +26,6 @@ Guide teams to wire up the download feature whenever users must persist the exac
 
 **Need to intercept and customize the file before it leaves the browser?** → Handle the `downloadStart` event and use `saveAsBlob()` for bespoke processing.
 
-Reference: [Syncfusion Vue PDF Viewer - Download](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/vue/download)
-
 ---
 
 ## Toolbar Download

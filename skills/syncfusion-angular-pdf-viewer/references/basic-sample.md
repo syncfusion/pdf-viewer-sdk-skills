@@ -197,7 +197,7 @@ import { PdfViewerModule, LinkAnnotationService, BookmarkViewService,
 })
 export class AppComponent implements OnInit {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
+  public resource: string = "https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2-pdfviewer-lib";
   
   ngOnInit(): void {
   }
@@ -219,23 +219,6 @@ The main component for rendering PDF documents with interactive features. Config
 | **id** | `string` | Unique identifier for the component instance | `id="pdfViewer"` |
 | **documentPath** | `string` | Path to the PDF document (CDN URL or local file) | `[documentPath]='document'` where `document` is a component property |
 | **resourceUrl** | `string` | URL folder with library resources (pdfium.js, pdfium.wasm) | `[resourceUrl]='resource'` where `resource` is a component property |
-
-### Basic Implementation
-
-```html
-<ejs-pdfviewer id="pdfViewer"
-    [documentPath]='document'
-    [resourceUrl]='resource'
-    style="height:640px;display:block">
-</ejs-pdfviewer>
-```
-
-```typescript
-export class AppComponent {
-  public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
-}
-```
 
 ### Property Details
 
@@ -260,7 +243,7 @@ export class AppComponent {
 **Why it matters**: The PDF Viewer needs WebAssembly files to function. This URL must point to the directory containing `pdfium.js` and `pdfium.wasm` files.
 
 **Examples**:
-- CDN: `"https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib"`
+- CDN: Provide the Valid CDN link of the resource url
 - Local: `window.location.origin + "/assets/ej2-pdfviewer-lib"`
 
 #### Property: id
@@ -334,7 +317,6 @@ import { PdfViewerModule, LinkAnnotationService, BookmarkViewService,
   template: `<div class="content-wrapper">
                 <ejs-pdfviewer id="pdfViewer"
                     [documentPath]='document'
-                    [resourceUrl]='resource'
                     style="height:640px;display:block">
                 </ejs-pdfviewer>
              </div>`,
@@ -346,7 +328,6 @@ import { PdfViewerModule, LinkAnnotationService, BookmarkViewService,
 })
 export class AppComponent implements OnInit {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
   
   ngOnInit(): void {
   }
@@ -465,7 +446,7 @@ import { PdfViewerModule, LinkAnnotationService, BookmarkViewService,
 })
 export class AppComponent implements OnInit {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = "https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib";
+  public resource: string = "https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2-pdfviewer-lib";
   
   ngOnInit(): void {
   }

@@ -77,7 +77,7 @@ Reference the Syncfusion theme in `~/Views/Shared/_Layout.cshtml` inside the `<h
     <title>@ViewBag.Title - PDF Viewer</title>
     
     <!-- Syncfusion ASP.NET MVC controls styles -->
-    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/33.1.44/fluent.css" />
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/31.1.23/fluent.css" />
 </head>
 ```
 
@@ -90,7 +90,7 @@ Add the Syncfusion JavaScript library in `_Layout.cshtml` inside the `<head>` ta
     <!-- ... theme CSS ... -->
     
     <!-- Syncfusion ASP.NET MVC controls scripts -->
-    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+    <script src="https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2.min.js"></script>
 </head>
 ```
 
@@ -302,9 +302,9 @@ Full example combining all setup steps:
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/site.css" />
     <!-- Syncfusion ASP.NET MVC controls styles -->
-    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/33.1.44/fluent.css" />
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/31.1.23/fluent.css" />
     <!-- Syncfusion ASP.NET MVC controls scripts -->
-    <script src="https://cdn.syncfusion.com/ej2/33.1.44/dist/ej2.min.js"></script>
+    <script src="https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-inverse">

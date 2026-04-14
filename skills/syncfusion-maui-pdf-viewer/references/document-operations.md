@@ -11,7 +11,7 @@ This guide demonstrates how to open, save, and print PDF documents programmatica
 ## Open Document
 
 ```csharp
-// Load PDF (inputs: File Picker → Stream, Trusted URL → Stream, Base64 → byte[], Stream, byte[])
+// Load PDF (inputs : Stream, byte[])
 pdfViewer.DocumentSource = stream;
  
 pdfViewer.LoadDocument(stream);

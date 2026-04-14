@@ -88,7 +88,7 @@ Add the following imports to the `<style>` section of `src/App.vue`. This block 
 @import '../node_modules/@syncfusion/ej2-pdfviewer/styles/material.css';
 ```
 
-> The PDF Viewer supports multiple themes (Material, Bootstrap, Fabric, Tailwind, etc.). Refer to [Supported themes](https://help.syncfusion.com/document-processing/pdf/pdf-viewer/appearance/theme) for details.
+> The PDF Viewer supports multiple themes (Material, Bootstrap, Fabric, Tailwind, etc.).
 
 ---
 

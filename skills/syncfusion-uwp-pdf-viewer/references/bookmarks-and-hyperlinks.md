@@ -82,9 +82,9 @@ pdfViewer.AllowHyperlinkNavigation = false;
                                AllowHyperlinkNavigation="False"/>
 ```
 
-### Handle Hyperlink Click (HyperlinkPointerPressed)
+### Handle Hyperlink Click (HyperlinkPointerPressed) - Validate Trusted Links
 
-Inspect or intercept the clicked hyperlink:
+Inspect and validate clicked hyperlinks to determine if they are trusted before allowing navigation:
 
 ```csharp
 pdfViewerControl.HyperlinkPointerPressed += pdfViewerControl_HyperlinkPointerPressed;
@@ -92,14 +92,25 @@ pdfViewerControl.HyperlinkPointerPressed += pdfViewerControl_HyperlinkPointerPre
 public void pdfViewerControl_HyperlinkPointerPressed(object sender,
     HyperlinkEventArgs args)
 {
-    // Prevent default navigation
-    args.Handled = true;
+    // Customer responsibility: Validate if URI is from trusted source
+    if (!IsTrustedLink(args.URI))
+    {
+        args.Handled = true;
+        return;
+    }
 
     string uri              = args.URI;
     int    pageIndex        = args.PageIndex;
     int    destinationPage  = args.DestinationPageIndex;
     RectangleF bounds       = args.Bounds;
     HyperlinkType linkType  = args.HyperlinkType; // WebLink or DocumentLink
+}
+
+private bool IsTrustedLink(string uri)
+{
+    // Customer implements validation logic here
+    // Example: check against whitelist of approved domains
+    return true;
 }
 ```
 

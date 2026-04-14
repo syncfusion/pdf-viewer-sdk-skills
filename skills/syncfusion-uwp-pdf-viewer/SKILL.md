@@ -79,7 +79,7 @@ Use this skill when you need to:
 ### Bookmarks & Hyperlinks
 📄 **Read:** [references/bookmarks-and-hyperlinks.md](references/bookmarks-and-hyperlinks.md)
 - Explains navigating to bookmarks via GoToBookmark and retrieving the bookmark collection from PdfLoadedDocument
-- Covers AllowHyperlinkNavigation, hyperlink pointer events, HyperlinkEventArgs properties, and restricting navigation
+- **Hyperlinks Validation:** Provides code examples for customers to inspect and validate hyperlinks (HyperlinkPointerPressed events) to determine if they are from trusted sources before allowing navigation
 
 ### Localization
 📄 **Read:** [references/localization.md](references/localization.md)

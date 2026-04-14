@@ -151,7 +151,6 @@ import { PdfViewerComponent, AnnotationService } from '@syncfusion/ej2-angular-p
     <ejs-pdfviewer 
       #pdfviewer
       [documentPath]="document"
-      [resourceUrl]="resource"
       style="height:640px;display:block">
     </ejs-pdfviewer>
   `,
@@ -161,7 +160,6 @@ export class AppComponent {
   @ViewChild('pdfviewer') pdfViewer!: PdfViewerComponent;
   
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/26.2.11/dist/ej2-pdfviewer-lib';
 
   addInkSignature(): void {
     // Define signature as points

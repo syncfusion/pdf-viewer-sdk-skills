@@ -226,7 +226,6 @@ Triggers when the text search is initiated.
 `textSearchStart`
 
 ### Event Arguments
-[TextSearchStartEventArgs](https://ej2.syncfusion.com/vue/documentation/api/pdfviewer/textSearchStartEventArgs/)
 - **searchText** (`string`)
 - **matchCase** (`boolean`)
 - **isMatchWholeWord** (`boolean`)
@@ -261,7 +260,6 @@ const onSearchStart = (args) => {
 `textSearchHighlight`
 
 ### Event Arguments
-[TextSearchHighlightEventArgs](https://ej2.syncfusion.com/vue/documentation/api/pdfviewer/textSearchHighlightEventArgs/)
 - **bounds** (`RectangleBoundsModel | RectangleBoundsModel[]`)
 - **pageNumber** (`number`)
 - **searchText** (`string`)
@@ -293,7 +291,6 @@ Triggers when the text search is completed. When search mavigation completed the
 `textSearchComplete`
 
 ### Event Arguments
-[TextSearchCompleteEventArgs](https://ej2.syncfusion.com/vue/documentation/api/pdfviewer/textSearchCompleteEventArgs/)
 - **totalMatches** (`number`)
 - **isMatchFound** (`boolean`)
 - **searchText** (`string`)

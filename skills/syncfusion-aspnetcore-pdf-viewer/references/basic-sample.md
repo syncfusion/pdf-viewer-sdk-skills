@@ -99,7 +99,7 @@ Add the Syncfusion JavaScript library in `_Layout.cshtml` inside the `<head>` ta
     <!-- ... theme CSS ... -->
     
     <!-- Syncfusion JavaScript Library -->
-    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+    <script src="https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2.min.js"></script>
 </head>
 ```
 
@@ -412,8 +412,8 @@ Full example combining all setup steps:
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/sample.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/33.1.44/tailwind3.css" />
-    <script src="https://cdn.syncfusion.com/ej2/33.1.44/dist/ej2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/31.1.23/tailwind3.css" />
+    <script src="https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2.min.js"></script>
 </head>
 <body>
     <div class="container">

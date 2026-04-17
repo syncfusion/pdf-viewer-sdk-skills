@@ -2,6 +2,36 @@
 
 The Text Selection module enables users to highlight and copy text from loaded PDF documents. Text selection is enabled by default and can be configured or monitored programmatically to coordinate with application workflows.
 
+## Text Selection Properties
+
+The following property is available to control text selection behavior:
+
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **isMaintainSelection** | Maintain text selection when page changes. | `boolean` | `false` |
+
+### Usage Example
+
+```html
+<ejs-pdfviewer
+  enableTextSelection="true"
+  isMaintainSelection="true"
+>
+</ejs-pdfviewer>
+```
+
+**When to enable `isMaintainSelection`:**
+- Users need to maintain text selection across page navigation
+- Building features that require persistent selection state
+- Implementing multi-page text operations
+
+**When to keep disabled (default):**
+- Standard text selection behavior is sufficient
+- Selection should clear when navigating to different pages
+- Reducing visual clutter during navigation
+
+---
+
 ## Enable or Disable Text Selection
 
 Control whether users can select text in the PDF Viewer using the `enableTextSelection` property.

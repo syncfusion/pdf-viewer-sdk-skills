@@ -3,11 +3,53 @@
 Brief: The TextSelection module enables users to highlight and copy text from a loaded PDF document. Selection is enabled by default and can be configured or monitored programmatically to match application workflows. Use text selection to support copy operations, contextual actions, and accessibility scenarios in Angular PDF Viewer applications.
 
 ## Table of Contents
+- [Text Selection Properties](#text-selection-properties)
 - [Enable or Disable Text Selection](#enable-or-disable-text-selection)
 - [Text Selection Events](#text-selection-events)
 - [TextSelectionStart Event](#textselectionstart-event)
 - [TextSelectionEnd Event](#textselectionend-event)
 - [Key Implementation Details](#key-implementation-details)
+
+## Text Selection Properties
+
+The following property is available to control text selection behavior:
+
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **isMaintainSelection** | Maintain text selection when page changes. | `boolean` | `false` |
+
+### Usage Example
+
+```ts
+import { Component } from '@angular/core';
+import { TextSelectionService } from '@syncfusion/ej2-angular-pdfviewer';
+
+@Component({
+  selector: 'app-container',
+  template: `    
+    <ejs-pdfviewer #pdfViewer id="pdfViewer"
+      [documentPath]="document"
+      [isMaintainSelection]="true"
+      [enableTextSelection]="true"
+      style="height:640px;display:block">
+    </ejs-pdfviewer>
+  `,
+  providers: [TextSelectionService]
+})
+export class AppComponent {
+  public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
+}
+```
+
+**When to enable `isMaintainSelection`:**
+- Users need to maintain text selection across page navigation
+- Building features that require persistent selection state
+- Implementing multi-page text operations
+
+**When to keep disabled (default):**
+- Standard text selection behavior is sufficient
+- Selection should clear when navigating to different pages
+- Reducing visual clutter during navigation
 
 ## Enable or Disable Text Selection
 
@@ -34,7 +76,6 @@ import { LinkAnnotationService, BookmarkViewService, MagnificationService,
                <ejs-pdfviewer id="pdfViewer"
                         [enableTextSelection]='true'
                         [documentPath]="document"
-                        [resourceUrl]="resource"
                         style="height:640px;display:block">
                </ejs-pdfviewer>
             </div>`,
@@ -45,7 +86,6 @@ import { LinkAnnotationService, BookmarkViewService, MagnificationService,
 })
 export class AppComponent {
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -91,7 +131,6 @@ import { TextSelectionService } from '@syncfusion/ej2-angular-pdfviewer';
   template: `<div class="content-wrapper">
                <ejs-pdfviewer id="pdfViewer"
                         [documentPath]="document"
-                        [resourceUrl]="resource"
                         (textSelectionStart)="textSelectionStart($event)"
                         style="height:640px;display:block">
                </ejs-pdfviewer>
@@ -100,7 +139,6 @@ import { TextSelectionService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
   public textSelectionStart(args: any): void {
     console.log('Selection started on page:', args.pageNumber);
@@ -148,7 +186,6 @@ import { LinkAnnotationService, BookmarkViewService, MagnificationService,
   template: `<div class="content-wrapper">
                <ejs-pdfviewer id="pdfViewer"
                         [documentPath]="document"
-                        [resourceUrl]="resource"
                         (textSelectionEnd)="textSelectionEnd($event)"
                         style="height:640px;display:block">
                </ejs-pdfviewer>
@@ -161,7 +198,6 @@ import { LinkAnnotationService, BookmarkViewService, MagnificationService,
 })
 export class AppComponent {
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
   public textSelectionEnd(args: any): void {
     const selectedText = args.selectedText;

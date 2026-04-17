@@ -27,6 +27,20 @@ Enable magnification to provide users with flexible viewing experiences tailored
 
 ---
 
+## Magnification Component Properties
+
+These properties are available directly on the PDF Viewer instance to control zoom and magnification functionality:
+
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **maxZoom** | Set the maximum zoom percentage allowed. | `number` | `400` |
+| **minZoom** | Set the minimum zoom percentage allowed. | `number` | `50` |
+| **restrictZoomRequest** | Restrict zoom to specific values. | `boolean` | `false` |
+| **zoomMode** | Set the zoom mode (fitToPage, fitToWidth, etc.). | [`ZoomMode`](#zoom-modes) | `FitToPage` |
+| **zoomValue** | Get or set the current zoom value. | `number` | `100` |
+
+---
+
 ## Zoom Controls in Toolbar
 
 The PDF Viewer includes magnification tools on the default toolbar that make it easy for users to adjust the zoom level without writing code. These toolbar controls provide the most common zoom operations.
@@ -52,7 +66,6 @@ The PDF Viewer supports different zoom modes that determine how the document sca
 | **FitToPage** | Entire page fits in viewport | Overview of full page content |
 | **FitToWidth** | Page width matches viewport width | Reading long documents |
 | **Default** | Content automatically scales on resize | Responsive viewing experiences |
-| **Percentage-based** | Fixed zoom percentage (10-400%) | Detailed examination or overview |
 
 ### Set Initial Zoom Mode
 
@@ -87,6 +100,34 @@ The PDF Viewer supports zoom levels ranging from 10% to 400%, allowing users to 
 - **Default Zoom**: Typically 100% (actual size) or fit-to-page
 
 **Note:** The PDF Viewer validates zoom operations to ensure they remain within this 10-400% range.
+
+### maxZoom
+
+**Type**: `number`
+
+**Description**: Sets the maximum zoom percentage allowed in the viewer.
+
+**Default Value**: `400`
+
+**Range**: 10 to 400
+
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").MaxZoom(400).Render()
+```
+
+### minZoom
+
+**Type**: `number`
+
+**Description**: Sets the minimum zoom percentage allowed in the viewer.
+
+**Default Value**: `50`
+
+**Range**: 10 to 400
+
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").MinZoom(400).Render()
+```
 
 ### Set Initial Zoom Level
 

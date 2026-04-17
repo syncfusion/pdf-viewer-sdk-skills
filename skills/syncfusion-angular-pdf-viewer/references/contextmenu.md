@@ -356,7 +356,6 @@ import { PdfViewerComponent, LinkAnnotationService, BookmarkViewService,
     #pdfviewer
     id="pdfViewer"
     [documentPath]='document'
-    [resourceUrl]='resource'
     (documentLoad)="documentLoad($event)"
     (customContextMenuSelect)="customContextMenuSelect($event)"
     (customContextMenuBeforeOpen)="customContextMenuBeforeOpen($event)"
@@ -370,7 +369,6 @@ import { PdfViewerComponent, LinkAnnotationService, BookmarkViewService,
 export class AppComponent implements OnInit {
     @ViewChild('pdfviewer', { static: false }) pdfviewer: PdfViewerComponent;
     public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-    public resource = 'https://cdn.syncfusion.com/ej2/25.1.35/dist/ej2-pdfviewer-lib';
 
     menuItems = [
         { text: 'Search In Google', id: 'search_in_google', iconCss: 'e-icons e-search' },

@@ -164,12 +164,13 @@ All templates and operation snippets live in `references/*.md`. Each file is a f
 |---|---|
 | [references/basic-sample.md](references/basic-sample.md) | Minimal PDF Viewer with documentPath, height, and width. Base template for all samples. |
 | [references/enable-properties.md](references/enable-properties.md) | Enable/disable specific features (toolbar, annotations, forms, navigation, text selection, download, print). |
+| [references/general-properties.md](references/general-properties.md) | Configure core viewer properties and behavior (documentPath, width/height, locale, zoom/initialRenderPages), server/integration settings (serviceUrl, ajaxRequestSettings, serverActionSettings), resource loading (resourceUrl, customFonts), and performance/retry options. |
 
 ### Context Menu
 
 | File | Purpose |
 |---|---|
-| [references/contextmenu.md](references/contextmenu.md) | Information on context menu in PDF Viewer. Programmatically add custom context menu options and handle click events on custom items. Disable context menu during initialization |
+| [references/contextmenu.md](references/contextmenu.md) | Context-aware context menu for text, annotations, and form fields; add custom items via `addCustomMenu`, handle clicks with `customContextMenuSelect`, dynamically show/hide items with `customContextMenuBeforeOpen`, and disable the menu using `contextMenuOption`. Configure default context menu using context menu settings. |
 
 ### Navigation Features
  
@@ -204,10 +205,12 @@ All templates and operation snippets live in `references/*.md`. Each file is a f
 | [references/measurement-annotations.md](references/measurement-annotations.md) | Information on measurement annotations (Distance, Perimeter, Area, Radius, Volume). Programmatically adding measurement annotations and manipulating default settings for each measurement annotations |
 | [references/stamp-annotation.md](references/stamp-annotation.md) | Information on stamp annotations and different types of stamps available. Programmatically adding stamp annotations |
 | [references/free-text-annotations.md](references/free-text-annotations.md) | Information on free text annotation. Programmatically adding free text annotations |
-| [references/annotation-settings.md](references/annotation-settings.md) | Configure annotation appearance (colors, opacity, styles) and behavior for all annotation types. |
+| [references/annotation-settings.md](references/annotation-settings.md) | Configure appearance (colors, opacity, borders, styles) and behavior (restrictions, locking, printing) for all annotation types. Apply settings globally or per annotation type. Customize annotation selector (resizer, selection border). Set author, subject, and custom data. Control annotation-related component properties (toolbar visibility, signature settings, export options, drawing constraints). |
 | [references/annotation-events.md](references/annotation-events.md) | Handle annotation lifecycle events (add, delete, move, resize, select, property change). |
 | [references/annotation-operations.md](references/annotation-operations.md) | Programmatically manipulate annotations like selection, moving and resizing, deleting, locking and importing and exporting annotations |
 | [references/annotation-use-cases.md](references/annotation-use-cases.md) | Common scenarios on how annotations can be programmatically manipulated |
+| [references/shape-label-settings.md](references/shape-label-settings.md) | Configure shape and measure annotation label appearance (fill color, font, font size, opacity) and default content (label text, notes). |
+| [references/redaction-annotation.md](references/redaction-annotation.md) | Hide and permanently remove sensitive information in PDFs. Mark content by area or full page, configure overlay text and styling, apply redactions irreversibly, search text and auto-redact, and manage redaction annotations programmatically. |
 
 ### Forms Management
   
@@ -227,8 +230,8 @@ All templates and operation snippets live in `references/*.md`. Each file is a f
  
 | File | Purpose |
 |---|---|
-| [references/text-search.md](references/text-search.md) | Implement text search in PDFs: search functionality, search options (case-sensitive/whole word), highlight search results, find next/previous occurrences, programmatic text search methods, search completion events, and custom highlight colors. |
-| [references/text-selection.md](references/text-selection.md) | Enable text selection and text extraction: selection modes/behavior, copy selected text, text selection events, programmatic selection, extract text from pages, text extraction options/settings, and text collections/bounds. |
+| [references/text-search.md](references/text-search.md) | Implement text search in PDFs: search functionality, search options (case-sensitive/whole word), highlight search results, find next/previous occurrences, programmatic text search methods, search completion events, and custom highlight colors. Configure text extraction options/settings and programmatically extract text from pages. |
+| [references/text-selection.md](references/text-selection.md) | Enable text selection and text extraction: selection modes/behavior, copy selected text, text selection events, programmatic selection and text collections/bounds. |
 
 ### Document Operations
  

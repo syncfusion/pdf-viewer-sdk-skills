@@ -60,7 +60,6 @@ import { ThumbnailViewService } from '@syncfusion/ej2-angular-pdfviewer';
   selector: 'app-root',
   template: `<ejs-pdfviewer #pdfViewer
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 [enableThumbnail]='true'
                 style="height:640px;display:block">
              </ejs-pdfviewer>`,
@@ -68,7 +67,6 @@ import { ThumbnailViewService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -101,7 +99,6 @@ import { ThumbnailViewService } from '@syncfusion/ej2-angular-pdfviewer';
   selector: 'app-root',
   template: `<ejs-pdfviewer #pdfViewer
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 [enableThumbnail]='true'
                 style="height:640px;display:block">
              </ejs-pdfviewer>`,
@@ -109,7 +106,6 @@ import { ThumbnailViewService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -183,13 +179,11 @@ The following property is available on the PdfViewerComponent to control thumbna
                 [enableThumbnail]='true'
                 [isThumbnailViewOpen]='true'
                 [documentPath]='document'
-                [resourceUrl]='resource'>
              </ejs-pdfviewer>`,
   providers: [ThumbnailViewService]
 })
 export class AppComponent {
   public document: string = 'document.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -208,7 +202,6 @@ import { PdfViewerComponent, ThumbnailViewService } from '@syncfusion/ej2-angula
   template: `<ejs-pdfviewer #pdfViewer
                 [enableThumbnail]='true'
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 (documentLoad)='onDocumentLoad()'>
              </ejs-pdfviewer>`,
   providers: [ThumbnailViewService]
@@ -216,7 +209,6 @@ import { PdfViewerComponent, ThumbnailViewService } from '@syncfusion/ej2-angula
 export class AppComponent {
   @ViewChild('pdfViewer') public pdfViewer: PdfViewerComponent;
   public document: string = 'document.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
 
   onDocumentLoad(): void {
     if (this.pdfViewer.pageCount > 20) {

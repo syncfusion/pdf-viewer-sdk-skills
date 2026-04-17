@@ -274,7 +274,6 @@ import { PdfViewerComponent, LinkAnnotationService, BookmarkViewService,
       </div>
       <ejs-pdfviewer #pdfViewer id="pdfViewer"
         [documentPath]="document"
-        [resourceUrl]="resource"
         style="height:640px;display:block">
       </ejs-pdfviewer>
     </div>`,
@@ -286,7 +285,6 @@ import { PdfViewerComponent, LinkAnnotationService, BookmarkViewService,
 export class AppComponent {
   @ViewChild('pdfViewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
 
   public goToFirstPage(): void {
     this.pdfViewer.navigation.goToFirstPage();

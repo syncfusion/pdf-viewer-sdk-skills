@@ -43,7 +43,6 @@ import { AnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
     <ejs-pdfviewer 
       id="pdfViewer"
       [documentPath]="document"
-      [resourceUrl]="resource"
       [highlightSettings]="highlightSettings"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -52,7 +51,6 @@ import { AnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent implements OnInit {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/25.1.35/dist/ej2-pdfviewer-lib';
   
   public highlightSettings = {
     color: 'green',
@@ -81,7 +79,6 @@ import { AnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
     <ejs-pdfviewer 
       id="pdfViewer"
       [documentPath]="document"
-      [resourceUrl]="resource"
       [annotationSettings]="annotationSettings"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -90,7 +87,6 @@ import { AnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent implements OnInit {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/25.1.35/dist/ej2-pdfviewer-lib';
   
   public annotationSettings = {
     author: 'PDF Reviewer',
@@ -147,7 +143,8 @@ The Angular PdfViewer supports the following annotation types with corresponding
 | Radius | `radiusSettings` | Measurement annotation for radius/diameter |
 | Volume | `volumeSettings` | Measurement annotation for 3D volume calculation |
 | FreeText | `freeTextSettings` | Text box annotation with formatting options |
-| Stamp | `stampSettings` | Predefined or custom stamp images |
+| Stamp | `stampSettings` | Predefined stamp images |
+| CustomStamp | `customStampSettings` | custom stamp images |
 | StickyNotes | `stickyNotesSettings` | Comment notes attached to document location |
 | Ink | `inkAnnotationSettings` | Freehand drawing annotation |
 | HandWrittenSignature | `handWrittenSignatureSettings` | Digital handwritten signature annotation |
@@ -173,6 +170,16 @@ Properties available directly on the `<ejs-pdfviewer>` component:
 | `annotationSettings` | Global settings for all annotations | AnnotationSettings | `null` |
 | `annotationCollection` | Read-only collection of document annotations | AnnotationCollection[] | `null` |
 | `dateTimeFormat` | Date format for dynamic stamps | string | `"MM/dd/yyyy"` |
+| `annotation` | Get the annotation object of the PDF Viewer. | `Annotation` | `null` |
+| `annotationDrawingOptions` | Configure annotation drawing options. | [`AnnotationDrawingOptions`](#annotationdrawingoptions-properties) | `null` |
+| `exportAnnotationFileName` | Set the filename when exporting annotations. | `string` | `"annotations"` |
+| `handWrittenSignatureSettings` | Configure handwritten signature settings. | `HandWrittenSignatureSettings` | `null` |
+| `isSignatureEditable` | Allow or prevent editing of signatures after creation. | `boolean` | `true` |
+| `isValidFreeText` | Validate free text before rendering. | `boolean` | `true` |
+| `showDigitalSignatureAppearance` | Show or hide digital signature appearance dialog. | `boolean` | `true` |
+| `signatureCollection` | Get the collection of digital signatures in the PDF. | `SignatureCollection` | `null` |
+| `signatureDialogSettings` | Configure signature dialog settings. | [`SignatureDialogSettings`](#signaturedialogsettings-properties) | `null` |
+| `signatureFitMode` | Set how signatures fit in the signature field. | [`SignatureFitMode`](#signaturefitmode) | `Default` |
 
 ### Core Annotation Settings
 
@@ -197,6 +204,7 @@ Settings properties available for annotation configuration:
 | `volumeSettings` | Settings for volume measurement | Component-level |
 | `freeTextSettings` | Settings for free text annotations | Component-level |
 | `stampSettings` | Settings for stamp annotations | Component-level |
+| `customStampSettings` | Settings for custom stamp annotations | Component-level |
 | `stickyNotesSettings` | Settings for sticky notes | Component-level |
 | `inkAnnotationSettings` | Settings for ink annotations | Component-level |
 | `handWrittenSignatureSettings` | Settings for signature annotations | Component-level |
@@ -220,7 +228,6 @@ import { AnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
     <ejs-pdfviewer 
       id="pdfViewer"
       [documentPath]="document"
-      [resourceUrl]="resource"
       [annotationSettings]="annotationSettings"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -229,7 +236,6 @@ import { AnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent implements OnInit {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/25.1.35/dist/ej2-pdfviewer-lib';
   
   public annotationSettings = {
     author: 'Acme Corporation',
@@ -459,6 +465,28 @@ Specific to handWrittenSignatureSettings (limited documentation):
 | `width` | Signature width (set during addAnnotation) | number | Not in settings |
 | `height` | Signature height (set during addAnnotation) | number | Not in settings |
 
+### CustomStampSettings Properties
+
+| **Name** | **Description** | **Type** |
+|-----|-----|-----|
+| `customStampImageSource` | Defines the custom stamp images source to be added in stamp menu of the PDF Viewer toolbar. | string |
+| `customStampName` | Defines the custom stamp name to be added in stamp menu of the PDF Viewer toolbar. | string |
+
+### AnnotationDrawingOptions Properties
+
+| **Name** | **Description** | **Type** |
+|-----|-----|-----|
+| **enableLineAngleConstraints** | Enables angular constraints for line-type annotations.
+When set to `true`, lines and arrows are restricted to fixed angles defined by the `restrictLineAngleTo` property. | boolean |
+| **restrictLineAngleTo** | Specifies the angle (in degrees) to which line-type annotations are constrained. | number |
+
+### SignatureDialogSettings Properties
+
+| **Name** | **Description** | **Type** |
+|-----|-----|-----|
+| **displayMode** | Get or set the required signature options will be enabled in the signature dialog. | [`DisplayMode`](#displaymode) |
+| **hideSaveSignature** | Get or set a boolean value to show or hide the save signature check box option in the signature dialog. | boolean |
+
 ### Enumeration Types
 
 **CalibrationUnit**:
@@ -521,3 +549,12 @@ Specific to handWrittenSignatureSettings (limited documentation):
 - `NotForPublicRelease`
 - `PreliminaryResults`
 - `Void`
+
+#### SignatureFitMode:
+- `Default`
+- `Stretch`
+
+#### DisplayMode:
+`Draw` - Display only the draw option in the signature dialog.
+`Text` - Display only the text option in the signature dialog.
+`Upload` - Display only the upload option in the signature dialog.

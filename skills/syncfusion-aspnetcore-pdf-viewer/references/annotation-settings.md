@@ -2,9 +2,9 @@
 
 It provides functionality to manage and initialize annotation settings for a PDF viewer, such as author details, custom data, interaction settings, and restrictions on download or printing. It ensures that the settings are initialized and updated whenever parameters are set.
 
-### How to Use the Settings in PDF Viewer (Need to use any one of the below implementations)
+## How to Use the Settings in PDF Viewer (Need to use any one of the below implementations)
 
-#### Usage
+### Usage
 
 ```html
 @{
@@ -23,7 +23,7 @@ It provides functionality to manage and initialize annotation settings for a PDF
 
 **Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
 
-### List of Annotations
+## List of Annotations
 
 | **Name** | **Description** |
 |-----|-----|
@@ -73,11 +73,32 @@ It provides functionality to manage and initialize annotation settings for a PDF
 | underlineSettings | Settings applicable for underline annotations |
 | volumeSettings | Settings applicable for volume annotations |
 
-### AnnotationSelectorSettings
+## Settings Properties Reference
 
-Defines the annotation selector settings for all types of annotations.
+### Annotation-Related Component Properties
 
-#### Apply for All Annotations
+These properties are available to control annotation-related functionality:
+
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **annotation** | Get the annotation object of the PDF Viewer. | `Annotation` | `null` |
+| **annotationCollection** | Get the annotation collection of the PDF Viewer. | `AnnotationCollection` | `null` |
+| **annotationDrawingOptions** | Configure annotation drawing options. | [`AnnotationDrawingOptions`](#annotationdrawingoptions) | `null` |
+| **dateTimeFormat** | Customize the date and time format for dynamic stamps and annotations. | `string` | `"MM/dd/yyyy"` |
+| **exportAnnotationFileName** | Set the filename when exporting annotations. | `string` | `"annotations"` |
+| **isAnnotationToolbarVisible** | Show or hide the annotation toolbar. | `boolean` | `true` |
+| **isSignatureEditable** | Allow or prevent editing of signatures after creation. | `boolean` | `true` |
+| **isValidFreeText** | Validate free text before rendering. | `boolean` | `true` |
+| **showDigitalSignatureAppearance** | Show or hide digital signature appearance dialog. | `boolean` | `true` |
+| **signatureCollection** | Get the collection of digital signatures in the PDF. | `SignatureCollection` | `null` |
+| **signatureDialogSettings** | Configure signature dialog settings. | [`SignatureDialogSettings`](#signaturedialogsettings) | `null` |
+| **signatureFitMode** | Set how signatures fit in the signature field. | [`SignatureFitMode`](#signaturefitmode) | `Default` |
+
+## AnnotationSelectorSettings
+
+Defines the annotation selector settings for all types of annotations. See [table](#annotationselectorsettings-1) for the properties of annotation selector settings.
+
+### Apply for All Annotations
 
 ```html
 @{
@@ -93,7 +114,7 @@ Defines the annotation selector settings for all types of annotations.
 </ejs-pdfviewer>
 ```
 
-#### Apply for Specific Annotation Type
+### Apply for Specific Annotation Type
 
 ```html
 @{
@@ -114,7 +135,7 @@ Defines the annotation selector settings for all types of annotations.
 
 **Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
 
-### List of Settings Properties
+## List of Settings Properties
 
 | **Property Name** | **Description** | **Data Type** | **Applicable Settings** |
 |-----|-----|-----|-----|
@@ -128,7 +149,7 @@ Defines the annotation selector settings for all types of annotations.
 | **color** | Defines the color for text markup annotations. | string | HighlightSettings, SquigglySettings, StrikethroughSettings, UnderlineSettings |
 | **conversionUnit** | Defines the unit for measuring annotation. By default it is "in". | CalibrationUnit | MeasurementSettings |
 | **customData** | Specifies the user's defined information related to the annotations. By default it is null. | object | AnnotationSettings, All annotation type settings |
-| **customStamps** | Gets or sets a collection of custom stamps for the PDF Viewer. | CustomStampSettings[] | StampSettings |
+| **customStamp** | Gets or sets a collection of custom stamps for the PDF Viewer. | CustomStampSettings[] | StampSettings |
 | **dateTimeFormat** | Customize desired date and time format for dynamic stamps. | string | StampSettings |
 | **defaultText** | Defines the default text for free text annotation. By default it is "Type Here". | string | FreeTextSettings |
 | **depth** | Defines the value for depth. By default it is 96. | number | MeasurementSettings |
@@ -166,7 +187,7 @@ Defines the annotation selector settings for all types of annotations.
 | **thickness** | Defines the thickness of the shape annotations. By default it is 1. It's range varies 1 to 10. | number | AreaSettings, ArrowSettings, CircleSettings, DistanceSettings, HandwrittenSignatureSettings, InkAnnotationSettings, LineSettings, PerimeterSettings, PolygonSettings, RadiusSettings, RectangleSettings, StampSettings, VolumeSettings |
 | **width** | Specifies the width of the annotation. | number | FreeTextSettings, HandwrittenSignatureSettings, InkAnnotationSettings, StampSettings |
 
-#### AnnotationSelectorSettings
+### AnnotationSelectorSettings
 
 | **Property Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -180,7 +201,7 @@ Defines the annotation selector settings for all types of annotations.
 | **selectionBorderThickness** | Defines the selection border thickness for the annotation. By default it is 1. It is used to customize the selection border thickness for the annotation. It's range varies from 1 to 10. | number |
 | **selectorLineDashArray** | Defines the selector line dash array. By default it is empty. | number[] |
 
-#### CursorType
+### CursorType
 
 | **Property Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -202,21 +223,21 @@ Defines the annotation selector settings for all types of annotations.
 | **Text** | The cursor indicates text that may be selected. | enum |
 | **w_resize** | The cursor indicates that an edge of a box is to be moved left (west). | enum |
 
-#### AnnotationResizerLocation
+### AnnotationResizerLocation
 
 | **Property Name** | **Description** | **Data Type** |
 |-----|-----|-----|
 | **Corners** | When resizing annotation, Resizer location is represented by corners. | enum |
 | **Edges** | When resizing annotation, Resizer location is represented by Edges. | enum |
 
-#### AnnotationResizerShape
+### AnnotationResizerShape
 
 | **Property Name** | **Description** | **Data Type** |
 |-----|-----|-----|
 | **Circle** | Represent the Resizer shape by Circle when resizing annotations. | enum |
 | **Square** | Represent the Resizer shape by Square when resizing annotations. | enum |
 
-#### LineHeadStyle
+### LineHeadStyle
 
 | **Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -230,14 +251,14 @@ Defines the annotation selector settings for all types of annotations.
 | **Round** | Represents the line with round head style. | enum |
 | **Square** | Represents the line with square head style. | enum |
 
-#### CustomStampSettings
+### CustomStampSettings
 
 | **Name** | **Description** | **Data Type** |
 |-----|-----|-----|
 | **customStampImageSource** | Defines the custom stamp images source to be added in stamp menu of the PDF Viewer toolbar. | string |
 | **customStampName** | Defines the custom stamp name to be added in stamp menu of the PDF Viewer toolbar. | string |
 
-#### FontStyle
+### FontStyle
 
 | **Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -247,7 +268,7 @@ Defines the annotation selector settings for all types of annotations.
 | **Strikethrough** | Represents the text content style will be strikethrough. | enum |
 | **Underline** | Represents the text content style will be underline. | enum |
 
-#### TextAlignment
+### TextAlignment
 
 | **Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -256,7 +277,7 @@ Defines the annotation selector settings for all types of annotations.
 | **Left** | Represents the text alignment in left. The text content will be shown in left side. | enum |
 | **Right** | Represents the text alignment in Right. The text content will be shown in right side. | enum |
 
-#### CalibrationUnit
+### CalibrationUnit
 
 | **Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -267,7 +288,7 @@ Defines the annotation selector settings for all types of annotations.
 | **p** | Represents the unit of points. | enum |
 | **pt** | Represents the unit of points. | enum |
 
-#### DynamicStampItem
+### DynamicStampItem
 
 | **Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -278,7 +299,7 @@ Defines the annotation selector settings for all types of annotations.
 | **Reviewed** | Represents a stamp indicating the document has been reviewed. | enum |
 | **Revised** | Represents a stamp indicating the document has been revised. | enum |
 
-#### SignStampItem
+### SignStampItem
 
 | **Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -288,7 +309,7 @@ Defines the annotation selector settings for all types of annotations.
 | **SignHere** | Represents a stamp indicating where the sign is needed. | enum |
 | **Witness** | Represents a stamp indicating a witness is required. | enum |
 
-#### StandardBusinessStampItem
+### StandardBusinessStampItem
 
 | **Name** | **Description** | **Data Type** |
 |-----|-----|-----|
@@ -304,3 +325,31 @@ Defines the annotation selector settings for all types of annotations.
 | **NotForPublicRelease** | Represents a stamp indicating the document is not for public release. | enum |
 | **PreliminaryResults** | Represents a stamp indicating the document contains preliminary results. | enum |
 | **Void** | Represents a stamp indicating the document is void. | enum |
+
+### AnnotationDrawingOptions
+
+| **Name** | **Description** | **Data Type** |
+|-----|-----|-----|
+| **enableLineAngleConstraints** | Enables angular constraints for line-type annotations.
+When set to `true`, lines and arrows are restricted to fixed angles defined by the `restrictLineAngleTo` property. | boolean |
+| **restrictLineAngleTo** | Specifies the angle (in degrees) to which line-type annotations are constrained. | number |
+
+### SignatureFitMode
+
+- Default
+- Stretch
+
+### SignatureDialogSettings
+
+| **Name** | **Description** | **Data Type** |
+|-----|-----|-----|
+| **displayMode** | Get or set the required signature options will be enabled in the signature dialog. | [`DisplayMode`](#displaymode) |
+| **hideSaveSignature** | Get or set a boolean value to show or hide the save signature check box option in the signature dialog. | boolean |
+
+### DisplayMode
+
+| **Name** | **Description** | **Data Type** |
+|-----|-----|-----|
+| **Draw** | Display only the draw option in the signature dialog. | enum |
+| **Text** | Display only the text option in the signature dialog. | enum |
+| **Upload** | Display only the upload option in the signature dialog. | enum |

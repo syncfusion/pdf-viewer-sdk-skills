@@ -150,6 +150,23 @@ The PDF Viewer component exposes several properties to control and query magnifi
 </ejs-pdfviewer>
 ```
 
+### restrictZoomRequest
+
+**Type**: `boolean`
+
+**Description**: Restrict zoom to specific values.
+
+**Default Value**: `false`
+
+```typescript
+<ejs-pdfviewer 
+    id="pdfViewer"
+    [documentPath]='document'
+    [resourceUrl]='resource'
+    [restrictZoomRequest]="true">
+</ejs-pdfviewer>
+```
+
 ### zoomMode
 
 **Type**: `ZoomMode` (enum)
@@ -193,6 +210,27 @@ export class AppComponent {
     
     // Get current zoom value
     console.log(this.pdfViewer.zoomValue);
+  }
+}
+```
+
+### zoomPercentage
+
+**Type**: `number`
+
+**Description**: Gets the current zoom percentage value.
+
+```typescript
+@Component({
+  // ... other config
+})
+export class AppComponent {
+  @ViewChild('pdfviewer') public pdfViewer: PdfViewerComponent;
+  
+  getZoom(): void {
+    
+    // Get current zoom value
+    console.log(this.pdfViewer.zoomPercentage);
   }
 }
 ```

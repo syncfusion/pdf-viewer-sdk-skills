@@ -58,108 +58,205 @@ Programmatically print using the `print()` method in the `print` module of PDF V
 
 Customize print behavior to meet specific requirements. The PDF Viewer provides several configuration options for controlling print output.
 
+### printMode
 
+Specifies the print mode in the PDF Viewer
+
+**PrintMode Enum:**
+
+- Default
+- NewWindow
+
+### printScaleFactor
+
+Specifies the document printing quality. The default printing quality is set to 1.0. This limit varies from 0.5 to 5.0.
 
 ---
 
-## Page Manipulation
+## Page Management Actions
 
-Advanced page manipulation enables complex document restructuring scenarios like page extraction, copying, and merging.
+Configure `pageOrganizerSettings` to control which actions users can perform. Enable features based on workflow requirements—document review might need only rotation and rearrangement, while document preparation might require the full suite.
 
-### Extract Pages
+### Rotate Pages
 
-Extract specific pages to create a new document:
+**When to guide here:** User has scanned documents with incorrect orientation, mixed landscape/portrait pages, or pages that need correction before sharing.
 
-```javascript
-var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
+Enable rotation to allow 90°, 180°, 270° clockwise and counter-clockwise adjustments:
 
-// Extract pages to new document
-function extractPagesToNewDocument(pageIndices) {
-    // Send extracted pages to server for processing
-    fetch('/api/pdf/extract', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            documentId: 'doc123',
-            pages: pageIndices,
-            outputFileName: 'ExtractedPages.pdf'
-        })
-    })
-    .then(response => response.blob())
-    .then(blob => {
-        // Download extracted document
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'ExtractedPages.pdf';
-        link.click();
-        window.URL.revokeObjectURL(url);
-    });
-}
-
-// Extract first 5 pages
-function extractFirstPages() {
-    var pages = [];
-    for (let i = 0; i < 5; i++) {
-        pages.push(i);
-    }
-    extractPagesToNewDocument(pages);
-}
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").PageOrganizerSettings(new { CanRotate = false }).Render()
 ```
 
 ---
 
-## Programmatic Operations
+### Rearrange Pages
 
-Execute page operations through APIs for integration with document management workflows.
+**When to guide here:** User needs to reorder document sections, move pages to different positions, or reorganize content flow before finalizing.
 
-### Page Information Retrieval
+Enable drag-and-drop rearrangement:
 
-Get information about pages:
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").PageOrganizerSettings(new { CanRearrange = false }).Render()
+```
+
+---
+
+### Insert Blank Pages
+
+**When to guide here:** User needs to add separator pages, create space for handwritten notes, insert cover pages, or add placeholder pages between sections.
+
+Enable blank page insertion:
+
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").PageOrganizerSettings(new { CanInsert = false }).Render()
+```
+
+---
+
+### Remove Pages
+
+**When to guide here:** User needs to delete confidential pages, remove draft content, eliminate blank pages, or reduce file size before sharing.
+
+Enable page deletion:
+
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").PageOrganizerSettings(new { CanDelete = false }).Render()
+```
+
+---
+
+### Copy Pages
+
+**When to guide here:** User needs to duplicate content for multiple recipients, repeat important pages, or create copies within the same document.
+
+Enable page duplication:
+
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").PageOrganizerSettings(new { CanCopy = false }).Render()
+```
+
+**Note:** If duplicates are not created, verify that the changes are persisted using Save.
+
+---
+
+### Import Pages
+
+**When to guide here:** User needs to merge content from multiple PDFs, insert template pages, combine sections from different documents, or build composite documents.
+
+Enable page import from external PDFs:
+
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").PageOrganizerSettings(new { CanImport = false }).Render()
+```
+
+---
+
+### Zoom Pages
+
+Change the thumbnail zoom level in the Organize Pages UI so you can view more detail or an overview of more pages. Page thumbnails resize interactively to suit your task.
+
+**Properties:**
+- `showImageZoomingSlider`: Show or hide the Zoom Pages button in the Organize Pages toolbar.
+- `imageZoom`: Get or set the current thumbnail zoom level.
+- `imageZoomMin`: Set the minimum zoom level for thumbnails.
+- `imageZoomMax`: Set the maximum zoom level for thumbnails.
+
+```cshtml
+@Html.EJS().PdfViewer("pdfviewer").PageOrganizerSettings(new { ImageZoom = 1, ShowImageZoomingSlider = true, ImageZoomMin = 1, ImageZoomMax = 5 }).Render()
+```
+
+**User workflow:** Open Organize Pages → Drag zoom slider → Thumbnails resize interactively
+
+**Why configure min/max:** Limit zoom range to prevent performance issues (very high zoom) or unusably small thumbnails (very low zoom). Default range (1-5x) balances detail and overview needs.
+
+**API Reference:**
+- `showImageZoomingSlider`: `true` (show slider) | `false` (hide slider)
+- `imageZoom`: Current zoom level (default 1)
+- `imageZoomMin`: Minimum zoom boundary (default 1)
+- `imageZoomMax`: Maximum zoom boundary (default 5)
+
+---
+
+## Extract Pages
+
+**When to guide here:** User needs to create subset documents (chapters, sections), share specific pages without the full document, or split large PDFs into smaller files for distribution.
+
+Enable page extraction to export selected pages as new PDF files:
+
+```html
+@Html.EJS().PdfViewer("pdfviewer").PageOrganizerSettings(new { CanExtractPages = true, ShowExtractPagesOption = true }).Render()
+```
+
+### Methods
+
+**Method: extractPages(pageNumbers)** — Extract pages programmatically. Returns a byte array (Uint8Array) representing the PDF file contents.
 
 ```javascript
-var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
+//  Page numbers are 1-based (the first page is 1). Invalid or out-of-range entries are ignored; only valid pages are processed.
+viewer.pageOrganizer.extractPages('1,3,5');  // Extract pages 1, 3, 5
+viewer.pageOrganizer.extractPages('2-6');    // Extract pages 2 through 6
+viewer.pageOrganizer.extractPages('1,4,7-9'); // Extract pages 1, 4, and 7-9
+```
 
-// Get total page count
-function getTotalPages() {
-    return pdfViewer.pageCount;
-}
+---
 
-// Get current page number
-function getCurrentPage() {
-    return pdfViewer.currentPageNumber;
-}
+## Programmatic Support
 
-// Get page dimensions
-function getPageDimensions(pageIndex) {
-    var totalPages = pdfViewer.pageCount;
-    
-    if (pageIndex < 0 || pageIndex >= totalPages) {
-        console.error('Invalid page index');
-        return null;
-    }
-    
-    // Get page size information
-    return {
-        width: pdfViewer.pageSize[pageIndex]?.width,
-        height: pdfViewer.pageSize[pageIndex]?.height
+The PDF Viewer exposes programmatic APIs for organizing pages so applications can integrate page-management workflows.
+
+### Properties
+
+**Property: enablePageOrganizer** — Enable or disable the page organizer feature. Default: `true`.
+
+**Property: isPageOrganizerOpen** — Control whether the page organizer opens automatically when a document loads. Default: `false`.
+
+**Property: pageOrganizerSettings** — Customize page-management capabilities including:
+- `canDelete`, `canInsert`, `canRotate`, `canCopy`, `canRearrange`, `canImport`: Enable/disable specific actions
+- `imageZoom`, `imageZoomMin`, `imageZoomMax`: Control thumbnail zoom levels
+- `showImageZoomingSlider`: Show/hide zoom slider
+- `canExtractPages`, `showExtractPagesOption`: Control extract pages functionality
+
+### Methods
+
+**Method: openPageOrganizer()** — Programmatically opens the page organizer dialog, providing access to page management tools.
+
+**Method: closePageOrganizer()** — Programmatically closes the page organizer dialog.
+
+### Usage
+
+```html
+<script>
+    const viewer = document.getElementById('pdfviewer').ej2_instances[0];
+    const handleOpenOrganizer = () => {
+      if (viewer) {
+        viewer.pageOrganizer.openPageOrganizer();
+      }
     };
-}
+    
+    const handleCloseOrganizer = () => {
+      if (viewer) {
+        viewer.pageOrganizer.closePageOrganizer();
+      }
+    };
+</script>
 
-// Log all page information
-function logPageInfo() {
-    var totalPages = getTotalPages();
-    var currentPage = getCurrentPage();
-    
-    console.log(`Total Pages: ${totalPages}`);
-    console.log(`Current Page: ${currentPage}`);
-    
-    for (let i = 0; i < totalPages; i++) {
-        var dimensions = getPageDimensions(i);
-        console.log(`Page ${i + 1}: ${dimensions?.width} x ${dimensions?.height}`);
-    }
-}
+<button onclick="handleOpenOrganizer()">Open PageOrganizer Pane</button>
+<button onclick="handleCloseOrganizer()">Close PageOrganizer Pane</button>
+@Html.EJS().PdfViewer("pdfviewer").EnablePageOrganizer(true).IsPageOrganizerOpen(true).Render()
 ```
+
+**Decision point:** Use `isPageOrganizerOpen={true}` for document-prep workflows. Use `isPageOrganizerOpen={false}` (default) for general viewing where users open panel only when needed.
+
+### API Reference
+
+**Properties:**
+- `isPageOrganizerOpen`: `true` (auto-open on load) | `false` (manual open) — Default: `false`
+- `pageOrganizerSettings`: Object configuring available actions (see [Page Management Actions](#page-management-actions))
+
+**Methods:**
+- `viewer.pageOrganizer.openPageOrganizer()`: Opens the panel programmatically
+- `viewer.pageOrganizer.closePageOrganizer()`: Closes the panel programmatically
+- `viewer.pageOrganizer.extractPages(pageNumbers)`: Extracts pages programmatically (see [Extract Pages](#extract-pages))
 
 ---
 

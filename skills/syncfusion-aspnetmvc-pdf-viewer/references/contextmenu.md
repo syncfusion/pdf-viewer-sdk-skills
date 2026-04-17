@@ -16,6 +16,16 @@ The context menu supports:
 
 ---
 
+## Context Menu Component Properties
+
+These properties are available directly on the `PdfViewerComponent` to control context menu-related functionality:
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **contextMenuSettings** | Configure context menu appearance and behavior. | `ContextMenuSettings` | `null` |
+| **disableContextMenuItems** | Disable specific context menu items by specifying their IDs. | [`ContextMenuItem[]`](#contextmenuitem) | `null` |
+
+---
+
 ## Built-in Context Menu Items
 
 The context menu displays different default items based on the element being right-clicked.
@@ -253,6 +263,36 @@ Disables the context menu entirely by setting this property to `None`.
 **Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
 
 ---
+
+## Properties and Enums
+
+### ContextMenuSettings
+
+| **Name** | **Description** | **Data Type** |
+|-----|-----|-----|
+| **contextMenuAction** | Defines the context menu action. | [`ContextMenuAction`](#contextmenuaction) |
+| **contextMenuItems** | Defines the context menu items should be visible in the PDF Viewer. | [`ContextMenuItem`](#contextmenuitem) |
+
+### ContextMenuAction
+
+- None
+- MouseUp
+- RightClick
+
+### ContextMenuItem
+
+- Comment
+- Copy
+- Cut
+- Delete
+- Highlight
+- Paste
+- Properties
+- ScaleRatio
+- Squiggly
+- Strikethrough
+- TextRedact
+- Underline
 
 ## Important Notes
 

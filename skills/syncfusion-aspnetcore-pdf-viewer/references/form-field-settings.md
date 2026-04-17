@@ -2,45 +2,209 @@
 
 The FormField API in ASP.NET Core PDF Viewer is used to store and manage form fields within PDF documents. It provides properties to configure form field appearance, behavior, and state including colors, fonts, alignment, bounds, and validation settings.
 
-### How to Use FormField Settings in PDF Viewer
+## Form Field Component Properties
 
-### FormField Properties
+These properties are available directly on the PDF Viewer instance to control form field-related functionality:
 
-| **Property Name** | **Description** | **Data Type** |
-|-----|-----|-----|
-| **backgroundColor** | Gets or sets the background color of the form field in hexadecimal string format. | string |
-| **borderColor** | Gets or sets the border color of the form field. | string |
-| **color** | Gets or sets the font color of the form field in hexadecimal string format. Applicable to text-based fields. | string |
-| **fontFamily** | Gets or sets the font family of the form field. If unavailable, browser uses default fallback font. | string |
-| **fontSize** | Gets or sets the font size of the form field. Applicable to text-based fields. | number |
-| **fontStyle** | Gets or sets the font style of the form field (Bold, Italic, Underline, Strikethrough, None). | FontStyle |
-| **thickness** | Gets or sets the border thickness of the form field in pixels. Default: 1 pixel. Set to 0 to hide border. | number |
-| **alignment** | Gets or sets the text alignment of the form field (Left, Center, Right, Justify). | TextAlignment |
-| **type** | Gets the type of the form field (TextBox, CheckBox, RadioButton, Dropdown, ListBox, Button, SignatureField). | FormFieldType |
-| **id** | Gets the unique identifier of the form field assigned by the PDF viewer. | string |
-| **name** | Gets the name of the form field as defined in the PDF document. | string |
-| **value** | Gets or sets the value of the form field. | string |
-| **maxLength** | Gets or sets the maximum character length for text fields. | number |
-| **isReadOnly** | Gets or sets whether the form field can be edited. Default: false. | boolean |
-| **isRequired** | Gets or sets whether the form field must be filled. | boolean |
-| **isMultiline** | Gets or sets whether the text field allows multiline input. Default: false. | boolean |
-| **isTransparent** | Gets the transparency state of the form field. Default: false. | boolean |
-| **isChecked** | Specifies whether the checkbox is checked. Applicable to CheckBox fields. | boolean |
-| **isSelected** | Specifies whether the radio button is selected. Applicable to RadioButton fields. | boolean |
-| **isPrint** | Gets or sets whether the form field is included when printing. Default: true. | boolean |
-| **bounds** | Gets or sets the form field bounds (position and size within the PDF page). | IFormFieldBound |
-| **pageNumber** | Gets the page number of the form field. Default: 1. | number |
-| **pageIndex** | Gets the zero-based index of the page containing the form field. Default: -1. | number |
-| **options** | Gets or sets the form field items for Dropdown or Listbox fields. | ItemModel[] |
-| **selectedIndex** | Gets the selected index/indices of the form field. For multi-select, returns array. | number[] |
-| **tooltip** | Gets or sets the tooltip text displayed on hover. Default: empty. | string |
-| **visibility** | Gets or sets the visibility state (Visible, Hidden, Print). | Visibility |
-| **rotateAngle** | Gets the rotation angle of the form field in degrees. Default: 0. | number |
-| **zIndex** | Gets the z-index controlling stacking order when fields overlap. Default: 0. | number |
-| **customData** | Gets or sets custom data associated with the form field. | object |
-| **signatureType** | Specifies the allowed signature types (Handwritten, Initials, Digital). | SignatureType[] |
-| **signatureIndicatorSettings** | Configures the appearance and behavior of signature field indicators. | SignatureIndicatorSettingsModel |
-| **fontName** | Specifies the font name used in signature fields. | string |
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **designerMode** | Enable or disable the interaction of form fields in the PDF Viewer. | boolean | `false` |
+| **formFieldCollections** | Get the collection of form fields in the PDF document. | `FormFieldCollection[]` | `null` |
+| **hideSaveSignature** | Hide or show the save button in signature dialog. | `boolean` | `false` |
+| **initialDialogSettings** | Configure initial dialog settings for PDF Viewer. | `InitialDialogSettings` | `null` |
+| **isFormDesignerToolbarVisible** | Show or hide the form designer toolbar. | `boolean` | `true` |
+| **isFormFieldDocument** | Get whether the document contains form fields. | `boolean` | `false` |
+| **signatureFitMode** | Set how signatures fit in the signature field. | [`SignatureFitMode`](./annotation-settings.md#signaturefitmode) | `Default` |
+
+## TextField Settings
+
+Property: `textFieldSettings` | Default name: TextBox | Supports: All common text-based properties + `isMultiline`
+
+```html
+@{
+    var textFieldSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerTextFieldSettings
+    {
+        FontFamily = "Arial",
+        FontSize = 12,
+        BackgroundColor = "#FFFF00",
+        MaxLength = 100,
+        IsMultiline = false
+    };
+}
+
+<ejs-pdfviewer textFieldSettings="@textFieldSettings">
+</ejs-pdfviewer>
+```
+
+## Password Field Settings
+
+Property: `passwordFieldSettings` | Default name: Password | Supports: All common text-based properties (text displays masked)
+
+```html
+@{
+    var passwordFieldSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerPasswordFieldSettings
+    {
+        FontFamily = "Courier",
+        FontSize = 12,
+        BackgroundColor = "#FFE6E6",
+        MaxLength = 20,
+        IsRequired = true
+    };
+}
+
+<ejs-pdfviewer passwordFieldSettings="@passwordFieldSettings">
+</ejs-pdfviewer>
+```
+
+## CheckBox Field Settings
+
+Property: `checkBoxFieldSettings` | Default name: CheckBox | Specific property: `isChecked`
+
+```html
+@{
+    var checkBoxFieldSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerCheckBoxFieldSettings
+    {
+        IsChecked = false,
+        BackgroundColor = "#FFFFFF",
+        BorderColor = "#000000",
+        Thickness = 1
+    };
+}
+
+<ejs-pdfviewer checkBoxFieldSettings="@checkBoxFieldSettings">
+</ejs-pdfviewer>
+```
+
+## RadioButton Field Settings
+
+Property: `radioButtonFieldSettings` | Default name: RadioButton | Specific property: `isSelected`
+
+```html
+@{
+    var radioButtonFieldSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerRadioButtonFieldSettings
+    {
+        IsSelected = false,
+        BackgroundColor = "#FFFFFF",
+        BorderColor = "#0000FF",
+        Thickness = 1
+    };
+}
+
+<ejs-pdfviewer radioButtonFieldSettings="@radioButtonFieldSettings">
+</ejs-pdfviewer>
+```
+
+## Dropdown Field Settings
+
+Property: `dropdownFieldSettings` | Default name: Dropdown | Supports: Text-based properties + `options`
+
+```html
+@{
+    var dropdownFieldSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerDropdownFieldSettings
+    {
+        FontFamily = "Arial",
+        FontSize = 11,
+        Options = new List
+        {
+            new { ItemName = "Option 1", ItemValue = "opt1" }
+        }
+    };
+}
+
+<ejs-pdfviewer dropdownFieldSettings="@dropdownFieldSettings">
+</ejs-pdfviewer>
+```
+
+## ListBox Field Settings
+
+Property: `listBoxFieldSettings` | Default name: ListBox | Supports: Text-based properties + `options`
+
+```html
+@{
+    var listBoxFieldSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerListBoxFieldSettings
+    {
+        FontFamily = "Verdana",
+        FontSize = 10,
+        Options = new List
+        {
+            new { ItemName = "Item 1", ItemValue = "item1" }
+        }
+    };
+}
+
+<ejs-pdfviewer listBoxFieldSettings="@listBoxFieldSettings">
+</ejs-pdfviewer>
+```
+
+## Signature Field Settings
+
+Property: `signatureFieldSettings` | Default name: SignatureField | Specific property: `typeSignatureFonts`
+
+```html
+@{
+    var signatureFieldSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerSignatureFieldSettings
+    {
+        IsRequired = true,
+        Thickness = 2,
+        TypeSignatureFonts = new List<string>
+        {
+            "Arial",
+            "Courier New"
+        }
+    };
+}
+
+<ejs-pdfviewer signatureFieldSettings="@signatureFieldSettings">
+</ejs-pdfviewer>
+```
+
+## Initial Field Settings
+
+Property: `initialFieldSettings` | Default name: Initial | For user initials | Specific property: `typeSignatureFonts`
+
+```html
+@{
+    var initialFieldSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerInitialFieldSettings
+    {
+        Thickness = 1,
+        TypeSignatureFonts = new List<string>
+        {
+            "Brush Script MT",
+            "Lucida Handwriting"
+        }
+    };
+}
+
+<ejs-pdfviewer initialFieldSettings="@initialFieldSettings">
+</ejs-pdfviewer>
+```
+
+## Common Properties
+
+Properties shared across multiple form field types:
+| **Property** | **Description** | **Type** | **Default** | **Applies To** |
+|-----|-----|-----|-----|-----|
+| **name** | Default field name | string | Varies | All |
+| **value** | Default field value | string | '' | Text-based fields |
+| **fontFamily** | Font family | string | Helvetica | Text-based fields |
+| **fontSize** | Font size | number | 10 | Text-based fields |
+| **fontStyle** | Font style (None, Bold, Italic, Underline, Strikethrough) | FontStyle | None | Text-based fields |
+| **color** | Font color (hex format) | string | #000000 | Text-based fields |
+| **backgroundColor** | Background color | string | #DAEAF7FF | All |
+| **borderColor** | Border color | string | #303030 | All |
+| **thickness** | Border thickness (pixels) | number | 1 | All |
+| **alignment** | Text alignment (Left, Center, Right, Justify) | TextAlignment | Left | Text-based fields |
+| **isReadOnly** | Read-only state | boolean | false | All |
+| **visibility** | Visibility (Visible, Hidden, Print) | Visibility | Visible | All |
+| **isRequired** | Required field | boolean | false | All |
+| **isPrint** | Printable | boolean | true | All |
+| **tooltip** | Tooltip text | string | Field type | All |
+| **maxLength** | Maximum character length (0 = unlimited) | number | 0 | Text, Password |
+| **isMultiline** | Allow multiline input | boolean | false | TextField |
+| **isChecked** | Checked state | boolean | false | CheckBox |
+| **isSelected** | Selected state | boolean | false | RadioButton |
+| **options** | Dropdown/ListBox items | ItemModel[] | [] | Dropdown, ListBox |
+| **typeSignatureFonts** | Available fonts for typed signatures | string[] | ['Helvetica', 'Times New Roman', 'Courier', 'Symbol'] | Signature, Initial |
 
 ### FontStyle Enum Values
 

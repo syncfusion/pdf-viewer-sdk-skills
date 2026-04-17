@@ -19,6 +19,7 @@ Brief: Redaction annotations hide confidential or sensitive information in PDFs.
 - [Property Panel](#property-panel)
 - [Import and Export Redaction Annotations](#import-and-export-redaction-annotations)
 - [Complete Example with All Features](#complete-example-with-all-features)
+- [Redaction Properties](#redaction-properties)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -486,6 +487,16 @@ export class AppComponent implements AfterViewInit {
   }
 }
 ```
+
+---
+
+## Redaction Properties
+
+The following property is available on the PDF Viewer instance to control redaction toolbar visibility:
+
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **isRedactionToolbarVisible** | Show or hide the redaction toolbar. | `boolean` | `true` |
 
 ---
 

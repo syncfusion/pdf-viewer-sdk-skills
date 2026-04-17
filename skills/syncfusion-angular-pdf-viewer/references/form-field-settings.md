@@ -25,11 +25,15 @@ These properties are available directly on the `PdfViewerComponent` to control f
 
 | **Property Name** | **Description** | **Type** | **Default Value** |
 |-----|-----|-----|-----|
+| **designerMode** | Enable or disable the interaction of form fields in the PDF Viewer. | boolean | `false` |
 | **formFieldCollections** | Get the collection of form fields in the PDF document. | `FormFieldCollection[]` | `null` |
 | **enableFormFieldsValidation** | Enable validation when downloading or submitting forms with required fields. | `boolean` | `false` |
 | **enableFormDesigner** | Show or hide the Form Designer option in the main toolbar. | `boolean` | `true` |
+| **hideSaveSignature** | Hide or show the save button in signature dialog. | `boolean` | `false` |
+| **initialDialogSettings** | Configure initial dialog settings for PDF Viewer. | `InitialDialogSettings` | `null` |
 | **isFormDesignerToolbarVisible** | Show or hide the form designer toolbar. | `boolean` | `true` |
 | **isFormFieldDocument** | Get whether the document contains form fields. | `boolean` | `false` |
+| **signatureFitMode** | Set how signatures fit in the signature field. | [`SignatureFitMode`](./annotation-settings.md#signaturefitmode) | `Default` |
 
 ## Common Properties
 

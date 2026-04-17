@@ -38,14 +38,12 @@ import { LinkAnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
   template: `<ejs-pdfviewer #pdfViewer
                 [enableHyperlink]='false'
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 style="height:640px;display:block">
              </ejs-pdfviewer>`,
   providers: [LinkAnnotationService]
 })
 export class AppComponent {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -79,14 +77,12 @@ import { LinkAnnotationService, LinkTarget } from '@syncfusion/ej2-angular-pdfvi
   template: `<ejs-pdfviewer #pdfViewer
                 [hyperlinkOpenState]='linkTarget'
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 style="height:640px;display:block">
              </ejs-pdfviewer>`,
   providers: [LinkAnnotationService]
 })
 export class AppComponent {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
   public linkTarget: LinkTarget = LinkTarget.NewTab;
 }
 ```
@@ -123,14 +119,12 @@ import { LinkAnnotationService, HyperlinkClickEventArgs, HyperlinkMouseOverArgs 
                 (hyperlinkClick)='onHyperlinkClick($event)'
                 (hyperlinkMouseOver)='onHyperlinkMouseOver($event)'
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 style="height:640px;display:block">
              </ejs-pdfviewer>`,
   providers: [LinkAnnotationService]
 })
 export class AppComponent {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
 
   onHyperlinkClick(args: HyperlinkClickEventArgs): void {
     console.log('Hyperlink Clicked:', args.hyperlink);
@@ -162,14 +156,12 @@ import { LinkAnnotationService, LinkTarget, HyperlinkClickEventArgs, HyperlinkMo
                 (hyperlinkClick)='onHyperlinkClick($event)'
                 (hyperlinkMouseOver)='onHyperlinkMouseOver($event)'
                 [documentPath]='document'
-                [resourceUrl]='resource'
                 style="height:640px;display:block">
              </ejs-pdfviewer>`,
   providers: [LinkAnnotationService]
 })
 export class AppComponent {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
   public linkTarget: LinkTarget = LinkTarget.NewTab;
 
   onHyperlinkClick(args: HyperlinkClickEventArgs): void {

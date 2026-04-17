@@ -71,6 +71,11 @@ When users describe their goal, identify which category fits best, then recommen
 | **retrieveFormFields** | Retrieves all form field data from the PDF document | - | `FormField[]` | `const formFields = viewer.retrieveFormFields();` |
 | **resetFormFields** | Resets all form field values to their default values | - | `void` | `viewer.resetFormFields();` |
 | **focusFormField** | Sets focus to a specific form field in the PDF document | fieldName: `string` | `void` | `viewer.focusFormField('fieldName');` |
+| **deleteAnnotations** | Deletes the annotation collection in the PDF document | - | `void` | `viewer.deleteAnnotations();` |
+| **exportAnnotation** | Exports the annotation data in the specified format | annotationDataFormat: `AnnotationDataFormat` | `void` | `viewer.exportAnnotation(AnnotationDataFormat.Json);` |
+| **exportAnnotationsAsBase64String** | Exports the annotation data in the specified format as a base64 String | annotationDataFormat: `AnnotationDataFormat` | `Promise<string>` | `viewer.exportAnnotationsAsBase64String(AnnotationDataFormat.Xfdf);` |
+| **exportAnnotationsAsObject** | Exports the annotation data in the specified format as an object | annotationDataFormat: `AnnotationDataFormat` | `Promise<object>` | `viewer.exportAnnotationsAsObject(AnnotationDataFormat.Json);` |
+| **importAnnotation** | Imports the annotation data into the PDF document | importData: `any`, annotationDataFormat: `AnnotationDataFormat` | `void` | `viewer.importAnnotation(importData, AnnotationDataFormat.Json);` |
 | **exportFormFieldsAsObject** | Exports form fields data from the PDF document as a JSON object | format: `string` | `Promise<object>` | `viewer.exportFormFieldsAsObject('Fdf').then(data => console.log(data));` |
 | **exportFormFields** | Exports form fields data as downloadable file | fileName: `string`, format: `string` | `void` | `viewer.exportFormFields('FormData', 'Json');` |
 | **importFormFields** | Imports form field data into the PDF document | source: `string`, format: `string` | `void` | `viewer.importFormFields('File', 'Json');` |
@@ -84,7 +89,10 @@ When users describe their goal, identify which category fits best, then recommen
 | **undo** | Undoes the last action performed in the PDF viewer | - | `void` | `viewer.undo();` |
 | **redo** | Redoes the last undone action in the PDF viewer | - | `void` | `viewer.redo();` |
 | **destroy** | Destroys the PdfViewer component and releases its resources | - | `void` | `viewer.destroy();` |
+| **showNotificationPopup** | Opens a dialog to display an error message | errorString: `string` | `void` | `viewer.showNotificationPopup('Error');` |
+| **unload** | Unloads the PDF document being displayed in the PDF viewer. | - | `void` | `viewer.unload();` |
 | **updateViewerContainer** | Updates the PDF viewer container size and layout | - | `void` | `viewer.updateViewerContainer();` |
+| **zoomToRect** | Brings the given rectangular region to view and zooms in the document to fit the region in client area (view port). | rectangle: `Rect` | `void` | `viewer.zoomToRect(new Rect(10, 10, 100, 100));` |
 
 ## Common Parameter Types
 

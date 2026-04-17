@@ -137,3 +137,32 @@ Reset search highlights and return to normal view:
     pdfViewer.textSearch.cancelTextSearch();
 </script>
 ```
+
+---
+
+## Text Search Properties
+
+The following properties are available on the PDF Viewer instance to control text search and extraction functionality:
+
+| **Property Name** | **Description** | **Type** | **Default Value** |
+|-----|-----|-----|-----|
+| **extractTextOption** | Configure text extraction options. | [`ExtractTextOption`](#extracttextoption) | `null` |
+| **isExtractText** | Enable or disable text extraction from the PDF. | `boolean` | `true` |
+| **textSearch** | Get the text search object for searching text in PDF. | `TextSearch` | `null` |
+| **textSearchColorSettings** | Configure text search highlight colors and opacity. | [`TextSearchColorSettings`](#textsearchcolorsettings) | `null` |
+
+### ExtractTextOption
+
+| **Name** | **Description** |
+|-----|-----|
+| **BoundsOnly** | Indicates that text is returned along with layout information, such as bounds or coordinates. This option does not include plain text and is useful when only positional data is required. Use this option when you need to know the location or layout of the extracted text but not the text itself. |
+| **None** | Indicates that no text information is returned. This option is not applicable for the ExtractText method and is only used in the extractTextCompleted event when no text data is available. Use this option when text extraction is not relevant or supported for the given context. |
+| **TextAndBounds** | Indicates that both plain text and text with bounds (layout information) are returned. This is the default behavior, providing both the extracted text and its positional data. Use this option when you need both the textual content and its layout information for further processing or analysis. |
+| **TextOnly** | Indicates that only plain text is extracted and returned. This option does not include any additional bounds information. Use this option when only the textual content is needed, without any positional or layout details. |
+
+### TextSearchColorSettings
+
+| **Name** | **Description** | **Data Type** |
+|-----|-----|-----|
+| **searchColor** | Gets or Sets the color of the other occurrence of the text searched string. | string |
+| **searchHighlightColor** | Gets or Sets the color of the current occurrence of the text searched string. | string |

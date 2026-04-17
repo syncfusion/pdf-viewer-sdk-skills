@@ -55,7 +55,6 @@ import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular
   template: `
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="document"
-      [resourceUrl]="resource"
       [enableBookmark]="true"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -65,7 +64,6 @@ import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular
 export class AppComponent {
   @ViewChild('pdfViewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -115,6 +113,76 @@ public retrieveBookmarks(): void {
 }
 ```
 
+## Open/close bookmark pane programmatically
+
+**Approach 1:** Use `isBookmarkPanelOpen` property on PDF Viewer instance. Setting it to `true` opens the bookmark panel. Using it during initialization opens the bookmark panel on load
+
+```ts
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular-pdfviewer';
+
+@Component({
+  selector: 'app-container',
+  template: `
+    <button (click)="openBookmarkPanel()">Open Bookmark Panel</button>
+    <button (click)="closeBookmarkPanel()">Open Bookmark Panel</button>
+    
+    <ejs-pdfviewer #pdfViewer id="pdfViewer"
+      [documentPath]="document"
+      [enableBookmark]="true"
+      style="height:640px;display:block">
+    </ejs-pdfviewer>
+  `,
+  providers: [BookmarkViewService]
+})
+export class AppComponent {
+  @ViewChild('pdfViewer') public pdfViewer: PdfViewerComponent;
+  public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
+  
+  public openBookmarkPanel(): void {
+    this.pdfViewer.isBookmarkPanelOpen = true;
+  }
+  
+  public closeBookmarkPanel(): void {
+    this.pdfViewer.isBookmarkPanelOpen = false;
+  }
+}
+```
+
+**Approach 2:** Use `openBookmarkPane()` of `bookmark` module to open bookmark panel and use `closeBookmarkPane()` of `bookmark` module to close bookmark panel.
+
+```ts
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular-pdfviewer';
+
+@Component({
+  selector: 'app-container',
+  template: `
+    <button (click)="openBookmarkPanel()">Open Bookmark Panel</button>
+    <button (click)="closeBookmarkPanel()">Open Bookmark Panel</button>
+    
+    <ejs-pdfviewer #pdfViewer id="pdfViewer"
+      [documentPath]="document"
+      [enableBookmark]="true"
+      style="height:640px;display:block">
+    </ejs-pdfviewer>
+  `,
+  providers: [BookmarkViewService]
+})
+export class AppComponent {
+  @ViewChild('pdfViewer') public pdfViewer: PdfViewerComponent;
+  public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
+  
+  public openBookmarkPanel(): void {
+    this.pdfViewer.bookmark.openBookmarkPane();
+  }
+  
+  public closeBookmarkPanel(): void {
+    this.pdfViewer.bookmark.closeBookmarkPane();
+  }
+}
+```
+
 ## Complete Examples
 
 ### Example 1: Navigate to Specific Bookmark
@@ -130,7 +198,6 @@ import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular
     
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="document"
-      [resourceUrl]="resource"
       [enableBookmark]="true"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -140,7 +207,6 @@ import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular
 export class AppComponent {
   @ViewChild('pdfViewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
   
   public goToChapterOne(): void {
     this.pdfViewer.bookmark.goToBookmark(0, 0);
@@ -172,7 +238,6 @@ import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular
     
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="document"
-      [resourceUrl]="resource"
       [enableBookmark]="true"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -182,7 +247,6 @@ import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular
 export class AppComponent implements AfterViewInit {
   @ViewChild('pdfViewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
   public bookmarkList: any[] = [];
   
   ngAfterViewInit(): void {
@@ -242,7 +306,6 @@ import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular
       <div style="flex: 1;">
         <ejs-pdfviewer #pdfViewer id="pdfViewer"
           [documentPath]="document"
-          [resourceUrl]="resource"
           [enableBookmark]="true"
           (documentLoad)="onDocumentLoad()"
           style="height:100%;display:block">
@@ -255,7 +318,6 @@ import { PdfViewerComponent, BookmarkViewService } from '@syncfusion/ej2-angular
 export class AppComponent {
   @ViewChild('pdfViewer') public pdfViewer: PdfViewerComponent;
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib';
   public bookmarks: any[] = [];
   
   public onDocumentLoad(): void {

@@ -197,7 +197,7 @@ import { PdfViewerModule, LinkAnnotationService, BookmarkViewService,
 })
 export class AppComponent implements OnInit {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = "https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2-pdfviewer-lib";
+  public resource: string = window.location.origin + "/assets/ej2-pdfviewer-lib";
   
   ngOnInit(): void {
   }
@@ -446,7 +446,7 @@ import { PdfViewerModule, LinkAnnotationService, BookmarkViewService,
 })
 export class AppComponent implements OnInit {
   public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource: string = "https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2-pdfviewer-lib";
+  public resource: string = window.location.origin + "/assets/ej2-pdfviewer-lib";
   
   ngOnInit(): void {
   }

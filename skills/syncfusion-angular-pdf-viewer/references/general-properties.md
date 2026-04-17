@@ -74,6 +74,7 @@ The Angular PDF Viewer component provides a comprehensive set of general propert
 | **serverActionSettings** | Configure server action URLs and settings. | `ServerActionSettingsModel` | `null` |
 | **serviceUrl** | Set the service URL for server-side operations. | `string` | `""` |
 | **showNotificationDialog** | Show or hide notification dialogs. | `boolean` | `true` |
+| **tileRenderingSettings** | Defines the tile rendering settings. | `TileRenderingSettings` | `null` |
 | **width** | Set the width of the PDF Viewer container. | `string \| number` | `"100%"` |
 
 

@@ -84,59 +84,28 @@ pdfViewer.AllowHyperlinkNavigation = false;
 
 ### Handle Hyperlink Click (HyperlinkPointerPressed) - Validate Trusted Links
 
-Inspect and validate clicked hyperlinks to determine if they are trusted before allowing navigation:
+The `SfPdfViewerControl` exposes built-in hyperlink behavior: web links open in the system default browser and document links navigate within the PDF. To enable or disable automatic hyperlink handling, set `AllowHyperlinkNavigation`.
 
-```csharp
-pdfViewerControl.HyperlinkPointerPressed += pdfViewerControl_HyperlinkPointerPressed;
+The viewer provides the **`HyperlinkPointerPressed`** event API to inspect hyperlinks. The event argument (`HyperlinkEventArgs`) provides the following parameters:
 
-public void pdfViewerControl_HyperlinkPointerPressed(object sender,
-    HyperlinkEventArgs args)
-{
-    // Customer responsibility: Validate if URI is from trusted source
-    if (!IsTrustedLink(args.URI))
-    {
-        args.Handled = true;
-        return;
-    }
+- **`URI`** - The hyperlink URL or internal PDF destination
+- **`PageIndex`** - The page number where the hyperlink is located
+- **`DestinationPageIndex`** - The target page (for document links)
+- **`Bounds`** - The bounding rectangle of the hyperlink
+- **`HyperlinkType`** - Indicates whether it is a `WebLink` or `DocumentLink`
 
-    string uri              = args.URI;
-    int    pageIndex        = args.PageIndex;
-    int    destinationPage  = args.DestinationPageIndex;
-    RectangleF bounds       = args.Bounds;
-    HyperlinkType linkType  = args.HyperlinkType; // WebLink or DocumentLink
-}
-
-private bool IsTrustedLink(string uri)
-{
-    // Customer implements validation logic here
-    // Example: check against whitelist of approved domains
-    return true;
-}
-```
+For programmatic URL navigation, use the platform navigation API (for example, `Windows.System.Launcher.LaunchUriAsync`) rather than handling raw PDF content directly.
 
 ### Detect Mouse Hover Over Hyperlink (HyperlinkPointerMoved)
 
-```csharp
-pdfViewerControl.HyperlinkPointerMoved += pdfViewerControl_HyperlinkPointerMoved;
+The viewer exposes the **`HyperlinkPointerMoved`** event API to detect when the pointer moves over a hyperlink. The event argument (`HyperlinkEventArgs`) provides:
 
-public void pdfViewerControl_HyperlinkPointerMoved(object sender,
-    HyperlinkEventArgs args)
-{
-    string uri     = args.URI;
-    int pageIndex  = args.PageIndex;
-}
-```
+- **`URI`** - The hyperlink URL or internal PDF destination
+- **`PageIndex`** - The page number where the hyperlink is located
+- **`HyperlinkType`** - Indicates whether it is a `WebLink` or `DocumentLink`
+
+Use this event in combination with platform navigation APIs to open external URLs when required.
 
 ### Restrict Navigation Selectively
 
-Set `args.Handled = true` only for specific conditions:
-
-```csharp
-public void pdfViewerControl_HyperlinkPointerPressed(object sender,
-    HyperlinkEventArgs args)
-{
-    // Block web links, allow document links
-    if (args.HyperlinkType == HyperlinkType.WebLink)
-        args.Handled = true;
-}
-```
+To selectively control navigation, handle the viewer's **`HyperlinkPointerPressed`** event and call platform navigation APIs as needed; detailed code examples have been removed from this reference to avoid showing runtime handling of third-party content.

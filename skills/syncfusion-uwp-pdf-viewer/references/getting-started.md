@@ -102,34 +102,7 @@ Bind in XAML:
 
 ## Load PDF via FileOpenPicker
 
-Use `FileOpenPicker` to let the user pick a PDF at runtime:
-
-```csharp
-async private void Open_Click(object sender, RoutedEventArgs e)
-{
-    var picker = new FileOpenPicker();
-    picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-    picker.ViewMode = PickerViewMode.List;
-    picker.FileTypeFilter.Add(".pdf");
-    var file = await picker.PickSingleFileAsync();
-    if (file == null) return;
-
-    var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-    Stream fileStream = stream.AsStreamForRead();
-    byte[] buffer = new byte[fileStream.Length];
-    fileStream.Read(buffer, 0, buffer.Length);
-
-    PdfLoadedDocument loadedDocument = new PdfLoadedDocument(buffer);
-    pdfViewer.LoadDocument(loadedDocument);
-}
-```
-
-You can also load directly from a `StorageFile`:
-
-```csharp
-StorageFile file = await picker.PickSingleFileAsync();
-pdfViewer.LoadDocument(file);
-```
+The `SfPdfViewerControl` supports loading documents from an embedded resource, a `Stream`, a `PdfLoadedDocument`, or a `StorageFile`. To load a document at runtime, call the appropriate viewer API such as `LoadDocument(Stream)`, `LoadDocument(PdfLoadedDocument)`, or `LoadDocument(StorageFile)`. You can monitor load completion using the **`DocumentLoaded`** event API. Example implementation details for runtime file-picking are omitted from this reference.
 
 ---
 

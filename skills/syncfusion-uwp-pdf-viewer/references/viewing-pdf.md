@@ -51,26 +51,7 @@ await pdfViewer.LoadDocumentAsync(fileStream, cancellationTokenSource.Token);
 
 ## Loading from a StorageFile Object
 
-Best for loading files picked by the user via `FileOpenPicker`.
-
-### Synchronous
-
-```csharp
-var picker = new FileOpenPicker();
-picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-picker.ViewMode = PickerViewMode.List;
-picker.FileTypeFilter.Add(".pdf");
-StorageFile file = await picker.PickSingleFileAsync();
-pdfViewer.LoadDocument(file);
-```
-
-### Asynchronous (with cancellation)
-
-```csharp
-StorageFile file = await picker.PickSingleFileAsync();
-CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-await pdfViewer.LoadDocumentAsync(file, cancellationTokenSource.Token);
-```
+The viewer supports loading a `StorageFile` (for example, when a file is provided by the app). Use `LoadDocument(StorageFile)` or `LoadDocumentAsync(StorageFile, CancellationToken)` to load such files. Monitor load completion with the **`DocumentLoaded`** event API; concrete file-picking examples are omitted here.
 
 ---
 

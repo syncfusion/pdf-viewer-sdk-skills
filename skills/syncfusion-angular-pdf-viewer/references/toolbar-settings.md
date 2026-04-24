@@ -42,7 +42,6 @@ import { PdfViewerModule } from '@syncfusion/ej2-angular-pdfviewer';
     <ejs-pdfviewer 
       id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [enableToolbar]="false"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -50,7 +49,6 @@ import { PdfViewerModule } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -66,7 +64,6 @@ import { PdfViewerComponent } from '@syncfusion/ej2-angular-pdfviewer';
     <button (click)="hideToolbar()">Hide Toolbar</button>
     <ejs-pdfviewer #pdfviewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       style="height:640px;display:block">
     </ejs-pdfviewer>
   `
@@ -75,7 +72,6 @@ export class AppComponent {
   @ViewChild('pdfviewer') pdfViewer?: PdfViewerComponent;
   
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
   hideToolbar(): void {
     this.pdfViewer?.toolbar.showToolbar(false);
@@ -115,7 +111,6 @@ import { PdfViewerComponent, AnnotationService } from '@syncfusion/ej2-angular-p
     <button (click)="toggleAnnotationToolbar()">Toggle Annotation Toolbar</button>
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       style="height:640px;display:block">
     </ejs-pdfviewer>
   `,
@@ -125,7 +120,6 @@ export class AppComponent {
   @ViewChild('pdfViewer') pdfViewer?: PdfViewerComponent;
   
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
   toggleAnnotationToolbar(): void {
     this.pdfViewer?.toolbar.showAnnotationToolbar(false);
@@ -152,7 +146,6 @@ import { AnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
   template: `
     <ejs-pdfviewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [toolbarSettings]="toolbarSettings"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -161,7 +154,6 @@ import { AnnotationService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
   
   public toolbarSettings = {
     annotationToolbarItems: [
@@ -211,7 +203,6 @@ import { FormDesignerService } from '@syncfusion/ej2-angular-pdfviewer';
   template: `
     <ejs-pdfviewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [enableFormDesigner]="false"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -220,7 +211,6 @@ import { FormDesignerService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/formdesigner.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -243,7 +233,6 @@ import { FormDesignerService } from '@syncfusion/ej2-angular-pdfviewer';
   template: `
     <ejs-pdfviewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [toolbarSettings]="toolbarSettings"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -252,7 +241,6 @@ import { FormDesignerService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/formdesigner.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
   
   public toolbarSettings = {
     formDesignerToolbarItems: [
@@ -306,7 +294,6 @@ import { PageOrganizerService } from '@syncfusion/ej2-angular-pdfviewer';
   template: `
     <ejs-pdfviewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [pageOrganizerSettings]="{ canInsert: false }"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -315,7 +302,6 @@ import { PageOrganizerService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -330,7 +316,6 @@ import { PageOrganizerService } from '@syncfusion/ej2-angular-pdfviewer';
   template: `
     <ejs-pdfviewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [pageOrganizerSettings]="pageOrganizerSettings"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -339,7 +324,6 @@ import { PageOrganizerService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
   
   public pageOrganizerSettings = {
     canInsert: false,
@@ -380,7 +364,6 @@ import { Component } from '@angular/core';
   template: `
     <ejs-pdfviewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [enableDesktopMode]="true"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -388,7 +371,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -410,7 +392,6 @@ import { Component } from '@angular/core';
   template: `
     <ejs-pdfviewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [enableDesktopMode]="true"
       [enableTextSelection]="false"
       style="height:640px;display:block">
@@ -419,7 +400,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 }
 ```
 
@@ -487,7 +467,6 @@ import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
     
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       [enableToolbar]="false"
       style="height:640px;display:block">
     </ejs-pdfviewer>
@@ -498,7 +477,6 @@ export class AppComponent {
   @ViewChild('pdfViewer') pdfViewer?: PdfViewerComponent;
   
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
   toolbarClick(args: any): void {
     const viewer = this.pdfViewer;

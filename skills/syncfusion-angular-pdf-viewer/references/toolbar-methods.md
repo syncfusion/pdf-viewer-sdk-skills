@@ -43,7 +43,6 @@ import { PdfViewerComponent } from '@syncfusion/ej2-angular-pdfviewer';
     <button (click)="exitPresentationMode()">Exit Presentation Mode</button>
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       style="height:640px;display:block">
     </ejs-pdfviewer>
   `
@@ -52,7 +51,6 @@ export class AppComponent {
   @ViewChild('pdfViewer') pdfViewer?: PdfViewerComponent;
   
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
   enterPresentationMode(): void {
     // Hide main toolbar for clean viewing experience
@@ -80,7 +78,6 @@ import { PdfViewerComponent } from '@syncfusion/ej2-angular-pdfviewer';
   template: `
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       style="height:640px;display:block">
     </ejs-pdfviewer>
   `
@@ -89,7 +86,6 @@ export class AppComponent {
   @ViewChild('pdfViewer') pdfViewer?: PdfViewerComponent;
   
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 
   configureToolbarForRole(userRole: string): void {
     if (userRole === 'viewer') {
@@ -112,7 +108,6 @@ import { PdfViewerComponent } from '@syncfusion/ej2-angular-pdfviewer';
     <button (click)="toggleEditMode()">{{ isEditMode ? 'View Mode' : 'Edit Mode' }}</button>
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       style="height:640px;display:block">
     </ejs-pdfviewer>
   `
@@ -121,7 +116,6 @@ export class AppComponent {
   @ViewChild('pdfViewer') pdfViewer?: PdfViewerComponent;
   
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
   public isEditMode: boolean = false;
 
   toggleEditMode(): void {
@@ -182,7 +176,6 @@ import { PdfViewerComponent } from '@syncfusion/ej2-angular-pdfviewer';
     </button>
     <ejs-pdfviewer #pdfViewer id="pdfViewer"
       [documentPath]="documentPath"
-      [resourceUrl]="resourceUrl"
       style="height:640px;display:block">
     </ejs-pdfviewer>
   `
@@ -191,7 +184,6 @@ export class AppComponent {
   @ViewChild('pdfViewer') pdfViewer?: PdfViewerComponent;
   
   public documentPath: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resourceUrl: string = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
   public showToolbars: boolean = true;
 
   toggleToolbars(): void {

@@ -125,7 +125,7 @@ Define the PDF Viewer in the `<template>` section of `src/App.vue` using the `ej
 |----------|------|---------|---------|
 | **id** | `string` | Unique identifier for the component instance | `:id="container"` |
 | **documentPath** | `string` | Path to the PDF document (CDN URL or local file) | `:documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"` |
-| **resourceUrl** | `string` | URL folder with library resources (pdfium.js, pdfium.wasm) | `:resourceUrl="https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"` |
+| **resourceUrl** | `string` | URL folder with library resources (pdfium.js, pdfium.wasm) | `:resourceUrl="https://cdn.syncfusion.com/ej2/dist/ej2-pdfviewer-lib"` |
 
 ---
 
@@ -230,7 +230,7 @@ export default {
   data() {
     return {
       documentPath: "https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf",
-      resourceUrl: "https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib"
+      resourceUrl: window.location.origin + "/asset/ej2-pdfviewer-lib"
     };
   },
   provide: {
@@ -266,7 +266,7 @@ import { PdfViewerComponent as EjsPdfviewer, Toolbar, Magnification, Navigation,
          BookmarkView, ThumbnailView, Print, TextSelection, TextSearch,
          Annotation, FormDesigner, FormFields } from '@syncfusion/ej2-vue-pdfviewer';
 
-const resourceUrl = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
+const resourceUrl = window.location.origin + "/asset/ej2-pdfviewer-lib";
 const documentPath = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
 
 provide('PdfViewer', [ Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView,
@@ -305,7 +305,7 @@ export default {
   components: { 'ejs-pdfviewer': PdfViewerComponent },
   data() {
     return {
-      resourceUrl: 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib',
+      resourceUrl: window.location.origin + "/asset/ej2-pdfviewer-lib",
       documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
     };
   },

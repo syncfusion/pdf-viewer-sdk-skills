@@ -48,7 +48,6 @@ import { PageOrganizerService } from '@syncfusion/ej2-angular-pdfviewer';
   selector: 'app-container',
   template: `<ejs-pdfviewer id="pdfViewer"
                    [documentPath]="document"
-                   [resourceUrl]="resource"
                    [enablePageOrganizer]="true"
                    style="height:640px;display:block">
              </ejs-pdfviewer>`,
@@ -56,7 +55,6 @@ import { PageOrganizerService } from '@syncfusion/ej2-angular-pdfviewer';
 })
 export class AppComponent {
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
 }
 ```
 

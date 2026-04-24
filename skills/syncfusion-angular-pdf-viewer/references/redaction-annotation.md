@@ -421,7 +421,6 @@ import {
       <ejs-pdfviewer
         #pdfviewer
         [documentPath]="document"
-        [resourceUrl]="resource"
         [toolbarSettings]="toolbarSettings"
         [isExtractText]="true"
         style="height:640px;display:block">
@@ -434,7 +433,6 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('pdfviewer') pdfViewer!: PdfViewerComponent;
   
   public document = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
-  public resource = 'https://cdn.syncfusion.com/ej2/31.2.2/dist/ej2-pdfviewer-lib';
   
   public toolbarSettings: ToolbarSettingsModel = {
     toolbarItems: [

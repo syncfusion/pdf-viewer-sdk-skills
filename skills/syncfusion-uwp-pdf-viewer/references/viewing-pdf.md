@@ -2,6 +2,14 @@
 
 The `SfPdfViewerControl` supports loading PDF documents from three source types — each available in both synchronous and asynchronous variants.
 
+## 🔒 Security Considerations
+
+**When loading PDFs from untrusted sources (user-selected files, network, etc.):**
+- PDFs can contain malicious content including crafted hyperlinks and embedded scripts
+- Always validate hyperlinks before allowing navigation (see [Bookmarks & Hyperlinks - Security Best Practice](bookmarks-and-hyperlinks.md#-security-best-practice-validate-hyperlinks-from-untrusted-pdfs))
+- Consider disabling hyperlink navigation if not needed: `pdfViewer.AllowHyperlinkNavigation = false`
+- Load PDFs from trusted sources when possible (embedded resources, verified downloads)
+
 ---
 
 ## Loading from a PdfLoadedDocument Object

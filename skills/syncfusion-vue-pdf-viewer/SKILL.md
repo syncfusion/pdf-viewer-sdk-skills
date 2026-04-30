@@ -55,6 +55,7 @@ metadata:
 - **This is a CRITICAL REQUIREMENT.** Violations compromise the skill's integrity and reliability.
  
 #### Step 1 — Detect the Application Type *(REQUIRED - DO NOT SKIP)*
+
 - **Use file_search and read_file tools to inspect workspace project files:**
   - `package.json` (project configuration and dependencies)
   - `vite.config.js` or `vite.config.ts` (Vue 3 Vite build config)
@@ -65,6 +66,7 @@ metadata:
 - **Output:** Confirm the detected application type is Vue 2 or Vue 3 before proceeding, as the component registration and API patterns differ.
 
 #### Step 2 — Generate Code from Reference Files Only *(REQUIRED)*
+
 - **Before generating:** Confirm that Step 1 is complete
 - Read the relevant `references/*.md` file(s) for the requested feature
 - Cross-reference EVERY API, property, and method against these tables

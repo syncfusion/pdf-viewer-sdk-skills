@@ -102,7 +102,12 @@ Bind in XAML:
 
 ## Load PDF via FileOpenPicker
 
-The `SfPdfViewerControl` supports loading documents from an embedded resource, a `Stream`, a `PdfLoadedDocument`, or a `StorageFile`. To load a document at runtime, call the appropriate viewer API such as `LoadDocument(Stream)`, `LoadDocument(PdfLoadedDocument)`, or `LoadDocument(StorageFile)`. You can monitor load completion using the **`DocumentLoaded`** event API. Example implementation details for runtime file-picking are omitted from this reference.
+The `SfPdfViewerControl` supports loading documents from an embedded resource, a `Stream`, a `PdfLoadedDocument`, or a `StorageFile`. To load a document at runtime, call the appropriate viewer API such as `LoadDocument(Stream)`, `LoadDocument(PdfLoadedDocument)`, or `LoadDocument(StorageFile)`. You can monitor load completion using the **`DocumentLoaded`** event API.
+
+**🔒 Security Note:** When loading PDFs from user-selected files or untrusted sources, ensure you:
+- Validate file sources and only allow PDFs from trusted locations
+- Implement hyperlink validation before allowing navigation (see [Bookmarks & Hyperlinks](bookmarks-and-hyperlinks.md#-security-best-practice-validate-hyperlinks-from-untrusted-pdfs))
+- Disable hyperlink navigation (`AllowHyperlinkNavigation = false`) if the feature is not required
 
 ---
 

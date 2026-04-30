@@ -71,7 +71,18 @@ By default, tapping a hyperlink in the PDF:
 - **Web link** → opens URL in the default browser
 - **Document link** → navigates to the destination page within the PDF
 
+### 🔒 Security Best Practice: Validate Hyperlinks from Untrusted PDFs
+
+**⚠️ CRITICAL:** When loading PDFs from untrusted or user-provided sources, **never automatically open hyperlinks without validation**. Malicious PDFs can contain hyperlinks designed to:
+- Redirect users to phishing sites
+- Trigger unintended navigation or actions
+- Inject malicious content
+
+**Always implement hyperlink validation** by handling the `HyperlinkPointerPressed` event to inspect and whitelist URLs before opening them.
+
 ### Disable Hyperlink Navigation
+
+If you don't need hyperlink support, disable it entirely:
 
 ```csharp
 pdfViewer.AllowHyperlinkNavigation = false;
@@ -84,9 +95,7 @@ pdfViewer.AllowHyperlinkNavigation = false;
 
 ### Handle Hyperlink Click (HyperlinkPointerPressed) - Validate Trusted Links
 
-The `SfPdfViewerControl` exposes built-in hyperlink behavior: web links open in the system default browser and document links navigate within the PDF. To enable or disable automatic hyperlink handling, set `AllowHyperlinkNavigation`.
-
-The viewer provides the **`HyperlinkPointerPressed`** event API to inspect hyperlinks. The event argument (`HyperlinkEventArgs`) provides the following parameters:
+The `SfPdfViewerControl` exposes the **`HyperlinkPointerPressed`** event API to inspect hyperlinks before navigation. The event argument (`HyperlinkEventArgs`) provides the following parameters:
 
 - **`URI`** - The hyperlink URL or internal PDF destination
 - **`PageIndex`** - The page number where the hyperlink is located
@@ -94,7 +103,74 @@ The viewer provides the **`HyperlinkPointerPressed`** event API to inspect hyper
 - **`Bounds`** - The bounding rectangle of the hyperlink
 - **`HyperlinkType`** - Indicates whether it is a `WebLink` or `DocumentLink`
 
-For programmatic URL navigation, use the platform navigation API (for example, `Windows.System.Launcher.LaunchUriAsync`) rather than handling raw PDF content directly.
+**Secure Pattern: Validate Web Links Before Opening**
+
+```csharp
+private HashSet<string> TrustedDomains = new HashSet<string>
+{
+    "example.com",
+    "trusted-partner.com"
+};
+
+public MyPdfViewer()
+{
+    pdfViewer.HyperlinkPointerPressed += OnHyperlinkPressed;
+}
+
+private async void OnHyperlinkPressed(object sender, HyperlinkEventArgs args)
+{
+    // For document links, allow navigation within the same PDF
+    if (args.HyperlinkType == HyperlinkType.DocumentLink)
+    {
+        return; // Default behavior is safe
+    }
+    
+    // For web links, validate the URL before opening
+    if (args.HyperlinkType == HyperlinkType.WebLink)
+    {
+        if (IsUrlTrusted(args.URI))
+        {
+            // Safely open the URL using platform API
+            await Windows.System.Launcher.LaunchUriAsync(new Uri(args.URI));
+        }
+        else
+        {
+            // Show user warning or block navigation
+            var dialog = new ContentDialog
+            {
+                Title = "Untrusted Link",
+                Content = $"This PDF contains a link to: {args.URI}\n\nDo you want to proceed?",
+                PrimaryButtonText = "Allow",
+                SecondaryButtonText = "Block"
+            };
+            
+            var result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                await Windows.System.Launcher.LaunchUriAsync(new Uri(args.URI));
+            }
+        }
+    }
+}
+
+private bool IsUrlTrusted(string url)
+{
+    try
+    {
+        var uri = new Uri(url);
+        var host = uri.Host.ToLower();
+        
+        // Check against trusted domains
+        return TrustedDomains.Any(domain => host == domain || host.EndsWith("." + domain));
+    }
+    catch
+    {
+        return false; // Invalid URL is not trusted
+    }
+}
+```
+
+**For programmatic URL navigation, always use the platform navigation API** (`Windows.System.Launcher.LaunchUriAsync`) rather than handling raw PDF content directly.
 
 ### Detect Mouse Hover Over Hyperlink (HyperlinkPointerMoved)
 

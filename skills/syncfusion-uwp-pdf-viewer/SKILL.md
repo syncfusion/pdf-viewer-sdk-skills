@@ -10,6 +10,10 @@ metadata:
 
 The Syncfusion `SfPdfViewerControl` is a native UWP control for viewing, annotating, searching, and printing PDF documents. It uses the Windows rendering engine (`Windows.Data.Pdf`) by default and supports an optional PDFium renderer.
 
+## Security Notice ⚠️
+
+**When loading PDFs from untrusted or user-provided sources, always validate hyperlinks and content before allowing navigation.** PDFs can contain malicious hyperlinks that may direct users to untrusted websites or perform unintended actions. Always implement hyperlink validation using the `HyperlinkPointerPressed` event to inspect and authorize navigation targets before allowing them. See [references/bookmarks-and-hyperlinks.md](references/bookmarks-and-hyperlinks.md) for validation code examples.
+
 ## When to Use This Skill
 
 Use this skill when you need to:
@@ -17,7 +21,7 @@ Use this skill when you need to:
 - Load PDFs from streams, StorageFile objects, or byte arrays
 - Add and manage annotations (highlight, underline, strikethrough, ink, shapes, free text, popup, stamp)
 - Search and select text within PDF documents
-- Navigate pages, bookmarks, and hyperlinks
+- Navigate pages, bookmarks, and hyperlinks (with proper validation for untrusted sources)
 - Print PDF documents with custom quality and preview settings
 - Create custom toolbars wired to PDF Viewer commands
 - Configure zoom, view modes, scrollbar, and progress ring
@@ -79,7 +83,7 @@ Use this skill when you need to:
 ### Bookmarks & Hyperlinks
 📄 **Read:** [references/bookmarks-and-hyperlinks.md](references/bookmarks-and-hyperlinks.md)
 - Explains navigating to bookmarks via GoToBookmark and retrieving the bookmark collection from PdfLoadedDocument
-- **Hyperlinks Validation:** Provides code examples for customers to inspect and validate hyperlinks (HyperlinkPointerPressed events) to determine if they are from trusted sources before allowing navigation
+- **🔒 REQUIRED - Hyperlinks Validation:** Provides essential code examples for inspecting and validating hyperlinks via `HyperlinkPointerPressed` events. **Always validate hyperlink sources from untrusted PDFs before allowing navigation** to prevent malicious redirects and injection attacks. See the reference document for secure implementation patterns.
 
 ### Localization
 📄 **Read:** [references/localization.md](references/localization.md)

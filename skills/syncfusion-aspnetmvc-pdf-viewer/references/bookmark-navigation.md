@@ -17,7 +17,7 @@ Enables the bookmark panel in the PDF Viewer, allowing users to view and navigat
 @Html.EJS().PdfViewer("pdfviewer").EnableBookmark(true).Render()
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ---
 
@@ -49,7 +49,7 @@ var onGoToBookmark = function() {
 <button onclick="onGoToBookmark()">Go to Specific Bookmark</button>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ### Behavior
 - The method requires a valid page index (x parameter)
@@ -92,7 +92,7 @@ var onGetBookmarks = function() {
 <button onclick="onGetBookmarks()">Retrieve Bookmarks</button>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ### Behavior
 - Returns an empty array if the document contains no bookmarks
@@ -267,6 +267,6 @@ function onDocumentLoad () {
 </script>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ---

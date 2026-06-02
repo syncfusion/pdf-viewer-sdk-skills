@@ -31,6 +31,20 @@ SfPdfViewer.network(
 
 ---
 
+## Get Page Count and Current Page number
+
+```dart
+SfPdfViewer.network(
+  'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+  onDocumentLoaded: (details) {
+    print('Page count: ${pdfViewerController.count}');
+    print('Current page cumber: ${pdfViewerController.pageNumber}');
+  },
+)
+```
+
+---
+
 ## Add Interaction Mode
 
 ```dart
@@ -53,34 +67,71 @@ SfPdfViewer.network(
 
 ---
 
-## Add Initial Zoom Level
+## Add Scroll Direction
+
+```dart
+SfPdfViewer.network(
+  'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+  scrollDirection: PdfScrollDirection.horizontal,
+)
+```
+
+---
+
+## Add Initial Zoom Level and Initial Page number
 
 ```dart
 SfPdfViewer.network(
   'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
   initialZoomLevel: 1.5,
+  initialPageNumber: 4,
 )
 ```
 
 ---
 
-## Show or Hide Scroll Head
+## Show or Hide Scroll Head and Scroll Status
 
 ```dart
 SfPdfViewer.network(
   'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
   canShowScrollHead: false,
+  canShowScrollStatus: false,
 )
 ```
 
 ---
 
-## Show or Hide Pagination Dialog
+## Show or Hide Pagination Dialog and Page Loading Indicator
 
 ```dart
 SfPdfViewer.network(
   'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
   canShowPaginationDialog: false,
+  canShowPageLoadingIndicator: false,
+)
+```
+
+---
+
+## Show or Hide Hyperlink Dialog
+
+```dart
+SfPdfViewer.network(
+  'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+  canShowHyperlinkDialog: false,
+)
+```
+
+---
+
+## Add Page spacing and Initial Scroll Offset
+
+```dart
+SfPdfViewer.network(
+  'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+  pageSpacing: 10,
+  initialScrollOffset: Offset(0, 600),
 )
 ```
 
@@ -106,6 +157,7 @@ SfPdfViewer.network(
 | `maxZoomLevel` | Maximum zoom level allowed. | `double` | `3.0` |
 | `interactionMode` | Sets the user interaction mode: `selection` or `pan`. | `PdfInteractionMode` | `PdfInteractionMode.selection` |
 | `pageLayoutMode` | Sets how pages are laid out: `continuous` or `single`. | `PdfPageLayoutMode` | `PdfPageLayoutMode.continuous` |
+| `scrollDirection` | Sets how pages are scrolled: `vertical` or `horizontal`. | `PdfScrollDirection` | `PdfScrollDirection.vertical` |
 | `canShowScrollHead` | Shows or hides the scroll head indicator. | `bool` | `true` |
 | `canShowPaginationDialog` | Shows or hides the page navigation dialog. | `bool` | `true` |
 | `enableTextSelection` | Enables or disables text selection. | `bool` | `true` |

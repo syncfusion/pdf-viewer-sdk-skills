@@ -418,7 +418,7 @@ enableFormDesigner
 
 ## Related References
 
-- [basic-sample.md](./basic-sample.md) - Complete component setup
+- [getting-started.md](./getting-started.md) - Complete component setup
 - [general-properties.md](./general-properties.md) - Non-boolean configuration properties
 - [annotation-settings.md](./annotation-settings.md) - Detailed annotation configuration
 - [form-field-settings.md](./form-field-settings.md) - Form field configuration

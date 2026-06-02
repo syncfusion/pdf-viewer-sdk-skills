@@ -323,4 +323,4 @@ Automatically recalculates zoom for different breakpoints or orientation changes
 - **Toolbar Presets:** 50%, 75%, 100%, 125%, 150%, 200%, 250%, 300%, 400%.
 - **Public Methods:** `zoomIn()`, `zoomOut()`, `zoomTo(percentage)`, `fitToPage()`, `fitToWidth()`.
 
-**Complete Setup:** Refer to [references/basic-sample.md](./basic-sample.md) for the base Vue configuration, service injection pattern, and CSS imports before layering magnification-specific logic.
+**Complete Setup:** Refer to [getting-started.md](./getting-started.md) for the base Vue configuration, service injection pattern, and CSS imports before layering magnification-specific logic.

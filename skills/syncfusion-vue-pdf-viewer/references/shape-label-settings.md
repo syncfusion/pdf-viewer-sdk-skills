@@ -191,4 +191,4 @@ export default {
 </script>
 ```
 
-> Need the full project bootstrap? Follow the viewer initialization steps in [basic-sample.md](./basic-sample.md) before applying these settings.
+> Need the full project bootstrap? Follow the viewer initialization steps in [getting-started.md](./getting-started.md) before applying these settings.

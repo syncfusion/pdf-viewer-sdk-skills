@@ -9,6 +9,7 @@ The Syncfusion WPF PdfViewer allows users to toggle the visibility of individual
 | `Layer.Name` | Gets the name of the PDF layer. |
 | `Layer.IsVisible` | Gets or sets the visibility of the layer. |
 | `PdfViewerControl.EnableLayers` | Enables or disables the layer feature in the viewer. |
+| `LayersPaneSettings.IsExpanded `| Gets or sets a value indicating whether the Layers pane is expanded. |
 
 ## Toggle the Visibility of a Specific PDF Layer by Name Using Code-Behind
 Retrieves the `Layers` collection from `PdfDocumentView` and toggles visibility using the layer's `Name` and `IsVisible` property.
@@ -62,3 +63,12 @@ Disables the display of all layers in the PDF document by setting `EnableLayers`
     </Grid>
 </Window>
 ```
+## Expand or Collapse the Layers Pane Using LayersPaneSettings
+The LayersPaneSettings property provides control over the Layers pane UI in the PDF viewer.
+
+```csharp
+pdfViewer.LayersPaneSettings.IsExpanded = true;
+```
+### Notes
+- `true` shows the Layers pane; `false` keeps it collapsed.
+- This setting affects only the Layers pane UI.

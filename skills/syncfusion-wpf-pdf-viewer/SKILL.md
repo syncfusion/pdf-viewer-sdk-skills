@@ -70,31 +70,31 @@ All templates and operation snippets live in `references/*.md`. Each file is a f
 
 | File | Purpose |
 |---|---|
-| **Load-sample.md** | Load PDFs via stream or file path (encrypted and normal); unload document; customize loading indicator color and message. |
-| **navigation.md** | Page navigation (including `GoToPageAtIndex`), page count, current page index, thumbnail panel, bookmark navigation, and hyperlink events. |
-| **annotation.md** | Add and control annotations (ink, shapes, stamp, text, highlights, etc.); disable annotation selection; set current user; customize annotation selector colors. |
-| **pdf-rendering.md** | Switch rendering engine (PDFium/SfPdf) and set ReferencePath. |
-| **text-extraction-engine.md** | Switch text extraction engine (PDFium/SfPdf). |
-| **print.md** | Print settings, silent print, paper source, and print events. |
-| **export-image.md** | Export pages as images (JPG, PNG, TIFF, BMP) using `ExportAsImage`. |
-| **import-export-annotations.md** | Import/export annotations in FDF or XFDF format using `ImportAnnotations` and `ExportAnnotations`. |
-| **extract-text-from-pdf.md** | Extract text and bounds from pages or full document. |
-| **form-filling.md** | Form field events, FDF import/export, and AcroForm field management. |
-| **pdf-layers.md** | Toggle layer visibility and disable layers. |
-| **redaction.md** | Enable redaction, mark regions, customize appearance, and handle events. |
-| **pdf-coordinates.md** | Coordinate conversion, scroll offsets, and ZoomToRect. |
-| **organize-pages.md** | Rotate, reorder, and remove pages; page organizer settings. |
-| **handwritten-signature.md** | Signature mode, appearance settings, flatten on save, and events. |
-| **interaction-mode.md** | Switch cursor modes (Selection, Panning, Marquee Zoom). |
-| **pdf-pages.md** | Page border customization, page interaction events, and pixel-to-point coordinate conversion on page click. |
-| **saving-pdf-files.md** | Save PDF, handle save events, cancel save, and check if the document has been edited. |
-| **magnifying.md** | Zoom level, zoom mode, zoom limits, and ZoomChanged event. |
-| **searching-text.md** | Search, highlight, navigate results, and retrieve text bounds. |
-| **text-selection.md** | Detect and retrieve selected text and bounds. |
-| **localization.md** | Apply .resx localization and set UI culture. |
-| **customize-contextmenu.md** | Add, remove, or hide context menu items. |
-| **commands.md** | Command bindings for navigation, zoom, annotations, print, and save; disable undo/redo via `UndoRedoSettings.Limit`. |
-| **toolbar-items.md** | Show/hide toolbar elements and disable individual toolbar items. |
+| **Load-sample.md** | Load and unload PDFs using file paths, streams, or PdfLoadedDocument (encrypted or not); support async loading, MVVM binding, password handling, loading indicator customization, and theme application. |
+| **navigation.md** | Navigate PDF pages using index‑ or number‑based APIs; retrieve page state information; scroll programmatically; manage thumbnails and bookmarks; and handle hyperlink navigation events. |
+| **annotation.md** | Enable, customize, and manage all annotation types; handle annotation events; programmatically select, hide, lock, or delete annotations; control comments panel, authorship, hyperlinks, and selection visuals. |
+| **pdf-rendering.md** | Configure the PDF rendering engine by switching between PDFium and SfPdf and setting the required ReferencePath. |
+| **text-extraction-engine.md** | Select the text extraction engine (PDFium or SfPdf) to control text extraction behavior. |
+| **print.md** | Print PDFs with silent or dialog options; configure printers, page size, scaling, orientation, page range, paper source, and document name; and handle print lifecycle events. |
+| **export-image.md** | Export PDF pages or page ranges as images (JPG, PNG, TIFF, BMP) with control over size, DPI, aspect ratio, and transparency. |
+| **import-export-annotations.md** | Import and export annotations using FDF or XFDF formats. |
+| **extract-text-from-pdf.md** | Extract text content and bounding information from pages or the entire document. |
+| **form-filling.md** | Handle AcroForm fields: manage form events, show or hide icons, import/export form data, and add or edit form fields programmatically. |
+| **pdf-layers.md** | Access and manage PDF layers by toggling visibility, enabling or disabling layers, and controlling the Layers pane UI. |
+| **redaction.md** | Apply redactions by marking regions, customizing appearance, and handling redaction events. |
+| **pdf-coordinates.md** | Convert between coordinate systems, retrieve scroll offsets, and zoom into specific page regions. |
+| **organize-pages.md** | Rotate, reorder, and remove pages using page organizer features. |
+| **handwritten-signature.md** | Capture handwritten signatures, customize appearance, handle signature events, and flatten signatures on save. |
+| **interaction-mode.md** | Switch viewer interaction modes such as text selection, panning, and marquee zoom using cursor settings. |
+| **pdf-pages.md** | Customize page appearance, handle page interaction events, and convert pixel coordinates to PDF points. |
+| **saving-pdf-files.md** | Save edited PDFs, detect unsaved changes, cancel save operations, handle save events, and prompt before closing with pending edits. |
+| **magnifying.md** | Control zoom behavior including zoom levels, fit modes, limits, zoom-to-rectangle, toolbar visibility, and zoom change events. |
+| **searching-text.md** | Search and highlight text, navigate results, retrieve match bounds and text details, support multi-line search, and control search UI and availability. |
+| **text-selection.md** | Detect text selection completion, retrieve selected text and bounds, customize highlight color, enable or disable selection, and clear selections programmatically. |
+| **localization.md** | Localize the PDF Viewer UI using .resx resources and culture settings. |
+| **customize-contextmenu.md** | Customize context menus by adding, removing, hiding items, and handling menu click events. |
+| **commands.md** | Use and bind built‑in WPF commands for navigation, zoom, search, annotations, undo/redo, printing, saving, and unloading documents. |
+| **toolbar-items.md** | Customize viewer UI by showing or hiding toolbars, panels, buttons, menus, notification bars, and switching toolbar styles. |
 ---
 
 

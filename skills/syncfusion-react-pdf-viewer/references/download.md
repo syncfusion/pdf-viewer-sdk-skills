@@ -168,6 +168,6 @@ const onDownloadStart = async (args: DownloadStartEventArgs) => {
 - The `saveAsBlob()` method includes all applied annotations, form-field edits, and other modifications
 - Use with `FileReader` API to convert blob to base64 format when needed for further processing
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ---

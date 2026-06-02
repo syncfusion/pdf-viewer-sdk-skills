@@ -118,6 +118,31 @@ Widget build(BuildContext context) {
 
 ---
 
+## Get PDF Text Line Details
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: SfPdfViewer.network(
+      'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+      onTextSelectionChanged: (PdfTextSelectionChangedDetails details) {
+        final List<PdfTextLine>? lines = details.selectedTextLines;
+        if (lines != null) {
+          for (final PdfTextLine line in lines) {
+            print('Text   : ${line.text}');
+            print('Page   : ${line.pageNumber}');
+            print('Bounds : ${line.bounds}');
+          }
+        }
+      },
+    ),
+  );
+}
+```
+
+---
+
 ## Clear Text Selection
 
 ```dart

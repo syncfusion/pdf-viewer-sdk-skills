@@ -44,12 +44,20 @@ bool isPDFEdited = pdfViewer.IsDocumentEdited;
 ```
 ### Placeholders
 - Replace `sample.pdf` with the actual PDF file path.
+## Show Save-Changes Confirmation Dialog When Closing the PDF Viewer
+The `WarnBeforeClose` property allows you to display a confirmation dialog when the PDF Viewer is closed while the loaded document contains unsaved changes. This helps prevent accidental data loss by prompting the user to save their edits.
+```csharp
+pdfViewer.WarnBeforeClose = true;
+```
+-true – Displays a dialog asking the user whether to save changes before closing the viewer.
+-false – Closes the viewer without showing any save confirmation message.
 
 ## API Reference for All Save-Related Properties, Methods, and Events
 
 | API | Type | Description |
 |---|---|---|
 | `IsDocumentEdited` | Property | Returns `true` if the document has unsaved modifications. |
+| WarnBeforeClose | Property | Enables or disables the save-changes warning dialog when closing the PDF viewer. |
 | `PdfViewerControl.Save(filePath)` | Method | Saves the modified PDF document to the specified file path. |
 | `BeginSave` | Event | Fires before the save operation begins. |
 | `BeginSaveEventArgs.Cancel` | Property | Set to `true` to cancel the save operation. |

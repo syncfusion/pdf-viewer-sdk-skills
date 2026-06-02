@@ -8,6 +8,13 @@ Prints the loaded PDF silently to the system's default printer without showing a
 // Prints the document silently to the default printer.
 pdfViewer.Print();
 ```
+## Print the Loaded PDF Using the Print(bool showPrintDialog) Overload
+The `Print(bool showPrintDialog)` overload allows you to explicitly control whether the system print dialog is displayed when printing.
+
+```csharp
+// Print without showing the print dialog (silent printing)
+pdfViewer.Print(false);
+```
 
 ## Print the Loaded PDF Silently to a Specified Printer by Passing the Printer Name
 Prints the loaded PDF silently to a specified printer by passing the printer name to the `Print` method.
@@ -97,6 +104,27 @@ Suppresses the print status dialog during printing by setting `ShowPrintStatusDi
 
 ### Placeholders
 Replace `customer.pdf` with the actual PDF file path.
+
+## PdfDocumentView Print‑Related Properties
+The `PdfDocumentView` provides additional properties to control **print output size** and **page range** during printing.
+
+## Set Custom Print Width and Height
+Use `PrintWidth` and `PrintHeight` to define the dimensions used when printing the document.
+
+```csharp
+pdfDocumentView.PrintWidth = 500;
+pdfDocumentView.PrintHeight = 400;
+
+```
+- PrintWidth – Gets or sets the width used for printing.
+- PrintHeight – Gets or sets the height used for printing.
+
+## Print a Specific Page Range Using PdfDocumentView
+Use `PrintFromPage` and `PrintToPage` to specify the range of pages that should be printed.
+```csharp
+pdfDocumentView.PrintFromPage = 1; // Start page (1‑based)
+pdfDocumentView.PrintToPage = 2;   // End page (1‑based)
+```
 
 ## Select a Specific Paper Tray for Silent Printing by Setting PaperSource in PageSettings
 Selects a specific paper tray by setting `PaperSource` in `PageSettings` and passing it along with the printer name to the `Print` method.

@@ -151,8 +151,6 @@ pdfviewer.resourceUrl = "https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2-pdfview
 pdfviewer.appendTo('#PdfViewer');
 ```
 
-**Preview Sample**: [Open in Stackblitz](https://cdn.syncfusion.com/documentation/images/StackBlitz-icon.png)
-
 ---
 
 ## Module injection

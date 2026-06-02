@@ -33,6 +33,15 @@ pdfViewer.MaximumZoomPercentage = 600;
 pdfViewer.ZoomTo(pdfViewer.MaximumZoomPercentage);
 ```
 
+## Zoom to a Specific Rectangular Area of the PDF Page
+The ZoomToRect method allows you to zoom into a specific rectangular region of the currently displayed PDF page. This is useful for focusing on a particular area.
+```csharp
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+    pdfViewer.ZoomToRect(new Rect(400, 50, 200, 150));
+}
+```
+
 ## Hide the Zoom Tools in the Toolbar Using Code-Behind
 ```csharp
 pdfViewer.ToolbarSettings.ShowZoomTools = false;

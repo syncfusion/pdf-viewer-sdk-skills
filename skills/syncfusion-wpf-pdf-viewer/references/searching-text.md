@@ -11,16 +11,40 @@ private void PdfViewer_DocumentLoaded(object sender, System.EventArgs args)
 }
 ```
 
+## Search and Highlight the First Occurrence with Case Sensitivity
+```csharp
+// Case-sensitive search
+pdfViewer.SearchText("Target Text", true);
+
+// Case-insensitive search
+pdfViewer.SearchText("Target Text", false);
+```
+
 ## Search and Highlight the Next Occurrence of a Text String Using Code-Behind
 
 ```csharp
 pdfViewer.SearchNextText("Target text");
 ```
+## Search and Highlight the Next Occurrence with Case Sensitivity
+```csharp
+// Case-sensitive next search
+pdfViewer.SearchNextText("Target text", true);
+
+// Case-insensitive next search
+pdfViewer.SearchNextText("Target text", false);
+```
 
 ## Search and Highlight the Previous Occurrence of a Text String Using Code-Behind
-
 ```csharp
 pdfViewer.SearchPreviousText("Target text");
+```
+## Search and Highlight the Previous Occurrence with Case Sensitivity
+```csharp
+// Case-sensitive previous search
+pdfViewer.SearchPreviousText("Target text", true);
+
+// Case-insensitive previous search
+pdfViewer.SearchPreviousText("Target text", false);
 ```
 
 ## Find All Occurrences of a Text String Across the Entire Document and Retrieve Page-Indexed Bounds Using Code-Behind
@@ -82,6 +106,24 @@ if (isMatchFound)
     }
 }
 ```
+## Show the Built‑in Text Search Bar in the Viewer
+The `ShowTextSearchBar()` method displays the built‑in search UI in the PdfViewer, allowing users to search text interactively using the toolbar.
+```csharp
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+    pdfViewer.ShowTextSearchBar();
+}
+```
+
+## Enable or Disable Text Search Using IsTextSearchEnabled
+The `IsTextSearchEnabled` property controls whether text search functionality is enabled in the PDF viewer
+```csharp
+pdfViewer.IsTextSearchEnabled = true;
+```
+### Notes
+* When set to true, UI-based search operations are enabled.
+* When set to false, text search functionality is disabled.
+* The default value is true.
 
 ## API Reference
 
@@ -101,3 +143,11 @@ if (isMatchFound)
 | `TextSearchResult.Bounds` | Property | Gets the bounding rectangle of the matched text. |
 | `TextSearchResult.Text` | Property | Gets the matched text string. |
 | `MatchedItem.Bounds` | Property | Gets the bounding rectangle of the matched item. |
+| `ShowTextSearchBar()` | Method | Displays the built‑in text search bar in the viewer UI. |
+| `SearchText(string targetText)` | Method | Searches and highlights the first occurrence of the specified text. |
+| `SearchText(string targetText, bool isMatchCase)` | Method | Searches and highlights the first occurrence of the specified text with optional case sensitivity. |
+| `SearchNextText(string targetText)` | Method | Highlights the next occurrence of the searched text. |
+| `SearchNextText(string targetText, bool isMatchCase)` | Method | Searches and highlights the next occurrence of the text with optional case sensitivity. |
+| `SearchPreviousText(string targetText)` | Method | Highlights the previous occurrence of the searched text. |
+| `SearchPreviousText(string targetText, bool isMatchCase)` | Method | Searches and highlights the previous occurrence of 
+the text with optional case sensitivity. |

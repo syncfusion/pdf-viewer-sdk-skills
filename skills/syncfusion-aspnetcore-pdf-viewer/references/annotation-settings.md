@@ -21,7 +21,7 @@ It provides functionality to manage and initialize annotation settings for a PDF
 </ejs-pdfviewer>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ## List of Annotations
 
@@ -133,7 +133,7 @@ Defines the annotation selector settings for all types of annotations. See [tabl
 </ejs-pdfviewer>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ## List of Settings Properties
 

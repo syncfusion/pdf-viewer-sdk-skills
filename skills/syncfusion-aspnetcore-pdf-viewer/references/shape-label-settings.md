@@ -246,4 +246,4 @@ Use values between 0 and 1 to control the transparency level of shape labels. A 
 </ejs-pdfviewer>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.

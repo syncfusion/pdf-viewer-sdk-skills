@@ -1,5 +1,5 @@
 # Load PDF Files in WPF Pdf Viewer
-Loading PDF files in the Syncfusion WPF PdfViewer is done through the `Load` API and the `ItemSource` property, which support opening both normal and encrypted documents. PDFs can be loaded from file paths, streams, or `PdfLoadedDocument` objects, and also via XAML data binding using `ItemSource`, enabling flexible integration within WPF applications.
+Loading PDF files in the Syncfusion WPF PdfViewer is done through the `Load` API and the `ItemSource` property, which support opening both normal and encrypted documents. PDFs can be loaded from file paths, streams, or `PdfLoadedDocument` objects, and also via XAML data binding using `ItemSource`, enabling flexible integration within WPF applications.Asynchronous loading helps improve UI responsiveness, especially when loading large PDF files.
 
 
 ## Add PdfViewerControl to the Main Window Using XAML
@@ -54,7 +54,38 @@ Replace `customer.pdf` with the customer-given PDF file path.
 ### Placeholders
 - Replace `customer.pdf` with the customer-given PDF file path.
 - Replace `"password"` with the actual password of the PDF.
+## Load PDF Files Asynchronously Using LoadAsync
+The `LoadAsync` APIs load PDF documents without blocking the UI thread and return a Task<bool> indicating whether the load operation succeeded.
 
+### Load a PDF Using PdfLoadedDocument Asynchronously
+```csharp
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"customer.pdf");
+bool isLoaded = await pdfViewer.LoadAsync(loadedDocument);
+```
+### Load a Normal PDF from a Stream Asynchronously
+```csharp
+FileStream stream = new FileStream(@"customer.pdf", FileMode.Open, FileAccess.Read);
+bool isLoaded = await pdfViewer.LoadAsync(stream);
+```
+### Load a Password-Protected PDF from a Stream Asynchronously
+```csharp
+FileStream stream = new FileStream(@"customer.pdf", FileMode.Open, FileAccess.Read);
+bool isLoaded = await pdfViewer.LoadAsync(stream, "password");
+```
+### Load a Normal PDF from a File Path Asynchronously
+```csharp
+bool isLoaded = await pdfViewer.LoadAsync(@"customer.pdf");
+```
+### Load a Password-Protected PDF from a File Path Asynchronously
+```csharp
+bool isLoaded = await pdfViewer.LoadAsync(@"customer.pdf", "password");
+```
+- All LoadAsync overloads must be awaited.
+- Recommended for large documents or when UI responsiveness is critical.
+- The returned bool indicates whether the load operation completed successfully.
+### Placeholders
+- Replace `customer.pdf` with the customer-given PDF file path.
+- Replace `"password"` with the actual password of the PDF.
 ## Load a PDF Using the ItemSource Property with a File Path in Code-Behind
 
 The `ItemSource` property of `PdfViewerControl` accepts a string file path, a `Stream`, or a `PdfLoadedDocument` object to load a PDF.
@@ -263,6 +294,11 @@ Install-Package Syncfusion.Themes.FluentLight.WPF
 | `Load(stream)` | Method | Loads a PDF document from a `Stream`. |
 | `Load(filePath, password)` | Method | Loads a password-protected PDF from a file path. |
 | `Load(stream, password)` | Method | Loads a password-protected PDF from a `Stream`. |
+| `LoadAsync(PdfLoadedDocument)` | Method | Asynchronously loads a PDF from a PdfLoadedDocument. |
+| `LoadAsync(Stream)` | Method | Asynchronously loads a PDF from a Stream. |
+| `LoadAsync(Stream, string)` | Method | Asynchronously loads a password-protected PDF from a Stream. |
+| `LoadAsync(string)` | Method | Asynchronously loads a PDF from a file path. |
+| `LoadAsync(string, string)` | Method | Asynchronously loads a password-protected PDF from a file path. |
 | `ItemSource` | Property | Accepts a file path, `Stream`, or `PdfLoadedDocument` to load a PDF; supports XAML binding. |
 | `Unload(bool)` | Method | Unloads the document; pass `true` to also dispose it. |
 | `GetDocumentPassword` | Event | Fires when the viewer needs the document password; set `e.Handled = true` to suppress the built-in dialog. |

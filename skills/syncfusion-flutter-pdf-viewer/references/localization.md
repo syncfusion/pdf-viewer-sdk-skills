@@ -12,13 +12,16 @@ Add to `pubspec.yaml`:
 dependencies:
   flutter_localizations:
     sdk: flutter
-  syncfusion_localizations: ^xx.x.xx
+  syncfusion_localizations: ^33.2.8
 ```
 
 Run:
 ```bash
 flutter pub get
 ```
+
+**Notes:**
+- Use the latest stable version of the package from [pub.dev](https://pub.dev/packages/syncfusion_flutter_pdfviewer).
 
 ---
 

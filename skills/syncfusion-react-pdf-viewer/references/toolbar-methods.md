@@ -82,7 +82,7 @@ const toggleEditMode = () => {
 };
 ```
 
-**Note**: See [basic-sample.md](./basic-sample.md) for complete component setup and ref configuration.
+**Note**: See [getting-started.md](./getting-started.md) for complete component setup and ref configuration.
 
 ## Toolbar Methods
 

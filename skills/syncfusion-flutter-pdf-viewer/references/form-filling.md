@@ -12,6 +12,18 @@ final PdfViewerController _pdfViewerController = PdfViewerController();
 final List<PdfFormField> formFields = _pdfViewerController.getFormFields();
 ```
 
+## Fetch and read the form field details.
+
+```dart
+final List<PdfFormField> formFields = _pdfViewerController.getFormFields();
+
+for (final PdfFormField field in formFields) {
+  print('Field Name   : ${field.name}');
+  print('Page Number  : ${field.pageNumber}');
+  print('Read Only    : ${field.isReadOnly}');;
+}
+```
+
 ---
 
 ## Edit Form Fields Programmatically

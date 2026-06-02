@@ -115,6 +115,25 @@ for (final Annotation annotation in annotations) {
 
 ---
 
+## Annotation Settings
+
+```dart
+// Global defaults before adding annotations
+_pdfViewerController.annotationSettings.author = 'Annotation';
+_pdfViewerController.annotationSettings = PdfAnnotationSettings();
+_pdfViewerController.annotationSettings.highlight = PdfTextMarkupAnnotationSettings();
+_pdfViewerController.annotationSettings.selector = PdfAnnotationSelectorSettings();
+_pdfViewerController.annotationSettings.squiggly = PdfTextMarkupAnnotationSettings();
+_pdfViewerController.annotationSettings.stickyNote = PdfStickyNoteAnnotationSettings();
+_pdfViewerController.annotationSettings.underline = PdfTextMarkupAnnotationSettings();
+_pdfViewerController.annotationSettings.isLocked = false;
+_pdfViewerController.annotationSettings.highlight.opacity = 0.8; = 0.8;
+_pdfViewerController.annotationSettings.stickyNote.color = Colors.orange;
+_pdfViewerController.annotationSettings.stickyNote.icon = PdfStickyNoteIcon.comment;
+```
+
+---
+
 ## Select and Deselect an Annotation Programmatically
 
 ```dart
@@ -229,6 +248,24 @@ Widget build(BuildContext context) {
 ```
 
 > **Note:** `undoController` is shared between annotations and form fields — a single instance handles both.
+
+---
+
+## Get Annotation Details Programmatically
+
+```dart
+SfPdfViewer.asset(
+    'assets/sample.pdf',
+    onAnnotationAdded: (Annotation annotation) {
+    print('Author of the annotation: ${annotation.author}');
+    print('Color of the annotation: ${annotation.color}');
+    print('State of the annotation: ${annotation.isLocked}');
+    print('Name of the annotation: ${annotation.name}');
+    print('Opacity of the Annotation: ${annotation.opacity}');
+    print('Subject of the annotation: ${annotation.subject}');
+    },
+  ),
+```
 
 ---
 

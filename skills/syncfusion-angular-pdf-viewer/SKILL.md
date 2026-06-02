@@ -8,6 +8,8 @@ metadata:
 
 # Syncfusion Angular PDF Viewer UI Sample Generator
 
+Target package: `@syncfusion/ej2-angular-pdfviewer`
+
 ## Mandatory 3-Step workflow (Strict Enforcement)
 
 **EVERY query MUST follow these steps sequentially:**
@@ -84,60 +86,60 @@ Available alternatives: [list from reference files]
 ### Core Setup
 | User Query Keywords | Reference File | Purpose |
 |---|---|---|
-| "basic", "create sample", "getting started", "load PDF" | **basic-sample.md** | Minimal PDFViewer setup |
-| "configuration", "server settings", "locale" | **general-properties.md** | Core viewer properties |
-| "disable", "hide features", "enable/disable", "read-only" | **enable-properties.md** | Feature toggles |
+| "basic", "create sample", "getting started", "load PDF" | [getting-started.md](references/getting-started.md) | Minimal PDFViewer setup |
+| "configuration", "server settings", "locale" | [general-properties.md](references/general-properties.md) | Core viewer properties |
+| "disable", "hide features", "enable/disable", "read-only" | [enable-properties.md](references/enable-properties.md) | Feature toggles |
 
 ### Navigation
 | User Query Keywords | Reference File | Purpose |
 |---|---|---|
-| "page navigation", "next/previous page", "go to page" | **page-navigation.md** | Page controls |
-| "bookmarks", "table of contents", "TOC", "outline" | **bookmark-navigation.md** | Bookmark navigation (use ViewChild) |
-| "hyperlinks", "external links", "URL navigation" | **hyperlink-navigation.md** | Link handling |
-| "thumbnails", "preview pages", "thumbnail panel" | **thumbnail-navigation.md** | Thumbnail panel |
+| "page navigation", "next/previous page", "go to page" | [page-navigation.md](references/page-navigation.md) | Page controls |
+| "bookmarks", "table of contents", "TOC", "outline" | [bookmark-navigation.md](references/bookmark-navigation.md) | Bookmark navigation (use ViewChild) |
+| "hyperlinks", "external links", "URL navigation" | [hyperlink-navigation.md](references/hyperlink-navigation.md) | Link handling |
+| "thumbnails", "preview pages", "thumbnail panel" | [thumbnail-navigation.md](references/thumbnail-navigation.md) | Thumbnail panel |
 
 ### Viewing & Interaction
 | User Query Keywords | Reference File | Purpose |
 |---|---|---|
-| "zoom", "magnification", "fit to page", "scale" | **magnification.md** | Zoom controls |
-| "text selection", "panning", "scroll mode" | **interaction-mode.md** | Interaction modes |
-| "select text", "copy text" | **text-selection.md** | Text selection |
-| "search", "find in PDF", "highlight search" | **text-search.md** | Search functionality |
+| "zoom", "magnification", "fit to page", "scale" | [magnification.md](references/magnification.md) | Zoom controls |
+| "text selection", "panning", "scroll mode" | [interaction-mode.md](references/interaction-mode.md) | Interaction modes |
+| "select text", "copy text" | [text-selection.md](references/text-selection.md) | Text selection |
+| "search", "find in PDF", "highlight search" | [text-search.md](references/text-search.md) | Search functionality |
 
 ### Toolbar & Context Menu
 | User Query Keywords | Reference File | Purpose |
 |---|---|---|
-| "customize toolbar", "hide toolbar items", "remove buttons" | **toolbar-settings.md** | Toolbar configuration |
-| "show/hide toolbar dynamically", "toggle toolbar" | **toolbar-methods.md** | Programmatic toolbar control |
-| "right-click menu", "context menu", "custom menu" | **contextmenu.md** | Context menu |
+| "customize toolbar", "hide toolbar items", "remove buttons" | [toolbar-settings.md](references/toolbar-settings.md) | Toolbar configuration |
+| "show/hide toolbar dynamically", "toggle toolbar" | [toolbar-methods.md](references/toolbar-methods.md) | Programmatic toolbar control |
+| "right-click menu", "context menu", "custom menu" | [contextmenu.md](references/contextmenu.md) | Context menu |
 
 ### Annotations
 | User Query Keywords | Reference File | Purpose |
 |---|---|---|
-| "annotation colors", "annotation styles", "customize annotations" | **annotation-settings.md** | Annotation appearance |
-| "annotation events", "when annotation added", "annotation callbacks" | **annotation-events.md** | Annotation lifecycle |
-| "annotation labels", "shape labels", "measurement labels" | **shape-label-settings.md** | Label customization |
-| "ink annotation", "freehand drawing", "signature", "sketch", "handwritten notes" | **ink-annotation.md** | Ink annotations |
-| "redaction", "redact content", "black out text" | **redaction-annotation.md** | Redaction annotations |
+| "annotation colors", "annotation styles", "customize annotations" | [annotation-settings.md](references/annotation-settings.md) | Annotation appearance |
+| "annotation events", "when annotation added", "annotation callbacks" | [annotation-events.md](references/annotation-events.md) | Annotation lifecycle |
+| "annotation labels", "shape labels", "measurement labels" | [shape-label-settings.md](references/shape-label-settings.md) | Label customization |
+| "ink annotation", "freehand drawing", "signature", "sketch", "handwritten notes" | [ink-annotation.md](references/ink-annotation.md) | Ink annotations |
+| "redaction", "redact content", "black out text" | [redaction-annotation.md](references/redaction-annotation.md) | Redaction annotations |
 
 ### Forms
 | User Query Keywords | Reference File | Purpose |
 |---|---|---|
-| "form field defaults", "form field styles" | **form-field-settings.md** | Form field config |
-| "form field events", "field changes", "validation" | **form-field-events.md** | Form field events |
+| "form field defaults", "form field styles" | [form-field-settings.md](references/form-field-settings.md) | Form field config |
+| "form field events", "field changes", "validation" | [form-field-events.md](references/form-field-events.md) | Form field events |
 
 ### Document Actions
 | User Query Keywords | Reference File | Purpose |
 |---|---|---|
-| "download PDF", "save PDF", "export" | **download.md** | Download functionality |
-| "print PDF", "print document" | **print.md** | Print functionality |
-| "reorder pages", "rotate pages", "add/remove pages" | **organize-pages.md** | Page manipulation |
+| "download PDF", "save PDF", "export" | [download.md](references/download.md) | Download functionality |
+| "print PDF", "print document" | [print.md](references/print.md) | Print functionality |
+| "reorder pages", "rotate pages", "add/remove pages" | [organize-pages.md](references/organize-pages.md) | Page manipulation |
 
 ### Advanced
 | User Query Keywords | Reference File | Purpose |
 |---|---|---|
-| "load programmatically", "API methods", "extract text" | **api-methods.md** | Programmatic control |
-| "event list", "all events", "event reference" | **events.md** | Complete event list |
+| "load programmatically", "API methods", "extract text" | [api-methods.md](references/api-methods.md) | Programmatic control |
+| "event list", "all events", "event reference" | [events.md](references/events.md) | Complete event list |
 
 ---
 
@@ -157,6 +159,43 @@ Available alternatives: [list from reference files]
 - ? `ShapeAnnotationOption` ? ? `ShapeTool`
 
 ---
+
+## Quick Start Example
+
+Add the Angular PDF Viewer by using `<ejs-pdfviewer>` selector in the template section of the `src/app/app.ts` file to render the PDF Viewer component.
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { PdfViewerModule, LinkAnnotationService, BookmarkViewService,
+         MagnificationService, ThumbnailViewService, ToolbarService,
+         NavigationService, TextSearchService, TextSelectionService,
+         PrintService, FormDesignerService, FormFieldsService,
+         AnnotationService, PageOrganizerService } from '@syncfusion/ej2-angular-pdfviewer';
+
+@Component({
+  selector: 'app-root',
+  // specifies the template string for the PDF Viewer component
+  template: `<div class="content-wrapper">
+                <ejs-pdfviewer id="pdfViewer"
+                    [documentPath]='document'
+                    [resourceUrl]='resource'
+                    style="height:640px;display:block">
+                </ejs-pdfviewer>
+             </div>`,
+  imports: [ PdfViewerModule ],
+  providers: [ LinkAnnotationService, BookmarkViewService, MagnificationService,
+               ThumbnailViewService, ToolbarService, NavigationService,
+               TextSearchService, TextSelectionService, PrintService,
+               AnnotationService, FormDesignerService, FormFieldsService, PageOrganizerService]
+})
+export class AppComponent implements OnInit {
+  public document: string = 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf';
+  public resource: string = window.location.origin + "/assets/ej2-pdfviewer-lib";
+  
+  ngOnInit(): void {
+  }
+}
+```
 
 ## Settings Configurations
 

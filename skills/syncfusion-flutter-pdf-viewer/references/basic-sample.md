@@ -8,13 +8,16 @@ Add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  syncfusion_flutter_pdfviewer: ^xx.x.xx
+  syncfusion_flutter_pdfviewer: ^33.2.8
 ```
 
 Run:
 ```bash
 flutter pub get
 ```
+
+**Notes:**
+- Use the latest stable version of the package from [pub.dev](https://pub.dev/packages/syncfusion_flutter_pdfviewer).
 
 ## Import
 
@@ -88,6 +91,27 @@ Widget build(BuildContext context) {
     body: SfPdfViewer.file(File('/path/to/document.pdf')),
   );
 }
+```
+
+## Load from Memory
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: SfPdfViewer.memory(bytes),
+  );
+}
+```
+
+## Document Source Access
+
+```dart
+// Via unified PDFSource abstraction
+SfPdfViewer(source: AssetPDFSource('assets/document.pdf'));
+SfPdfViewer(source: URLPDFSource('https://example.com/doc.pdf'));
+SfPdfViewer(source: BytePDFSource(bytes));
+SfPdfViewer(source: FilePDFSource(file));
 ```
 
 ## Add Web Platform Setup

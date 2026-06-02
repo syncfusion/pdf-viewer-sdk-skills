@@ -6,6 +6,27 @@ Navigation support in the Syncfusion WPF PdfViewer enables page navigation, book
 pdfViewer.GotoPage(2);
 ```
 
+## Go to the First Page
+Navigates the viewer to the very first page of the loaded PDF document.
+```csharp
+pdfViewer.GoToFirstPage();
+```
+
+## Go to the Last Page
+```csharp
+pdfViewer.GoToLastPage();
+```
+
+## Go to the Next Page
+```csharp
+pdfViewer.GoToNextPage();
+``` 
+
+## Go to the Previous Page
+```csharp
+pdfViewer.GoToPreviousPage();
+``` 
+
 ## Navigate to a Specific Page by Zero-Based Index Using Code-Behind
 ```csharp
 pdfViewer.GoToPageAtIndex(2);
@@ -20,11 +41,61 @@ int pageCount = pdfViewer.PageCount;
 ```csharp
 int currentPage = pdfViewer.CurrentPageIndex;
 ```
+## Navigate Using PdfDocumentView Navigation State Properties
+The `PdfDocumentView` exposes several read-only boolean properties that indicate whether specific navigation actions are currently possible. These properties are typically used to enable or disable navigation buttons and to validate navigation commands, not to force navigation.
+```csharp
+public bool CanGoToFirstPage { get; }
+public bool CanGoToPreviousPage { get; }
+public bool CanGoToNextPage { get; }
+public bool CanGoToLastPage { get; }
+```
+### Property Descriptions
+- CanGoToFirstPage – Returns true if navigation to the first page is possible (current page is not the first page).
+- CanGoToPreviousPage – Returns true if navigation to the previous page is possible.
+- CanGoToNextPage – Returns true if navigation to the next page is possible.
+- CanGoToLastPage – Returns true if navigation to the last page is possible (current page is not the last page).
+### Example Usage
+The navigation state properties are commonly used to **safely navigate pages** and **control UI elements** such as toolbar buttons.
+
+#### Example: Safe Navigation Based on State
+Each navigation call is executed only when the corresponding state indicates it is possible.
+
+```csharp
+// Navigate to the first page only if not already on the first page
+if (pdfDocumentView.CanGoToFirstPage)
+{
+    pdfDocumentView.GoToFirstPage();
+}
+
+// Navigate to the previous page only if a previous page exists
+if (pdfDocumentView.CanGoToPreviousPage)
+{
+    pdfDocumentView.GoToPreviousPage();
+}
+
+// Navigate to the next page only if a next page exists
+if (pdfDocumentView.CanGoToNextPage)
+{
+    pdfDocumentView.GoToNextPage();
+}
+
+// Navigate to the last page only if not already on the last page
+if (pdfDocumentView.CanGoToLastPage)
+{
+    pdfDocumentView.GoToLastPage();
+}
+```
 
 ## Scroll the Document to a Specific Horizontal and Vertical Offset Using Code-Behind
 ```csharp
 // Scroll to horizontal offset 160 and vertical offset 400
 pdfViewer.ScrollTo(160, 400);
+```
+
+## Scroll the Document Vertically Using ScrollTo(double)
+```csharp
+// Scroll vertically to offset 400
+pdfViewer.ScrollTo(400);
 ```
 
 ## Expand the Thumbnail Navigation Panel Programmatically on Window Load Using Code-Behind
@@ -73,6 +144,12 @@ pdfViewer.BookmarkSettings.IsExpanded = true;
 ## Disable the Bookmark Feature and Hide the Bookmark Button Using Code-Behind
 ```csharp
 pdfViewerControl.IsBookmarkEnabled = false;
+```
+
+## Display a Notification Bar in the Viewer
+The `InsertNotificationBar` method allows you to display a message banner inside the PDF viewer. This is useful for showing informational messages, warnings, or status updates to users.
+```csharp
+pdfViewer.InsertNotificationBar("This is a notification bar");
 ```
 
 ## Retrieve the URI of a Clicked Hyperlink by Handling the HyperlinkClicked Event Using Code-Behind
@@ -127,3 +204,8 @@ private void PdfViewerControl_HyperlinkMouseOver(object sender, EventArgs args)
 | `HyperlinkClickedEventArgs.Uri` | Property | Returns the URI of the clicked hyperlink. |
 | `HyperlinkClickedEventArgs.Handled` | Property | Set to `true` to prevent default hyperlink navigation. |
 | `DocumentLoaded` | Event | Fires when the PDF document is fully loaded. |
+| `GoToFirstPage()` | Method | Navigates to the first page of the document. |
+| `GoToLastPage()` | Method | Navigates to the last page of the document. |
+| `GoToNextPage()` | Method | Navigates to the next page relative to the current page. |
+| `GoToPreviousPage()` | Method | Navigates to the previous page relative to the current page. |
+

@@ -125,7 +125,7 @@ Define the PDF Viewer in the `<template>` section of `src/App.vue` using the `ej
 |----------|------|---------|---------|
 | **id** | `string` | Unique identifier for the component instance | `:id="container"` |
 | **documentPath** | `string` | Path to the PDF document (CDN URL or local file) | `:documentPath="https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf"` |
-| **resourceUrl** | `string` | URL folder with library resources (pdfium.js, pdfium.wasm) | `:resourceUrl="https://cdn.syncfusion.com/ej2/dist/ej2-pdfviewer-lib"` |
+| **resourceUrl** | `string` | URL folder with library resources (pdfium.js, pdfium.wasm) | `:resourceUrl="resourceUrl "` |
 
 ---
 

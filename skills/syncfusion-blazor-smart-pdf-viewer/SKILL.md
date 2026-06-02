@@ -8,6 +8,9 @@ metadata:
 
 # Syncfusion Blazor Smart PDF Viewer – UI Sample Generator
 
+  **NuGet:** `Syncfusion.Blazor.SfSmartPdfViewer` + `Syncfusion.Blazor.Themes`  
+  **Namespace:** `Syncfusion.Blazor.SmartPdfViewer`
+
 ## Generate C# Code for the User's Project *(default)*
 
 **Trigger keywords:** "how to", "add smart pdfviewer", "code sample", "show me", "example", "snippet", "integrate", "component", "create sample", "document summarization", "smart redaction", "smart fill".
@@ -55,7 +58,7 @@ metadata:
 
 - **This is a CRITICAL REQUIREMENT.** Violations compromise the skill's integrity and reliability.
 
-#### Step 1 — Detect the Application Type *(REQUIRED - DO NOT SKIP)*
+### Step 1 — Detect the Application Type *(REQUIRED - DO NOT SKIP)*
 - **Use file_search and read_file tools to inspect workspace project files:**
   - `.csproj` file (project configuration)
   - `Program.cs` (startup configuration)
@@ -64,7 +67,7 @@ metadata:
   - Any existing `.razor` files in Components/Pages
 - **Output:** Confirm the detected application type (e.g., "Blazor WebApp" or "Blazor Server") before proceeding.
 
-#### Step 2 — Generate Code from Reference Files Only *(REQUIRED)*
+### Step 2 — Generate Code from Reference Files Only *(REQUIRED)*
 - **Before generating:** Confirm that Steps 1 are complete
 - Read the relevant `references/*.md` file(s) for the requested feature
 - Cross-reference EVERY API, property, and method against these tables
@@ -84,16 +87,28 @@ metadata:
 - If an API/property does NOT appear in the reference file table, DO NOT USE IT
 - Do NOT invent, guess, or suggest any API, method, property, class, or namespace not explicitly present in the reference files
 
-### Code References
+## Code References
 
 All templates and operation snippets live in `references/*.md`. Each file is a focused snippet or template the agent will combine when generating samples.
 
 | File | Purpose |
 |---|---|
-| **basic-sample.md** | Foundation setup and minimal Smart PDF Viewer component. Includes NuGet package installation, service registration, Azure OpenAI configuration, and complete setup prerequisites. |
-| **smart-redaction.md** | AI-powered smart redaction configuration. Covers enabling/disabling redaction, custom redaction patterns (Person Names, Email Addresses, Phone Numbers, Credit Card Numbers, etc.), and default pattern definitions. |
-| **smart-fill.md** | Smart form filling configuration. Documents the SmartFillSettings class for AI-powered automatic PDF form field population, enable/disable controls, and integration guidelines. |
-| **document-summarizer.md** | Document summarization and AI assistant configuration. Includes AssistViewSettings parameters like ShowPromptSuggestions, Prompt binding, PromptChanged callbacks, Placeholder, MinLength, and StreamResponse for real-time AI responses. |
-| **custom-ai-service.md** | Custom AI service integration guide. Covers IChatInferenceService interface implementation, service registration in Program.cs, error handling with ErrorDialogService, and custom chat client integration patterns. |
+| [getting-started.md](references/getting-started.md)| Foundation setup and minimal Smart PDF Viewer component. Includes NuGet package installation, service registration, Azure OpenAI configuration, and complete setup prerequisites. |
+| [smart-redaction.md](references/smart-redaction.md)| AI-powered smart redaction configuration. Covers enabling/disabling redaction, custom redaction patterns (Person Names, Email Addresses, Phone Numbers, Credit Card Numbers, etc.), and default pattern definitions. |
+| [smart-fill.md](references/smart-fill.md)| Smart form filling configuration. Documents the SmartFillSettings class for AI-powered automatic PDF form field population, enable/disable controls, and integration guidelines. |
+| [document-summarizer.md](references/document-summarizer.md)| Document summarization and AI assistant configuration. Includes AssistViewSettings parameters like ShowPromptSuggestions, Prompt binding, PromptChanged callbacks, Placeholder, MinLength, and StreamResponse for real-time AI responses. |
+| [custom-ai-service.md](references/custom-ai-service.md)| Custom AI service integration guide. Covers IChatInferenceService interface implementation, service registration in Program.cs, error handling with ErrorDialogService, and custom chat client integration patterns. |
+
+## Quick Start Example
+
+```razor
+@rendermode InteractiveServer
+```
+
+Add component:
+```razor
+<SfSmartPdfViewer Height="100%" Width="100%" DocumentPath="@DocumentPath">
+</SfSmartPdfViewer>
+```
 
 ---

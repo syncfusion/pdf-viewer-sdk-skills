@@ -219,4 +219,4 @@ const onDownloadStart = async (args: DownloadStartEventArgs) => {
 - Flattening prevents recipients from modifying embedded markups once the PDF leaves the app.
 - Include additional processing (e.g., watermarking) inside `flattenPdfAndSave` before calling `document.save`.
 
-**Next:** Review the complete Vue setup in [basic-sample.md](./basic-sample.md) for module registration, resource configuration, and viewer layout.
+**Next:** Review the complete Vue setup in [getting-started.md](./getting-started.md) for module registration, resource configuration, and viewer layout.

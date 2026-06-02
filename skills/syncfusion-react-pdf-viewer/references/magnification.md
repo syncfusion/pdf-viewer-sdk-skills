@@ -370,4 +370,4 @@ const handleFitPage = () => {
 // handleFitPage();        // Fit to page
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.

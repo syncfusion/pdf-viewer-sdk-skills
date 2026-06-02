@@ -346,4 +346,4 @@ function highlightDefinition() {
 
 Use region selection to pre-highlight key terms, sync external search panes, or guide learners through structured reading experiences.
 
-**Note:** The full viewer setup lives in [basic-sample.md](./basic-sample.md).
+**Note:** The full viewer setup lives in [getting-started.md](./getting-started.md).

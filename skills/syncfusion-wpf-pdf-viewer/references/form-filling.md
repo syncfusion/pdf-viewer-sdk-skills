@@ -1,6 +1,17 @@
 # Form Filling in PDF Files in WPF Pdf Viewer
 The Syncfusion WPF PdfViewer supports filling, editing, flattening, and saving AcroForm fields. You can also import/export form data and add, remove, or modify form fields at runtime.
 
+## Configure Form Settings Using FormSettings
+The `FormSettings` property provides access to settings that control the behavior and appearance of PDF form fields in the viewer.
+### Show or Hide Form Field Icons Using IsIconVisible
+The `IsIconVisible` property determines whether icons associated with form fields are displayed in the PDF viewer.
+```csharp 
+pdfViewer.FormSettings.IsIconVisible = true;  
+```
+### Notes
+* When set to true, form field icons are displayed.
+* When set to false, form field icons are hidden.
+
 ## Retrieve Clicked Form Field Details by Type Using the FormFieldClicked Event in Code-Behind
 Retrieves details of a clicked form field using the `FormFieldClicked` event.
 
@@ -47,6 +58,15 @@ pdfViewer.ImportFormData("Import.fdf", Syncfusion.Pdf.Parsing.DataFormat.Fdf);
 
 ### Placeholders
 - Replace `Import.fdf` with the actual import file path.
+
+## Import Form Data from a Byte Array (Overload)
+Imports form data provided as a byte array into a PDF document with AcroForm fields.
+```csharp
+byte[] formData = File.ReadAllBytes("Import.fdf");
+pdfViewer.ImportFormData(
+    formData,
+    Syncfusion.Pdf.Parsing.DataFormat.Fdf);
+```
 
 ## Export Form Data from a PDF Document to an FDF File Using Code-Behind
 Exports form data from a PDF document to a file.

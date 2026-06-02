@@ -131,6 +131,6 @@ Add the Syncfusion stylesheet and script references in `Components/App.razor`:
 
 Add component:
 ```razor
-<SfSmartPdfViewer Height="100%" Width="100%" DocumentPath="https://cdn.syncfusion.com/content/pdf/http-succinctly.pdf">
+<SfSmartPdfViewer Height="100%" Width="100%" DocumentPath="@DocumentPath">
 </SfSmartPdfViewer>
 ```

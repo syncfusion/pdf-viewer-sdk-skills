@@ -132,7 +132,7 @@ function documentLoad(args) {
 </script>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ---
 
@@ -260,7 +260,7 @@ Disables the context menu entirely by setting this property to `None`.
 @Html.EJS().PdfViewer("pdfviewer").ContextMenuOption("None");
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ---
 

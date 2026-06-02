@@ -1,6 +1,24 @@
 # Annotations in WPF Pdf Viewer
 Annotation support in the Syncfusion WPF PdfViewer allows users to add, edit, delete, and manage various annotation types including ink, shapes, stamp, sticky note, text, text callout, text markup, file link, and more using the `AnnotationMode` property and annotation-specific settings.
 
+
+## Hyperlink Annotations in WPF Pdf Viewer
+
+Hyperlink annotations are **embedded link annotations inside the PDF content**, such as URLs or document links created while authoring the PDF. These are handled through the **Annotation subsystem**, not through page navigation APIs.
+
+The `pdfViewer.Annotation.HyperLink` property provides access to the **hyperlink annotation controller**, allowing you to enable or disable hyperlink interactions programmatically.
+
+## Access the Hyperlink Annotation Controller
+```csharp
+var hyperlink = pdfViewer.Annotation.HyperLink;
+```
+
+## Enable Hyperlink Annotations
+```csharp
+// Enable interaction with hyperlink annotations in the PDF
+pdfViewer.Annotation.HyperLink.IsEnabled = true;
+```
+
 ## Enable Ink Annotation Mode and Configure Color, Opacity, Thickness, Author, and Subject Settings
 ```csharp
 pdfViewer.AnnotationMode = PdfDocumentView.PdfViewerAnnotationMode.Ink;

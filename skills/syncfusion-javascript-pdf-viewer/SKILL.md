@@ -90,6 +90,147 @@ metadata:
  
 ---
 
+## Reference File Routing Guide
+
+All templates and operation snippets live in `references/*.md`. Each file is a focused snippet or template the agent will combine when generating samples.
+
+**Flow:** Always start with [getting-started.md](references/getting-started.md), then merge matched features into its anchors. If no keyword matches, return only the basic sample.
+
+### Checklist Before Generating Code
+
+- [ ] **Count the settings properties:** 1-3? → Pass inline in constructor | 4+? → Extract to typed constant
+- [ ] **Are enums involved?** Yes → Must use typed constant with enum imports | No → Can pass inline
+- [ ] **Is it reused elsewhere?** Yes → Use constant | No → Prefer inline
+- [ ] **Do I need type safety?** Yes → Import the model type | No → Skip model type import
+- [ ] **Do I need enums?** Yes → Import required enums from `@syncfusion/ej2-pdfviewer` | No → Skip enum imports
+- [ ] **Package name correct?** Always import from `@syncfusion/ej2-pdfviewer` — NEVER from `@syncfusion/ej2-typescript-pdfviewer`
+
+### 🎯 Core Setup & Configuration
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [getting-started.md](references/getting-started.md) | Minimal PdfViewer setup: clone quickstart, install packages, import CSS, create `PdfViewer` instance with `documentPath` and `resourceUrl`, and `appendTo` HTML container. | "basic setup", "minimal example", "getting started", "how to load PDF" |
+| [general-properties.md](references/general-properties.md) | Configure core viewer properties (width, height, document path, locale, resourceUrl, serviceUrl, AJAX settings, scroll settings, commandManager). | "configuration", "server settings", "locale", "document path setup", "width height" |
+| [enable-properties.md](references/enable-properties.md) | Enable/disable specific features (toolbar, annotations, forms, navigation, text selection, download, print). | "disable toolbar", "hide features", "enable/disable", "read-only mode", "restrict features" |
+
+### 📐 Navigation & Page Management
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [page-navigation.md](references/page-navigation.md) | Navigate between pages (first, last, next, previous page), go to specific page numbers. | "page navigation", "go to page", "next page", "previous page", "jump to page" |
+| [bookmark-navigation.md](references/bookmark-navigation.md) | Navigate using PDF bookmarks/table of contents in the bookmark panel. **CRITICAL: Bookmark API methods are accessed on the `pdfviewer` instance directly (e.g., `pdfviewer.bookmark.openBookmarkPane()`). Requires `BookmarkView` to be injected and `enableBookmark: true`.** | "bookmarks", "bookmark", "table of contents", "TOC navigation", "outline panel", "get bookmarks", "retrieve bookmarks", "fetch bookmarks", "bookmarks programmatically", "getBookmarks", "goToBookmark", "bookmark API", "list bookmarks", "open bookmark", "close bookmark" |
+| [hyperlink-navigation.md](references/hyperlink-navigation.md) | Configure hyperlink navigation behavior and external link handling in PDFs. | "hyperlinks", "external links", "URL navigation", "clickable links", "url", "link" |
+| [thumbnail-navigation.md](references/thumbnail-navigation.md) | Display and navigate using page thumbnails in the thumbnail panel. | "thumbnails", "preview pages", "thumbnail panel", "thumbnail", "page previews" |
+
+### � Comments & Panels
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [general-properties.md](references/general-properties.md) | Configure core viewer properties including `isCommandPanelOpen` to show/hide the comments panel programmatically. See "Controlling Command Panel (Comments Panel)" section. **REQUIREMENT:** Set `enableAnnotation: true` for the command panel to be functional. **PROPERTY:** `isCommandPanelOpen` is read/write boolean (not read-only). | "show comments panel", "hide comments panel", "toggle comments", "command panel", "show/hide comments", "isCommandPanelOpen", "comments panel", "annotation comments" |
+
+### �🔍 Viewing & Interaction
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [magnification.md](references/magnification.md) | Configure zoom levels, zoom modes, and magnification controls (fit-to-page, fit-to-width). | "zoom", "magnification", "fit to page", "zoom levels", "scale document" |
+| [interaction-mode.md](references/interaction-mode.md) | Switch between Selection mode (text selection) and Panning mode (touch scrolling). | "text selection", "panning", "scroll mode", "interaction mode", "touch navigation" |
+| [text-selection.md](references/text-selection.md) | Enable text selection, copying text, and text selection events. | "select text", "copy text", "highlight text to copy", "text selection mode" |
+| [text-search.md](references/text-search.md) | Implement text search functionality with search options and navigation. | "search text", "find in PDF", "search functionality", "highlight search results" |
+
+### 🛠️ Toolbar & Context Menu
+
+#### Toolbar Configuration
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [toolbar-settings.md](references/toolbar-settings.md) | Configure toolbar visibility, tooltip behavior, and customize/remove toolbar items using `toolbarSettings`. | "customize toolbar", "hide toolbar items", "remove toolbar buttons", "toolbar configuration" |
+| [toolbar-methods.md](references/toolbar-methods.md) | Programmatically show/hide toolbars and enable/disable toolbar items at runtime using methods like `showToolbar()`. | "show/hide toolbar dynamically", "toggle toolbar", "enable/disable toolbar items programmatically" |
+
+##### ⚠️ STRICT VALIDATION FOR TOOLBAR ITEM NAMES
+
+**When generating toolbar configurations, you MUST follow these rules to prevent incorrect toolbar item names:**
+
+1. **ALWAYS reference exact item names from `toolbar-settings.md`**
+   - Do NOT invent, guess, or assume toolbar item names
+   - Do NOT apply naming pattern logic to derive names
+   - Use ONLY names listed in the "Available Primary Toolbar Items", "Available Annotation Toolbar Items", and "Available Form Designer Items" sections in `toolbar-settings.md`
+
+2. **VALIDATE item names character-by-character**
+   - Case sensitivity matters: `HighlightTool` ≠ `HighlightOption`
+   - Exact names only: `AnnotationEditTool` ≠ `AnotatetionEditTool`
+   - No abbreviations or shortcuts
+
+3. **Before generating toolbar configuration code:**
+   - [ ] Open `toolbar-settings.md` reference file
+   - [ ] Locate: "Available Primary Toolbar Items" section
+   - [ ] Locate: "Available Annotation Toolbar Items" section
+   - [ ] Locate: "Available Form Designer Items" section
+   - [ ] Copy exact names from THESE SECTIONS ONLY
+   - [ ] Cross-check every single item name character-by-character
+   - [ ] If ANY item name is not in the reference sections, DO NOT USE IT
+   - [ ] Consult the "❌ COMMON MISTAKES TO AVOID" table in `toolbar-settings.md` if unsure
+
+4. **Common errors to prevent:**
+   - ❌ `AnotatetionEditTool` → ✅ `AnnotationEditTool` (typo)
+   - ❌ `CalibrationOption` → ✅ `CalibrateTool` (wrong suffix)
+   - ❌ `ShapeAnnotationOption` → ✅ `ShapeTool` (annotation toolbar version)
+   - ❌ `InkAnnotationOption` → ✅ `InkAnnotationTool` (annotation toolbar version)
+   - For complete list of mistakes to avoid, see `toolbar-settings.md` "❌ COMMON MISTAKES TO AVOID" table
+
+#### Context Menu Customization
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [context-menu.md](references/context-menu.md) | Customize context menu items and handle context menu events. | "right-click menu", "context menu", "custom context menu", "disable context menu items" |
+
+### 📝 Annotations
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [annotation-settings.md](references/annotation-settings.md) | Configure annotation appearance (colors, opacity, styles) and behavior for all annotation types. | "annotation colors", "annotation styles", "customize annotation appearance", "annotation defaults" |
+| [annotation-events.md](references/annotation-events.md) | Handle annotation lifecycle events (add, delete, move, resize, select, property change). | "annotation events", "when annotation is added", "annotation change detection", "annotation callbacks" |
+| [shape-label-settings.md](references/shape-label-settings.md) | Customize shape and measure annotation labels (position, color, font, visibility). | "annotation labels", "shape labels", "measurement labels", "label customization" |
+| [redaction-annotation.md](references/redaction-annotation.md) | Create, configure, and apply redaction annotations to permanently remove sensitive content. | "redaction", "redact content", "remove sensitive data", "black out text", "permanent removal" |
+
+### 📄 Forms
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [form-field-settings.md](references/form-field-settings.md) | Configure default properties for form fields (text, checkbox, radio, dropdown, signature). Use `TextFieldSettings`, `CheckBoxFieldSettings`, `RadioButtonFieldSettings`, etc. for proper type casting. **CRITICAL:** Form field bounds use capitalized properties (X, Y, Width, Height), NOT lowercase. **TIMING CRITICAL:** Always add form fields inside the `documentLoad` event callback - calling before document loads causes "formFieldCollections is not a function" error. | "form field defaults", "form field styles", "configure form fields", "form field properties", "add text field", "add form field", "add textbox", "add checkbox", "programmatically add field", "addFormField", "TextFieldSettings" |
+| [form-field-events.md](references/form-field-events.md) | Handle form field interaction events (focus, blur, value change, validation). | "form field events", "when field changes", "form validation events", "field interaction callbacks" |
+
+### 📋 Document Actions
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [download.md](references/download.md) | Enable/configure PDF download functionality with custom filenames. | "download PDF", "save PDF", "export document", "download button" |
+| [print.md](references/print.md) | Configure and trigger PDF printing functionality. | "print PDF", "print document", "printing options", "print button" |
+| [organize-pages.md](references/organize-pages.md) | Reorder, rotate, insert, remove, copy, import, and extract PDF pages. | "reorder pages", "rotate pages", "add blank pages", "remove pages", "rearrange pages", "merge PDFs" |
+
+### ⚙️ Advanced Features
+
+| File | Purpose | **Route When User Asks About** |
+|---|---|---|
+| [api-methods.md](references/api-methods.md) | Programmatic control: load documents, manage forms, annotations, extract text, undo/redo, navigation APIs. | "load PDF programmatically", "API methods", "export form data", "extract text", "undo/redo", "programmatic control" |
+| [events.md](references/events.md) | Complete list of all PdfViewer events (document load, download, annotations, forms, search, navigation). | "event list", "all events", "available events", "event reference", "event handlers" |
+
+---
+
+## Quick Start Example
+
+```typescript
+import { PdfViewer, Toolbar, Magnification, Navigation, Annotation, LinkAnnotation,
+         ThumbnailView, BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner } from '@syncfusion/ej2-pdfviewer';
+
+PdfViewer.Inject(Toolbar, Magnification, Navigation, Annotation, LinkAnnotation, ThumbnailView,
+                BookmarkView, TextSelection, TextSearch, FormFields, FormDesigner);
+
+let pdfviewer: PdfViewer = new PdfViewer();
+pdfviewer.documentPath = "https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf";
+pdfviewer.resourceUrl = "https://cdn.syncfusion.com/ej2/31.1.23/dist/ej2-pdfviewer-lib";
+pdfviewer.appendTo('#PdfViewer');
+```
+
 ## 🔄 DOCUMENT LIFECYCLE REQUIREMENTS (CRITICAL)
 
 ### When to Use `documentLoad` Event
@@ -256,140 +397,6 @@ let pdfviewer: PdfViewer = new PdfViewer({
 });
 pdfviewer.appendTo('#PdfViewer');
 ```
-
----
-
-### Checklist Before Generating Code
-
-- [ ] **Count the settings properties:** 1-3? → Pass inline in constructor | 4+? → Extract to typed constant
-- [ ] **Are enums involved?** Yes → Must use typed constant with enum imports | No → Can pass inline
-- [ ] **Is it reused elsewhere?** Yes → Use constant | No → Prefer inline
-- [ ] **Do I need type safety?** Yes → Import the model type | No → Skip model type import
-- [ ] **Do I need enums?** Yes → Import required enums from `@syncfusion/ej2-pdfviewer` | No → Skip enum imports
-- [ ] **Package name correct?** Always import from `@syncfusion/ej2-pdfviewer` — NEVER from `@syncfusion/ej2-typescript-pdfviewer`
-
----
-
-### Code References
-
-All templates and operation snippets live in `references/*.md`. Each file is a focused snippet or template the agent will combine when generating samples.
-
-**Flow:** Always start with `references/basic-sample.md`, then merge matched features into its anchors. If no keyword matches, return only the basic sample.
-
----
-
-## Reference File Routing Guide
-
-### 🎯 Core Setup & Configuration
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **basic-sample.md** | Minimal PdfViewer setup: clone quickstart, install packages, import CSS, create `PdfViewer` instance with `documentPath` and `resourceUrl`, and `appendTo` HTML container. | "basic setup", "minimal example", "getting started", "how to load PDF" |
-| **general-properties.md** | Configure core viewer properties (width, height, document path, locale, resourceUrl, serviceUrl, AJAX settings, scroll settings, commandManager). | "configuration", "server settings", "locale", "document path setup", "width height" |
-| **enable-properties.md** | Enable/disable specific features (toolbar, annotations, forms, navigation, text selection, download, print). | "disable toolbar", "hide features", "enable/disable", "read-only mode", "restrict features" |
-
-### 📐 Navigation & Page Management
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **page-navigation.md** | Navigate between pages (first, last, next, previous page), go to specific page numbers. | "page navigation", "go to page", "next page", "previous page", "jump to page" |
-| **bookmark-navigation.md** | Navigate using PDF bookmarks/table of contents in the bookmark panel. **CRITICAL: Bookmark API methods are accessed on the `pdfviewer` instance directly (e.g., `pdfviewer.bookmark.openBookmarkPane()`). Requires `BookmarkView` to be injected and `enableBookmark: true`.** | "bookmarks", "bookmark", "table of contents", "TOC navigation", "outline panel", "get bookmarks", "retrieve bookmarks", "fetch bookmarks", "bookmarks programmatically", "getBookmarks", "goToBookmark", "bookmark API", "list bookmarks", "open bookmark", "close bookmark" |
-| **hyperlink-navigation.md** | Configure hyperlink navigation behavior and external link handling in PDFs. | "hyperlinks", "external links", "URL navigation", "clickable links", "url", "link" |
-| **thumbnail-navigation.md** | Display and navigate using page thumbnails in the thumbnail panel. | "thumbnails", "preview pages", "thumbnail panel", "thumbnail", "page previews" |
-
-### � Comments & Panels
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **general-properties.md** | Configure core viewer properties including `isCommandPanelOpen` to show/hide the comments panel programmatically. See "Controlling Command Panel (Comments Panel)" section. **REQUIREMENT:** Set `enableAnnotation: true` for the command panel to be functional. **PROPERTY:** `isCommandPanelOpen` is read/write boolean (not read-only). | "show comments panel", "hide comments panel", "toggle comments", "command panel", "show/hide comments", "isCommandPanelOpen", "comments panel", "annotation comments" |
-
-### �🔍 Viewing & Interaction
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **magnification.md** | Configure zoom levels, zoom modes, and magnification controls (fit-to-page, fit-to-width). | "zoom", "magnification", "fit to page", "zoom levels", "scale document" |
-| **interaction-mode.md** | Switch between Selection mode (text selection) and Panning mode (touch scrolling). | "text selection", "panning", "scroll mode", "interaction mode", "touch navigation" |
-| **text-selection.md** | Enable text selection, copying text, and text selection events. | "select text", "copy text", "highlight text to copy", "text selection mode" |
-| **text-search.md** | Implement text search functionality with search options and navigation. | "search text", "find in PDF", "search functionality", "highlight search results" |
-
-### 🛠️ Toolbar & Context Menu
-
-#### Toolbar Configuration
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **toolbar-settings.md** | Configure toolbar visibility, tooltip behavior, and customize/remove toolbar items using `toolbarSettings`. | "customize toolbar", "hide toolbar items", "remove toolbar buttons", "toolbar configuration" |
-| **toolbar-methods.md** | Programmatically show/hide toolbars and enable/disable toolbar items at runtime using methods like `showToolbar()`. | "show/hide toolbar dynamically", "toggle toolbar", "enable/disable toolbar items programmatically" |
-
-##### ⚠️ STRICT VALIDATION FOR TOOLBAR ITEM NAMES
-
-**When generating toolbar configurations, you MUST follow these rules to prevent incorrect toolbar item names:**
-
-1. **ALWAYS reference exact item names from `toolbar-settings.md`**
-   - Do NOT invent, guess, or assume toolbar item names
-   - Do NOT apply naming pattern logic to derive names
-   - Use ONLY names listed in the "Available Primary Toolbar Items", "Available Annotation Toolbar Items", and "Available Form Designer Items" sections in `toolbar-settings.md`
-
-2. **VALIDATE item names character-by-character**
-   - Case sensitivity matters: `HighlightTool` ≠ `HighlightOption`
-   - Exact names only: `AnnotationEditTool` ≠ `AnotatetionEditTool`
-   - No abbreviations or shortcuts
-
-3. **Before generating toolbar configuration code:**
-   - [ ] Open `toolbar-settings.md` reference file
-   - [ ] Locate: "Available Primary Toolbar Items" section
-   - [ ] Locate: "Available Annotation Toolbar Items" section
-   - [ ] Locate: "Available Form Designer Items" section
-   - [ ] Copy exact names from THESE SECTIONS ONLY
-   - [ ] Cross-check every single item name character-by-character
-   - [ ] If ANY item name is not in the reference sections, DO NOT USE IT
-   - [ ] Consult the "❌ COMMON MISTAKES TO AVOID" table in `toolbar-settings.md` if unsure
-
-4. **Common errors to prevent:**
-   - ❌ `AnotatetionEditTool` → ✅ `AnnotationEditTool` (typo)
-   - ❌ `CalibrationOption` → ✅ `CalibrateTool` (wrong suffix)
-   - ❌ `ShapeAnnotationOption` → ✅ `ShapeTool` (annotation toolbar version)
-   - ❌ `InkAnnotationOption` → ✅ `InkAnnotationTool` (annotation toolbar version)
-   - For complete list of mistakes to avoid, see `toolbar-settings.md` "❌ COMMON MISTAKES TO AVOID" table
-
-#### Context Menu Customization
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **context-menu.md** | Customize context menu items and handle context menu events. | "right-click menu", "context menu", "custom context menu", "disable context menu items" |
-
-### 📝 Annotations
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **annotation-settings.md** | Configure annotation appearance (colors, opacity, styles) and behavior for all annotation types. | "annotation colors", "annotation styles", "customize annotation appearance", "annotation defaults" |
-| **annotation-events.md** | Handle annotation lifecycle events (add, delete, move, resize, select, property change). | "annotation events", "when annotation is added", "annotation change detection", "annotation callbacks" |
-| **shape-label-settings.md** | Customize shape and measure annotation labels (position, color, font, visibility). | "annotation labels", "shape labels", "measurement labels", "label customization" |
-| **redaction-annotation.md** | Create, configure, and apply redaction annotations to permanently remove sensitive content. | "redaction", "redact content", "remove sensitive data", "black out text", "permanent removal" |
-
-### 📄 Forms
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **form-field-settings.md** | Configure default properties for form fields (text, checkbox, radio, dropdown, signature). Use `TextFieldSettings`, `CheckBoxFieldSettings`, `RadioButtonFieldSettings`, etc. for proper type casting. **CRITICAL:** Form field bounds use capitalized properties (X, Y, Width, Height), NOT lowercase. **TIMING CRITICAL:** Always add form fields inside the `documentLoad` event callback - calling before document loads causes "formFieldCollections is not a function" error. | "form field defaults", "form field styles", "configure form fields", "form field properties", "add text field", "add form field", "add textbox", "add checkbox", "programmatically add field", "addFormField", "TextFieldSettings" |
-| **form-field-events.md** | Handle form field interaction events (focus, blur, value change, validation). | "form field events", "when field changes", "form validation events", "field interaction callbacks" |
-
-### 📋 Document Actions
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **download.md** | Enable/configure PDF download functionality with custom filenames. | "download PDF", "save PDF", "export document", "download button" |
-| **print.md** | Configure and trigger PDF printing functionality. | "print PDF", "print document", "printing options", "print button" |
-| **organize-pages.md** | Reorder, rotate, insert, remove, copy, import, and extract PDF pages. | "reorder pages", "rotate pages", "add blank pages", "remove pages", "rearrange pages", "merge PDFs" |
-
-### ⚙️ Advanced Features
-
-| File | Purpose | **Route When User Asks About** |
-|---|---|---|
-| **api-methods.md** | Programmatic control: load documents, manage forms, annotations, extract text, undo/redo, navigation APIs. | "load PDF programmatically", "API methods", "export form data", "extract text", "undo/redo", "programmatic control" |
-| **events.md** | Complete list of all PdfViewer events (document load, download, annotations, forms, search, navigation). | "event list", "all events", "available events", "event reference", "event handlers" |
-
----
 
 ## Common Pitfalls and Corrections
 

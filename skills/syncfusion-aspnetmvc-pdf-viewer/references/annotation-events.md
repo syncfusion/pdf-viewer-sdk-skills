@@ -15,7 +15,7 @@ Brief: Annotation events in ASP.NET MVC PDF Viewer are triggered when annotation
 </script>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ---
 

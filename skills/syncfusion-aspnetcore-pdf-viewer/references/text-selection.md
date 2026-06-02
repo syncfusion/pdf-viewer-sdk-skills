@@ -53,7 +53,7 @@ A boolean property that enables or disables text selection functionality. When e
 </ejs-pdfviewer>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ---
 
@@ -90,7 +90,7 @@ function textSelectionStart (args) {
 </script>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ### Use Cases
 - Initialize or show temporary UI elements related to selection
@@ -139,7 +139,7 @@ function textSelectionEnd (args) {
 <script>
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ### Use Cases
 - Display custom context menus with the selected text
@@ -148,7 +148,7 @@ function textSelectionEnd (args) {
 - Capture user selection analytics and behavior metrics
 - Enable custom actions based on selected content
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ---
 

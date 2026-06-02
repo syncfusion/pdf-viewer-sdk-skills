@@ -108,7 +108,7 @@ const viewer = this.$refs.pdfViewer?.ej2Instances;
 | **exportFormFields** | Exports form field data as XML | - | `string` | `const formFieldsXml = viewer?.exportFormFields();` |
 | **exportFormFieldsAsObject** | Exports form field data as a JSON object | - | `object` | `const formFieldsObject = viewer?.exportFormFieldsAsObject();` |
 | **extractPages** | Extracts the specified pages from the PDF | pageIndexes: `number[]` | `void` | `viewer?.extractPages([0, 1, 2]);` |
-| **extractText** | Extracts text from the specified rectangular region | bounds: `IRect` | `string` | `const text = viewer?.extractText({ x: 0, y: 0, width: 100, height: 100 });` |
+| **extractText** | Extracts text from the specified rectangular region | bounds: `IRect` | `string` | `const text = viewer?.extractText(bounds);` |
 | **clearSelection** | Clears the current annotation or form field selection | formFieldId?: `string \| object` | `void` | `viewer?.annotation.clearSelection();` or `viewer?.formDesigner.clearSelection('formField-123');` |
 | **focusFormField** | Focuses a form field by field name | fieldName: `string` | `void` | `viewer?.focusFormField('fieldName');` |
 | **getPageInfo** | Gets information about the specified page | pageIndex: `number` | `PageInfo` | `const pageInfo = viewer?.getPageInfo(0);` |
@@ -117,7 +117,7 @@ const viewer = this.$refs.pdfViewer?.ej2Instances;
 | **hexToRgba** | Converts a hex color string to RGBA | hex: `string` | `string` | `const rgba = viewer?.annotation.hexToRgba('#FF5733');` |
 | **importAnnotation** | Imports annotations from a JSON string | annotationData: `string` | `void` | `viewer?.importAnnotation(annotationJson);` |
 | **importFormFields** | Imports form field data from XML | formFieldData: `string` | `void` | `viewer?.importFormFields(formFieldsXml);` |
-| **load** | Loads a PDF from a URL, base64 string, or Blob | document: `string \| Blob` | `void` | `viewer?.load('https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf');` |
+| **load** | Loads a PDF from a URL, base64 string, or Blob | document: `string \| Blob` | `void` | `viewer?.load(documentPath);` |
 | **redo** | Redoes the last undone action | - | `void` | `viewer?.redo();` |
 | **resetFormField** | Resets one form field to its original state | formFieldId: `string \| object` | `void` | `viewer?.formDesigner.resetFormField('formField-123');` |
 | **resetFormFields** | Resets all form fields to their default values | - | `void` | `viewer?.resetFormFields();` |
@@ -312,7 +312,7 @@ Use these patterns after establishing the viewer instance once.
 
 ```js
 const viewer = getViewer();
-viewer?.load('https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf');
+viewer?.load(documentPath);
 viewer?.download();
 ```
 

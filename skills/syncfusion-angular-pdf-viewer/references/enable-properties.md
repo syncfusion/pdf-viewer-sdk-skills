@@ -429,7 +429,7 @@ enableFormDesigner
 
 ## Related References
 
-- [basic-sample.md](./basic-sample.md) - Complete component setup
+- [getting-started.md](./getting-started.md) - Complete component setup
 - [annotation-settings.md](./annotation-settings.md) - Detailed annotation configuration
 - [form-field-settings.md](./form-field-settings.md) - Form field configuration
 - [toolbar-settings.md](./toolbar-settings.md) - Toolbar customization options

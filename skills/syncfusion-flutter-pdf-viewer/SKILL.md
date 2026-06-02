@@ -36,12 +36,15 @@ Add under `dependencies` in `pubspec.yaml`:
 dependencies:
   flutter:
     sdk: flutter
-  syncfusion_flutter_pdfviewer: ^xx.x.xx
+  syncfusion_flutter_pdfviewer: ^33.2.8
 ```
 Then run:
 ```bash
 flutter pub get
 ```
+
+**Notes:**
+- Use the latest stable version of the package from [pub.dev](https://pub.dev/packages/syncfusion_flutter_pdfviewer).
 
 ### Step 4 – (Web only) Update `web/index.html`
 If the target platform is web, add the PdfJs script inside the `<body>` tag of `web/index.html`:
@@ -68,9 +71,6 @@ If the target platform is web, add the PdfJs script inside the `<body>` tag of `
 ```bash
 flutter run
 ```
-
-**Notes:**
-- Use the latest stable version of the package from [pub.dev](https://pub.dev/packages/syncfusion_flutter_pdfviewer).
 
 ---
 

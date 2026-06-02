@@ -10,7 +10,7 @@ It provides functionality to manage and initialize annotation settings for a PDF
 @Html.EJS().PdfViewer("pdfviewer").HighlightSettings(new Syncfusion.EJ2.PdfViewer.PdfViewerHighlightSettings { Color = "green", Opacity = 0.6 }).Render()
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ## List of Annotations
 
@@ -102,7 +102,7 @@ Defines the annotation selector settings for all types of annotations. See [tabl
 @Html.EJS().PdfViewer("pdfviewer").AreaSettings(new Syncfusion.EJ2.PdfViewer.PdfViewerAreaSettings { AnnotationSelectorSettings = new Syncfusion.EJ2.PdfViewer.PdfViewerAnnotationSelectorSettings { ResizerBorderColor = "green" } }).Render()
 ```
 
-**Note**: The complete setup and component structure is available in the [basic-sample.md](./basic-sample.md) file.
+**Note**: The complete setup and component structure is available in the [getting-started.md](./getting-started.md) file.
 
 ## List of Settings Properties
 

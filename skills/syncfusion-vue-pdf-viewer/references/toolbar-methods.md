@@ -107,7 +107,7 @@ const toggleEditMode = () => {
 };
 ```
 
-> Need a full Vue starter component? See [basic-sample.md](./basic-sample.md) for ref wiring and service registration.
+> Need a full Vue starter component? See [getting-started.md](./getting-started.md) for ref wiring and service registration.
 
 ## Toolbar Methods
 

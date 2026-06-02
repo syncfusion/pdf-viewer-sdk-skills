@@ -12,7 +12,27 @@ pdfViewer.ShowToolbar = false;
 // Hide the scrollbar
 pdfViewer.ShowScrollbar = false;
 ```
+## Hide the  Vertical/Horizontal Scrollbar by Setting ShowVerticalScrollBar/ShowHorizontalScrollBar to False in Code-Behind
+```csharp
+// Hide both horizontal and vertical scrollbars
+pdfViewer.ShowHorizontalScrollBar = false;
+pdfViewer.ShowVerticalScrollBar = false;
+```
+## Hide File-Related Toolbar Tools
+Use `ShowFileTools` to hide all file-related options such as **Open**, **Save**, and **Print**.
+```csharp
+pdfViewer.ToolbarSettings.ShowFileTools = false;
+```
 
+## Hide Annotation Toolbar Tools
+Use `ShowAnnotationTools` to hide all annotation-related tools including Text Markup, Shapes, Stamps, and Notes.
+```csharp
+pdfViewer.ToolbarSettings.ShowAnnotationTools = false;
+```
+## Hide Page Navigation Toolbar Tools
+```csharp
+pdfViewer.ToolbarSettings.ShowAnnotationTools = false;
+```
 ## Hide All Icons in the Vertical Left Toolbar by Disabling Each Panel Setting in Code-Behind
 ```csharp
 pdfViewer.ThumbnailSettings.IsVisible = false;
@@ -94,4 +114,7 @@ pdfViewer.EnableNotificationBar = false;
 | `EnableRedactionTool` | Property | Shows or hides the redaction icon in the vertical toolbar. |
 | `FormSettings.IsIconVisible` | Property | Shows or hides the form icon in the vertical toolbar. |
 | `EnableNotificationBar` | Property | Enables or disables the notification bar that displays on unexpected errors. |
+| `ToolbarSettings.ShowFileTools` | Property | Shows or hides file-related toolbar tools such as Open, Save, and Print. |
+| `ToolbarSettings.ShowAnnotationTools` | Property | Shows or hides all annotation-related toolbar tools. |
+| `ToolbarSettings.ShowPageNavigationTools` | Property | Shows or hides page navigation toolbar tools. |
 

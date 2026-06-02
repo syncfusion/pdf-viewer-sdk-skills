@@ -130,3 +130,40 @@ if (images != null)
 - Replace `dpiX` and `dpiY` with the required resolution values.
 
 
+
+## Export a Single PDF Page as an Image with Transparency Control
+Exports a single PDF page to a `BitmapSource` while optionally preserving transparency.
+
+```csharp
+BitmapSource image = pdfViewer.ExportAsImage(0, true);
+```
+
+## Export a Range of PDF Pages as Images with Transparency Control
+Exports a contiguous range of pages as a BitmapSource[].
+
+```csharp
+BitmapSource[] images = pdfViewer.ExportAsImage(0, 3, true);
+```
+## Export a Single PDF Page with Custom Size, DPI, and Aspect Ratio
+Exports a single page with full control over image size, resolution, aspect ratio, and transparency.
+```csharp
+BitmapSource image = pdfViewer.ExportAsImage(
+    pageIndex: 0,
+    customSize: new SizeF(1836, 2372),
+    dpiX: 300f,
+    dpiY: 300f,
+    keepAspectRatio: true,
+    keepTransparency: false
+);
+```
+## Export a Range of PDF Pages with Custom DPI
+```csharp
+BitmapSource[] images = pdfViewer.ExportAsImage(
+    startIndex: 0,
+    endIndex: 2,
+    dpiX: 200f,
+    dpiY: 200f,
+    keepTransparency: true
+);
+```
+

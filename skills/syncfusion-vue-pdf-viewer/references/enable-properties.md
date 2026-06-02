@@ -409,7 +409,7 @@ enableFormDesigner
 
 ## Related References
 
-- [basic-sample.md](./basic-sample.md)
+- [getting-started.md](./getting-started.md)
 - [general-properties.md](./general-properties.md)
 - [annotation-settings.md](./annotation-settings.md)
 - [form-field-settings.md](./form-field-settings.md)

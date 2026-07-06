@@ -3,7 +3,7 @@ name: syncfusion-javascript-pdf-viewer
 description: Implements the Syncfusion Javascript (ES6) is case-sensitive PDF Viewer (PdfViewer) for embedding, configuring, and loading PDF documents. Use this when rendering PDFs in a TypeScript application using the EJ2 class-based approach, embedding viewer controls, or generating TypeScript and HTML code for PDF display and interaction.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion TypeScript PdfViewer – UI Sample Generator

@@ -3,7 +3,7 @@ name: syncfusion-aspnetcore-pdf-viewer
 description: Implements the Syncfusion ASP.NET Core PDFViewer for embedding, configuring, and loading PDF documents. Use this when rendering PDFs in ASP.NET Core applications, embedding viewer controls, or generating Razor page (.cshtml) code for PDF display and interaction.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion ASP.NET Core Pdfviewer – UI Sample Generator

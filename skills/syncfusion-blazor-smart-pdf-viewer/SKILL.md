@@ -3,7 +3,7 @@ name: syncfusion-blazor-smart-pdf-viewer
 description: Implements Syncfusion Blazor Smart PDF Viewer (SfSmartPdfViewer) for AI-powered document viewing, interactions like summarizer, redaction, form filling and processing in Blazor applications.
 metadata:
   author: Syncfusion Inc
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion Blazor Smart PDF Viewer – UI Sample Generator

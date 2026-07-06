@@ -3,7 +3,7 @@ name: syncfusion-angular-pdf-viewer
 description: Implements the Syncfusion Angular PDF Viewer (PdfViewerComponent) for embedding, configuring, and loading PDF documents. Use this when rendering PDFs in an Angular application, embedding viewer controls, or generating TS/CSS code for PDF display and interaction.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion Angular PDF Viewer UI Sample Generator

@@ -4,7 +4,7 @@ description: Create WinForms applications featuring the Syncfusion WinForms PDF 
 compatibility: Requires .NET Framework 4.5+ or .NET Core/NET 8+ and Syncfusion.PdfViewer.Windows.
 metadata:
   author: Syncfusion Inc
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion WinForms PdfViewer - UI Sample generator

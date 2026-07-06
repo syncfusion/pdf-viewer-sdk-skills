@@ -4,7 +4,7 @@ description: Create sample application using Syncfusion WPF PdfViewer. Implement
 compatibility: .NET Framework 4.5+ or .NET Core/NET 8+, Syncfusion.WPF.PdfViewer.
 metadata:
   author: Syncfusion Inc
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion WPF PDFViewer – UI Sample Generator

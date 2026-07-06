@@ -3,7 +3,7 @@ name: syncfusion-maui-pdf-viewer
 description: Implements Syncfusion .NET MAUI SfPdfViewer for cross-platform PDF viewing, navigation, annotations, form filling/validation, text search/selection, e-signatures, redaction, printing, and toolbar/UI customization. Use when working with PDF viewer setup, document annotations, form fields, or signature workflows in MAUI apps.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Implementing .NET MAUI PDF Viewer

@@ -3,7 +3,7 @@ name: syncfusion-blazor-pdf-viewer
 description: Implements Syncfusion Blazor PDF Viewer (SfPdfViewer) for viewing and editing PDF documents in Blazor applications. Use this when working with PDF rendering, annotation, text search, form filling, or document navigation in Blazor.
 metadata:
   author: Syncfusion Inc
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion Blazor Pdfviewer – UI Sample 

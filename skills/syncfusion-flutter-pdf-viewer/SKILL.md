@@ -4,7 +4,7 @@ description: Create sample code using Syncfusion Flutter SfPdfViewer. Generate D
 compatibility: Flutter 3.x+, syncfusion_flutter_pdfviewer
 metadata:
   author: Syncfusion Inc
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion Flutter SfPdfViewer – UI Sample Generator

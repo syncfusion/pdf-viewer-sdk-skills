@@ -3,7 +3,7 @@ name: syncfusion-react-pdf-viewer
 description: Implements the Syncfusion React PDF Viewer (PdfViewerComponent) for embedding, configuring, and loading PDF documents. Use this when rendering PDFs in a React application, embedding viewer controls, or generating TSX/HTML code for PDF display and interaction.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion React Pdfviewer – UI Sample Generator

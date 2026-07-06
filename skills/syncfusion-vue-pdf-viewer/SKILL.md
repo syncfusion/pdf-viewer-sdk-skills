@@ -3,7 +3,7 @@ name: syncfusion-vue-pdf-viewer
 description: Implements the Syncfusion Vue PDF Viewer (ejs-pdfviewer) for embedding, configuring, and loading PDF documents. Use this when rendering PDFs in a Vue 2 or Vue 3 application, embedding viewer controls, or generating SFC (.vue) code for PDF display and interaction.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Syncfusion Vue Pdfviewer – UI Sample Generator

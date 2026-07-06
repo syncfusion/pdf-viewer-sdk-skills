@@ -3,7 +3,7 @@ name: syncfusion-uwp-pdf-viewer
 description: Implements Syncfusion UWP SfPdfViewerControl for native Windows PDF viewing, page navigation, annotations, text search/selection, ink signatures, printing, bookmark/hyperlink navigation, and toolbar/UI customization. Use when working with PDF viewer setup, document loading, annotations workflows in UWP apps.
 metadata:
   author: "Syncfusion Inc"
-  version: "33.1.44"
+  version: "34.1.29"
 ---
 
 # Implementing UWP PDF Viewer (SfPdfViewerControl)
